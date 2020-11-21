@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     },
     text: {
         position: 'absolute',
-        bottom: 60,
+        bottom: 40,
         right: 60,
         opacity: 0.8,
         letterSpacing: 0.5,
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: '900',
         color: '#ffffff',
+        zIndex: 100,
     },
 });
 
