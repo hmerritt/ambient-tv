@@ -7,19 +7,21 @@
  */
 
 import React from 'react';
-import { Animated, View, Image, StyleSheet } from 'react-native';
+import { Animated, View, StyleSheet } from 'react-native';
 
-const BackgroundImage: (props) => React$Node = ({ src }) => {
+const BackgroundImage: (props) => React$Node = ({ src, animate }) => {
     // Starting image opacity -> 0
-    const imageOpacity = new Animated.Value(0);
+    const imageOpacity = animate ? new Animated.Value(0) : 1;
 
     // Once image has loaded
     // -> animate opacity from 0 -> 1
     const onImageLoad = () => {
-        Animated.timing(imageOpacity, {
-            toValue: 1,
-            useNativeDriver: true,
-        }).start();
+        if (animate) {
+            Animated.timing(imageOpacity, {
+                toValue: 1,
+                useNativeDriver: true,
+            }).start();
+        }
     };
 
     return (

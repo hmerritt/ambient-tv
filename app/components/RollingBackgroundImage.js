@@ -16,10 +16,10 @@ import BackgroundImage from './BackgroundImage';
 
 const RollingBackgroundImage: () => React$Node = () => {
     const [backgrounds, setBackgrounds] = useState([]);
-    const [imageMethod, setImageMethod] = useState('default');
+    const [imageMethod, setImageMethod] = useState('rss');
 
     const pushBackground = ({ src, color }) => {
-        setBackgrounds([...backgrounds.slice(-2), { src: src, color: color }]);
+        setBackgrounds([...backgrounds.slice(-3), { src: src, color: color }]);
     };
 
     useInterval(() => {
@@ -27,7 +27,7 @@ const RollingBackgroundImage: () => React$Node = () => {
             imageMethod: imageMethod,
             pushBackground: pushBackground,
         });
-    }, 6000);
+    }, 5000); //  1000 = 1s  //  60000 = 1m
 
     useEffect(() => {
         getNewBackground({
@@ -40,10 +40,13 @@ const RollingBackgroundImage: () => React$Node = () => {
         <>
             {backgrounds.length > 0 &&
                 backgrounds.map((item, key) => {
+                    const current = key === backgrounds.length - 1;
+
                     return (
                         <BackgroundImage
                             src={item.src}
                             color={item.color}
+                            animate={current ? true : false}
                             key={key}
                         />
                     );
