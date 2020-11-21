@@ -16,6 +16,18 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* appTests.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		65636524213E43CBA851347F /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E53959B40C654DFE82FF434C /* Roboto-Black.ttf */; };
+		20D6F3C587C34EC8BFFB6F93 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ADB997D4EB9946329096424E /* Roboto-BlackItalic.ttf */; };
+		83242A9D9E024DBDA26BF644 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0708D779E13C407DA28D3431 /* Roboto-Bold.ttf */; };
+		0BF279AB45D045419ABBBDCC /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38C1B37BE7494F70A01EED93 /* Roboto-BoldItalic.ttf */; };
+		A263E46BC8CF41189C7F5970 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D6F4F7FB995B455883A7C280 /* Roboto-Italic.ttf */; };
+		C84DE93154484A0B850B45C4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4FB63C195C134884B5B4AA10 /* Roboto-Light.ttf */; };
+		00A67E39C9F84157A5B55175 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EABD41A3F2D84D13B29020A1 /* Roboto-LightItalic.ttf */; };
+		780DBA0B7D244565BAB97596 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA1AF75AB1400794F0E9ED /* Roboto-Medium.ttf */; };
+		7817725153BC4543A63F3CAA /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CAF77173015C4408B3BD2F6E /* Roboto-MediumItalic.ttf */; };
+		BC02846134384EC58B5D15E6 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4329F5EC8897446F9BDE4D69 /* Roboto-Regular.ttf */; };
+		7C8A16FB9488437FB915AD16 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0700C4EA560B4271BBB21D8E /* Roboto-Thin.ttf */; };
+		8DF0AC5798BC4DA9AD37FE70 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1C4E09731BB4D31860BBD99 /* Roboto-ThinItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +63,18 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = app/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		E53959B40C654DFE82FF434C /* Roboto-Black.ttf */ = {isa = PBXFileReference; name = "Roboto-Black.ttf"; path = "../assets/fonts/Roboto/Roboto-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ADB997D4EB9946329096424E /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-BlackItalic.ttf"; path = "../assets/fonts/Roboto/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0708D779E13C407DA28D3431 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto/Roboto-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		38C1B37BE7494F70A01EED93 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-BoldItalic.ttf"; path = "../assets/fonts/Roboto/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D6F4F7FB995B455883A7C280 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; name = "Roboto-Italic.ttf"; path = "../assets/fonts/Roboto/Roboto-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4FB63C195C134884B5B4AA10 /* Roboto-Light.ttf */ = {isa = PBXFileReference; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto/Roboto-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		EABD41A3F2D84D13B29020A1 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-LightItalic.ttf"; path = "../assets/fonts/Roboto/Roboto-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3ADA1AF75AB1400794F0E9ED /* Roboto-Medium.ttf */ = {isa = PBXFileReference; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto/Roboto-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CAF77173015C4408B3BD2F6E /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-MediumItalic.ttf"; path = "../assets/fonts/Roboto/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4329F5EC8897446F9BDE4D69 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0700C4EA560B4271BBB21D8E /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D1C4E09731BB4D31860BBD99 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +164,7 @@
 				00E356EF1AD99517003FC87E /* appTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				D5F45F887FBC47A580F96BE9 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -156,6 +181,26 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		D5F45F887FBC47A580F96BE9 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				E53959B40C654DFE82FF434C /* Roboto-Black.ttf */,
+				ADB997D4EB9946329096424E /* Roboto-BlackItalic.ttf */,
+				0708D779E13C407DA28D3431 /* Roboto-Bold.ttf */,
+				38C1B37BE7494F70A01EED93 /* Roboto-BoldItalic.ttf */,
+				D6F4F7FB995B455883A7C280 /* Roboto-Italic.ttf */,
+				4FB63C195C134884B5B4AA10 /* Roboto-Light.ttf */,
+				EABD41A3F2D84D13B29020A1 /* Roboto-LightItalic.ttf */,
+				3ADA1AF75AB1400794F0E9ED /* Roboto-Medium.ttf */,
+				CAF77173015C4408B3BD2F6E /* Roboto-MediumItalic.ttf */,
+				4329F5EC8897446F9BDE4D69 /* Roboto-Regular.ttf */,
+				0700C4EA560B4271BBB21D8E /* Roboto-Thin.ttf */,
+				D1C4E09731BB4D31860BBD99 /* Roboto-ThinItalic.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -295,6 +340,18 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				65636524213E43CBA851347F /* Roboto-Black.ttf in Resources */,
+				20D6F3C587C34EC8BFFB6F93 /* Roboto-BlackItalic.ttf in Resources */,
+				83242A9D9E024DBDA26BF644 /* Roboto-Bold.ttf in Resources */,
+				0BF279AB45D045419ABBBDCC /* Roboto-BoldItalic.ttf in Resources */,
+				A263E46BC8CF41189C7F5970 /* Roboto-Italic.ttf in Resources */,
+				C84DE93154484A0B850B45C4 /* Roboto-Light.ttf in Resources */,
+				00A67E39C9F84157A5B55175 /* Roboto-LightItalic.ttf in Resources */,
+				780DBA0B7D244565BAB97596 /* Roboto-Medium.ttf in Resources */,
+				7817725153BC4543A63F3CAA /* Roboto-MediumItalic.ttf in Resources */,
+				BC02846134384EC58B5D15E6 /* Roboto-Regular.ttf in Resources */,
+				7C8A16FB9488437FB915AD16 /* Roboto-Thin.ttf in Resources */,
+				8DF0AC5798BC4DA9AD37FE70 /* Roboto-ThinItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
