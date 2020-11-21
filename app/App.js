@@ -11,12 +11,13 @@ import { StatusBar } from 'react-native';
 
 import Timer from './components/Timer';
 import BackgroundImage from './components/BackgroundImage';
+import RollingBackgroundImage from './components/RollingBackgroundImage';
 
 const App: () => React$Node = () => {
     return (
         <>
             <StatusBar translucent backgroundColor="transparent" />
-            <BackgroundImage />
+            <RollingBackgroundImage />
             <Timer />
         </>
     );
