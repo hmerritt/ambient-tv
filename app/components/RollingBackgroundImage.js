@@ -27,7 +27,7 @@ const RollingBackgroundImage: () => React$Node = () => {
             imageMethod: imageMethod,
             pushBackground: pushBackground,
         });
-    }, 5000); //  1000 = 1s  //  60000 = 1m
+    }, 60000); //  1000 = 1s  //  60000 = 1m
 
     useEffect(() => {
         getNewBackground({
