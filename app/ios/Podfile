@@ -10,6 +10,8 @@ target 'app' do
 
   pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
 
+  pod 'react-native-idle-timer', :path => '../node_modules/react-native-idle-timer'
+
   target 'appTests' do
     inherit! :complete
     # Pods for testing

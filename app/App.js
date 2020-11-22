@@ -6,14 +6,24 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar, StyleSheet, View } from 'react-native';
+import IdleTimerManager from 'react-native-idle-timer';
 
 import Clock from './components/Clock';
 import Weather from './components/Weather';
 import RollingBackgroundImage from './components/RollingBackgroundImage';
 
 const App: () => React$Node = () => {
+    // Keep screen awake
+    useEffect(() => {
+        IdleTimerManager.setIdleTimerDisabled(true);
+
+        return () => {
+            IdleTimerManager.setIdleTimerDisabled(false);
+        };
+    }, []);
+
     return (
         <>
             <StatusBar translucent backgroundColor="transparent" />
@@ -34,7 +44,7 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        zIndex: 100,
+        zIndex: 50,
     },
 });
 
