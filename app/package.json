@@ -12,6 +12,7 @@
         "lint": "eslint ."
     },
     "dependencies": {
+        "@react-native-community/geolocation": "^2.0.2",
         "axios": "^0.21.0",
         "chance": "^1.1.7",
         "moment": "^2.29.1",
