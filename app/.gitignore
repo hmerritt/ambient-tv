@@ -41,6 +41,9 @@ buck-out/
 *.keystore
 !debug.keystore
 
+# android bundle
+**/main/assets/index.android.bundle
+
 # fastlane
 #
 # It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
