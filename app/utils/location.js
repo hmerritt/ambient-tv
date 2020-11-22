@@ -13,5 +13,8 @@ import Geolocation from '@react-native-community/geolocation';
  * @return {Object} location object
  */
 export const getLocation = ({ setLocation }) => {
-    Geolocation.getCurrentPosition((info) => setLocation(info));
+    Geolocation.getCurrentPosition(
+        (info) => setLocation(info),
+        (err) => console.error('Geolocation:', err),
+    );
 };
