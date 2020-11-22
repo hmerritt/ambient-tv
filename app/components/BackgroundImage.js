@@ -19,6 +19,7 @@ const BackgroundImage: (props) => React$Node = ({ src, animate }) => {
         if (animate) {
             Animated.timing(imageOpacity, {
                 toValue: 1,
+                duration: 3000,
                 useNativeDriver: true,
             }).start();
         }
