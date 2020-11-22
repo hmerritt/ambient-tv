@@ -1,6 +1,6 @@
 /**
- * Background Viewer
- * https://github.com/hmerritt/background-viewer
+ * Ambient TV
+ * https://github.com/hmerritt/ambient-tv
  *
  * @format
  * @flow strict-local

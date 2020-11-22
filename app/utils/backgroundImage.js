@@ -66,7 +66,7 @@ export const methodUnsplash = ({ pushBackground }) => {
  */
 export const methodRss = ({ pushBackground }) => {
     axios
-        .get('https://merritt.es/wallpapers/rss.php?path=film', {
+        .get('https://merritt.es/wallpapers/rss.php?path=chromecast', {
             responseType: 'text',
         })
         .then((res) => rssParser.parse(res.data))

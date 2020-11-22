@@ -1,16 +1,15 @@
 /**
- * Background Viewer
- * https://github.com/hmerritt/background-viewer
+ * Ambient TV
+ * https://github.com/hmerritt/ambient-tv
  *
  * @format
  * @flow strict-local
  */
 
 import React, { useState, useEffect } from 'react';
-import { View, Image, StyleSheet } from 'react-native';
 
 import { useInterval } from '../hooks/useInterval';
-import { getNewBackground } from '../utils/getNewBackground';
+import { getNewBackground } from '../utils/backgroundImage';
 
 import BackgroundImage from './BackgroundImage';
 
