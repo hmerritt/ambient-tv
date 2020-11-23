@@ -7,7 +7,7 @@
  */
 
 import React, { useState } from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import moment from 'moment';
 
 import { useInterval } from '../hooks/useInterval';
@@ -30,11 +30,11 @@ const Clock: () => React$Node = () => {
 const styles = StyleSheet.create({
     text: {
         opacity: 0.9,
-        fontFamily: 'Roboto-Bold',
-        fontSize: 50,
+        fontFamily: 'Roboto-Medium',
+        fontSize: 45,
         fontWeight: '900',
         color: '#ffffff',
-        paddingLeft: 20,
+        paddingLeft: 25,
     },
 });
 

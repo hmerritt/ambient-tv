@@ -41,8 +41,8 @@ const App: () => React$Node = () => {
 const styles = StyleSheet.create({
     bottomRight: {
         position: 'absolute',
-        bottom: 30,
-        right: 50,
+        bottom: 35,
+        right: 55,
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',

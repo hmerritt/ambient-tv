@@ -66,13 +66,13 @@ const styles = StyleSheet.create({
     },
     text: {
         opacity: 0.9,
-        fontFamily: 'Roboto-Bold',
-        fontSize: 22,
+        fontFamily: 'Roboto-Medium',
+        fontSize: 20,
         color: '#ffffff',
     },
     image: {
-        width: 30,
-        height: 30,
+        width: 28,
+        height: 28,
         marginLeft: 4,
     },
 });
