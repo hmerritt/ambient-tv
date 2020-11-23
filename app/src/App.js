@@ -7,8 +7,11 @@
  */
 
 import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
 import { StatusBar, StyleSheet, View } from 'react-native';
 import IdleTimerManager from 'react-native-idle-timer';
+
+import store from './state';
 
 import Clock from './components/Clock';
 import Weather from './components/Weather';
@@ -27,13 +30,15 @@ const App: () => React$Node = () => {
 
     return (
         <>
-            <StatusBar translucent backgroundColor="transparent" />
-            <BGSlideshow />
-            <BGGradient />
-            <View style={styles.bottomRight}>
-                <Weather />
-                <Clock />
-            </View>
+            <Provider store={store}>
+                <StatusBar translucent backgroundColor="transparent" />
+                <BGSlideshow />
+                <BGGradient />
+                <View style={styles.bottomRight}>
+                    <Weather />
+                    <Clock />
+                </View>
+            </Provider>
         </>
     );
 };
