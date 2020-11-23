@@ -8,12 +8,12 @@
 
 import React, { useState, useEffect } from 'react';
 
-import { useInterval } from '../hooks/useInterval';
-import { getNewBackground } from '../utils/backgroundImage';
+import { useInterval } from '../../hooks/useInterval';
+import { getNewBackground } from '../../utils/backgroundImage';
 
 import BackgroundImage from './BackgroundImage';
 
-const RollingBackgroundImage: () => React$Node = () => {
+const BGSlideshow: () => React$Node = () => {
     const [backgrounds, setBackgrounds] = useState([]);
     const [imageMethod, setImageMethod] = useState('rss');
 
@@ -54,4 +54,4 @@ const RollingBackgroundImage: () => React$Node = () => {
     );
 };
 
-export default RollingBackgroundImage;
+export default BGSlideshow;

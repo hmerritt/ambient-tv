@@ -12,7 +12,7 @@ import IdleTimerManager from 'react-native-idle-timer';
 
 import Clock from './components/Clock';
 import Weather from './components/Weather';
-import RollingBackgroundImage from './components/RollingBackgroundImage';
+import BGSlideshow from './components/BackgroundImage/BGSlideshow';
 
 const App: () => React$Node = () => {
     // Keep screen awake
@@ -27,7 +27,7 @@ const App: () => React$Node = () => {
     return (
         <>
             <StatusBar translucent backgroundColor="transparent" />
-            <RollingBackgroundImage />
+            <BGSlideshow />
             <View style={styles.bottomRight}>
                 <Weather />
                 <Clock />
@@ -39,8 +39,8 @@ const App: () => React$Node = () => {
 const styles = StyleSheet.create({
     bottomRight: {
         position: 'absolute',
-        bottom: 40,
-        right: 60,
+        bottom: 30,
+        right: 50,
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
