@@ -22,7 +22,7 @@ const Clock: () => React$Node = () => {
 
     return (
         <>
-            <Text style={styles.text}>{moment(clock).format('hh:mm')}</Text>
+            <Text style={styles.text}>{moment(clock).format('HH:mm')}</Text>
         </>
     );
 };
