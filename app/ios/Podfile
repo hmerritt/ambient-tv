@@ -12,6 +12,8 @@ target 'app' do
 
   pod 'react-native-idle-timer', :path => '../node_modules/react-native-idle-timer'
 
+  pod 'BVLinearGradient', :path => '../node_modules/react-native-linear-gradient'
+
   target 'appTests' do
     inherit! :complete
     # Pods for testing

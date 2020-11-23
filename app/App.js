@@ -13,6 +13,7 @@ import IdleTimerManager from 'react-native-idle-timer';
 import Clock from './components/Clock';
 import Weather from './components/Weather';
 import BGSlideshow from './components/BackgroundImage/BGSlideshow';
+import BGGradient from './components/BackgroundImage/BGGradient';
 
 const App: () => React$Node = () => {
     // Keep screen awake
@@ -28,6 +29,7 @@ const App: () => React$Node = () => {
         <>
             <StatusBar translucent backgroundColor="transparent" />
             <BGSlideshow />
+            <BGGradient />
             <View style={styles.bottomRight}>
                 <Weather />
                 <Clock />
