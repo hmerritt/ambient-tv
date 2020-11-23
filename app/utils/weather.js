@@ -48,12 +48,14 @@ export const mapOpenweathermapIcon = (iconCode) => {
 
         case '02d': // few clouds
         case '02n':
+            return 'sunny_s_cloudy.png';
+
+        case '04d': // broken clouds
+        case '04n':
             return 'partly_cloudy.png';
 
         case '03d': // scattered clouds
         case '03n':
-        case '04d': // broken clouds
-        case '04n':
             return 'cloudy.png';
 
         case '09d': // shower rain
