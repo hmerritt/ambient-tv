@@ -1,4 +1,4 @@
-# Background Viewer
+# Ambient TV
 
 A simple react-native app to cycle background images.
 
