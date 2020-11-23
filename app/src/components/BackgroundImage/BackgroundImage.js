@@ -7,9 +7,14 @@
  */
 
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Animated, View, StyleSheet } from 'react-native';
 
+import { imageLoadingState } from '../../state/actions/bgImageActions';
+
 const BackgroundImage: (props) => React$Node = ({ src, animate }) => {
+    const dispatch = useDispatch();
+
     // Starting image opacity -> 0
     const imageOpacity = animate ? new Animated.Value(0) : 1;
 
@@ -33,6 +38,8 @@ const BackgroundImage: (props) => React$Node = ({ src, animate }) => {
                 }}
                 style={[styles.image, { opacity: imageOpacity }]}
                 onLoad={onImageLoad}
+                onLoadStart={(e) => dispatch(imageLoadingState('start'))}
+                onLoadEnd={(e) => dispatch(imageLoadingState('end'))}
             />
         </View>
     );
