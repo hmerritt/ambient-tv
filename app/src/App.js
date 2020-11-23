@@ -8,15 +8,14 @@
 
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { StatusBar } from 'react-native';
 import IdleTimerManager from 'react-native-idle-timer';
 
 import store from './state';
 
-import Clock from './components/Clock';
-import Weather from './components/Weather';
 import BGSlideshow from './components/BackgroundImage/BGSlideshow';
-import BGGradient from './components/BackgroundImage/BGGradient';
+import Overlay from './components/Overlay';
+import Title from './components/Title';
 
 const App: () => React$Node = () => {
     // Keep screen awake
@@ -32,27 +31,12 @@ const App: () => React$Node = () => {
         <>
             <Provider store={store}>
                 <StatusBar translucent backgroundColor="transparent" />
+                <Title />
                 <BGSlideshow />
-                <BGGradient />
-                <View style={styles.bottomRight}>
-                    <Weather />
-                    <Clock />
-                </View>
+                <Overlay />
             </Provider>
         </>
     );
 };
-
-const styles = StyleSheet.create({
-    bottomRight: {
-        position: 'absolute',
-        bottom: 35,
-        right: 55,
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        zIndex: 50,
-    },
-});
 
 export default App;
