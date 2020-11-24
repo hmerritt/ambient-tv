@@ -21,7 +21,7 @@ const Title: () => React$Node = () => {
     if (!bgImageLoading) {
         Animated.timing(overlayOpacity, {
             toValue: 0,
-            duration: 2000,
+            duration: 1500,
             useNativeDriver: true,
         }).start();
     }
