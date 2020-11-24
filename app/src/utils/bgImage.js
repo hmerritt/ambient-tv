@@ -9,6 +9,7 @@ import axios from 'axios';
 import Chance from 'chance';
 import * as rssParser from 'react-native-rss-parser';
 
+import * as storage from './storage';
 import store from '../state';
 import { cacheFeedData } from '../state/actions/bgImageActions';
 
@@ -87,8 +88,21 @@ export const methodUnsplash = async (src) => {
  */
 export const methodRss = async (src) => {
     const rss = await fetchRssFeed(src);
-    const item = chance.pickone(rss.items);
+
+    // Filter already seen images
+    let seen = await storage.use(src, {});
+    let filteredRss = rss.items.filter((item) => !(item.links[0]?.url in seen));
+    if (filteredRss.length === 0) {
+        filteredRss = rss.items;
+        seen = await storage.set(src, {});
+    }
+
+    // Select a random item and find the image link
+    const item = chance.pickone(filteredRss);
     const link = item.links[0]?.url || '';
+
+    // Add image to seen
+    storage.set(src, { ...seen, [link]: true });
 
     return {
         src: link,
