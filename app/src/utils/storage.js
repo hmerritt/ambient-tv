@@ -11,6 +11,7 @@ export const set = async (key, value) => {
     try {
         const jsonValue = JSON.stringify(value);
         await AsyncStorage.setItem(key, jsonValue);
+        return value;
     } catch (e) {
         // saving error
     }
