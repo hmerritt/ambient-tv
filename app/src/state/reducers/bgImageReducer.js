@@ -36,6 +36,33 @@ export default (state = initialState, action) => {
                 },
             };
 
+        case actionTypes.PUSH_NEW_IMAGE:
+            return {
+                ...state,
+                render: {
+                    ...state.render,
+                    backgrounds: [
+                        ...state.render.backgrounds.slice(-3),
+                        action.payload,
+                    ],
+                    current: {
+                        loading: true,
+                    },
+                },
+            };
+
+        case actionTypes.CACHE_FEED_DATA:
+            return {
+                ...state,
+                feed: {
+                    ...state.feed,
+                    cache: {
+                        ...state.feed.cache,
+                        [action.payload.src]: action.payload.data,
+                    },
+                },
+            };
+
         default:
             return state;
     }
