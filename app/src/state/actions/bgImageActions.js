@@ -1,3 +1,4 @@
+import { UNSPLASH_API_KEY, RSS_DEFAULT_URL } from '@env';
 import { methodRss, methodUnsplash } from '../../utils/bgImage';
 
 // Export action types
@@ -22,20 +23,21 @@ export const getNewBackground = () => async (dispatch, getState) => {
 
     switch (state.bgImage.feed.method) {
         case 'unsplash':
-            const srcUnsplash =
-                'https://api.unsplash.com/photos/random/?client_id=iTOeW2ABe1RRjQTVmfZzTCpIuyT0WScnZx9XVhcrmHw&orientation=landscape&featured=true&content_filter=high';
+            const unsplashBase = 'https://api.unsplash.com/photos/random/';
+            const unsplashAPI = `?client_id=${UNSPLASH_API_KEY}`;
+            const unsplashParams =
+                '&orientation=landscape&featured=true&content_filter=high';
+            const srcUnsplash = unsplashBase + unsplashAPI + unsplashParams;
             background = await methodUnsplash(srcUnsplash);
             break;
 
         case 'rss':
-            const srcRss =
-                'https://merritt.es/wallpapers/rss.php?path=chromecast';
+            const srcRss = RSS_DEFAULT_URL;
             background = await methodRss(srcRss);
             break;
 
         default:
-            const srcDefaultRss =
-                'https://merritt.es/wallpapers/rss.php?path=chromecast';
+            const srcDefaultRss = RSS_DEFAULT_URL;
             background = await methodRss(srcDefaultRss);
     }
 

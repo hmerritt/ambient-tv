@@ -1,9 +1,10 @@
+import { FETCH_METHOD } from '@env';
 import * as actionTypes from '../actions/bgImageActions';
 
 const initialState = {
     loading: true,
     feed: {
-        method: 'rss',
+        method: FETCH_METHOD,
         cache: {},
         seen: {},
     },
