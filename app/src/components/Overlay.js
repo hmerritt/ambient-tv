@@ -15,7 +15,7 @@ import Clock from './Clock';
 import Weather from './Weather';
 
 const Overlay: () => React$Node = () => {
-    const bgImageLoading = useSelector((state) => state.bgImageReducer.loading);
+    const bgImageLoading = useSelector((state) => state.bgImage.loading);
 
     // Starting overlay opacity -> 0
     const overlayOpacity = new Animated.Value(0);

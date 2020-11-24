@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import { Animated, StyleSheet, Text } from 'react-native';
 
 const Title: () => React$Node = () => {
-    const bgImageLoading = useSelector((state) => state.bgImageReducer.loading);
+    const bgImageLoading = useSelector((state) => state.bgImage.loading);
 
     // Starting overlay opacity -> 1
     const overlayOpacity = new Animated.Value(1);
@@ -21,7 +21,7 @@ const Title: () => React$Node = () => {
     if (!bgImageLoading) {
         Animated.timing(overlayOpacity, {
             toValue: 0,
-            duration: 1000,
+            duration: 2000,
             useNativeDriver: true,
         }).start();
     }

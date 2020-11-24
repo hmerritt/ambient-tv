@@ -6,33 +6,27 @@
  * @flow strict-local
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 import { useInterval } from '../../hooks/useInterval';
-import { getNewBackground } from '../../utils/backgroundImage';
+import { getNewBackground } from '../../state/actions/bgImageActions';
 
 import BackgroundImage from './BackgroundImage';
 
 const BGSlideshow: () => React$Node = () => {
-    const [backgrounds, setBackgrounds] = useState([]);
-    const [imageMethod, setImageMethod] = useState('rss');
+    const dispatch = useDispatch();
 
-    const pushBackground = ({ src, color }) => {
-        setBackgrounds([...backgrounds.slice(-3), { src: src, color: color }]);
-    };
+    const backgrounds = useSelector(
+        (state) => state.bgImage.render.backgrounds,
+    );
 
     useInterval(() => {
-        getNewBackground({
-            imageMethod: imageMethod,
-            pushBackground: pushBackground,
-        });
+        dispatch(getNewBackground());
     }, 60000 * 2); //  1000 = 1s  //  60000 = 1m // 120000 = 2m
 
     useEffect(() => {
-        getNewBackground({
-            imageMethod: imageMethod,
-            pushBackground: pushBackground,
-        });
+        dispatch(getNewBackground());
     }, []);
 
     return (
