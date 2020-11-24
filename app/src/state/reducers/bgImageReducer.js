@@ -2,8 +2,16 @@ import * as actionTypes from '../actions/bgImageActions';
 
 const initialState = {
     loading: true,
-    current: {
-        loading: true,
+    feed: {
+        method: 'rss',
+        cache: {},
+        seen: {},
+    },
+    render: {
+        backgrounds: [],
+        current: {
+            loading: true,
+        },
     },
 };
 
