@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 import axios from 'axios';
+import moment from 'moment';
 import Chance from 'chance';
 import * as rssParser from 'react-native-rss-parser';
 
@@ -36,11 +37,19 @@ export const random = async (array) => {
 export const fetchRssFeed = async (src) => {
     const state = store.getState();
 
-    // Check if feed exists in cache
+    // Check if feed exists in redux store
     if (state.bgImage.feed.cache[src]) {
         // Use cache data
         return state.bgImage.feed.cache[src];
     } else {
+        // Get/setup temp storage cache
+        const rssTmpCache = await storage.use(`data--${src}`, {});
+
+        // Check if temp cache is valid
+        if (rssTmpCache.data && moment().unix() < rssTmpCache.expire) {
+            return rssTmpCache.data;
+        }
+
         // Fetch rss feed
         const res = await axios.get(src, {
             responseType: 'text',
@@ -49,7 +58,7 @@ export const fetchRssFeed = async (src) => {
         // Parse rss feed
         const rss = await rssParser.parse(res.data);
 
-        // Add to cache for future requests
+        // Add to state cache for future requests
         store.dispatch(
             cacheFeedData({
                 type: 'rss',
@@ -57,6 +66,12 @@ export const fetchRssFeed = async (src) => {
                 data: rss,
             }),
         );
+
+        // Add to storage cache
+        // Set expire for 1 hour
+        rssTmpCache.data = rss;
+        rssTmpCache.expire = moment().add(1, 'h').unix();
+        storage.set(`data--${src}`, rssTmpCache);
 
         return rss;
     }
@@ -90,11 +105,11 @@ export const methodRss = async (src) => {
     const rss = await fetchRssFeed(src);
 
     // Filter already seen images
-    let seen = await storage.use(src, {});
+    let seen = await storage.use(`seen--${src}`, {});
     let filteredRss = rss.items.filter((item) => !(item.links[0]?.url in seen));
     if (filteredRss.length === 0) {
         filteredRss = rss.items;
-        seen = await storage.set(src, {});
+        seen = await storage.set(`seen--${src}`, {});
     }
 
     // Select a random item and find the image link
@@ -102,7 +117,7 @@ export const methodRss = async (src) => {
     const link = item.links[0]?.url || '';
 
     // Add image to seen
-    storage.set(src, { ...seen, [link]: true });
+    storage.set(`seen--${src}`, { ...seen, [link]: true });
 
     return {
         src: link,
