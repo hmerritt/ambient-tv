@@ -105,11 +105,11 @@ export const methodRss = async (src) => {
     const rss = await fetchRssFeed(src);
 
     // Filter already seen images
-    let seen = await storage.use(src, {});
+    let seen = await storage.use(`seen--${src}`, {});
     let filteredRss = rss.items.filter((item) => !(item.links[0]?.url in seen));
     if (filteredRss.length === 0) {
         filteredRss = rss.items;
-        seen = await storage.set(src, {});
+        seen = await storage.set(`seen--${src}`, {});
     }
 
     // Select a random item and find the image link
@@ -117,7 +117,7 @@ export const methodRss = async (src) => {
     const link = item.links[0]?.url || '';
 
     // Add image to seen
-    storage.set(src, { ...seen, [link]: true });
+    storage.set(`seen--${src}`, { ...seen, [link]: true });
 
     return {
         src: link,
