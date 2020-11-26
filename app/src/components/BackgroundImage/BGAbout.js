@@ -51,9 +51,10 @@ const BGAbout: () => React$Node = () => {
                                 </Link>
                             </>
                         )}
-                        {currentBG.method !== 'unsplash' && (
-                            <>By {currentBG.attribution.name}</>
-                        )}
+                        {currentBG.method !== 'unsplash' &&
+                            currentBG.attribution.name && (
+                                <>By {currentBG.attribution.name}</>
+                            )}
                     </Text>
                 </>
             )}
