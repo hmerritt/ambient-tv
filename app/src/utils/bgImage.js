@@ -88,14 +88,18 @@ export const methodUnsplash = async (src) => {
         responseType: 'text',
     });
 
+    // Unsplash specific vars
+    const unsplashReferal = '?utm_source=your_app_name&utm_medium=referral';
+
     return {
         src: res.data.urls.raw,
         method: 'unsplash',
         color: res.data.color,
         description: res.data.description || '',
+        unsplashReferal: unsplashReferal,
         attribution: {
             name: res.data.user.name || '',
-            link: res.data.user.links.html || '',
+            link: res.data.user.links.html + unsplashReferal || '',
         },
     };
 };

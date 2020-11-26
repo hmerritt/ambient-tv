@@ -18,9 +18,6 @@ const BGAbout: () => React$Node = () => {
     );
     const currentBG = backgrounds[backgrounds.length - 1];
 
-    const unsplashURL =
-        'https://unsplash.com/?utm_source=Ambient_TV&utm_medium=referral';
-
     return (
         <>
             {currentBG && (
@@ -28,7 +25,12 @@ const BGAbout: () => React$Node = () => {
                     <Text
                         style={[styles.text, styles.description]}
                         numberOfLines={1}>
-                        {currentBG.description}
+                        {currentBG.method === 'unsplash' && (
+                            <>{currentBG.description || 'Untitled'}</>
+                        )}
+                        {currentBG.method !== 'unsplash' && (
+                            <>{currentBG.description}</>
+                        )}
                     </Text>
                     <Text
                         style={[styles.text, styles.attribution]}
@@ -42,7 +44,9 @@ const BGAbout: () => React$Node = () => {
                                     {currentBG.attribution.name}
                                 </Link>{' '}
                                 on{' '}
-                                <Link type="text" url={unsplashURL}>
+                                <Link
+                                    type="text"
+                                    url={`https://unsplash.com/${currentBG.unsplashReferal}`}>
                                     Unsplash
                                 </Link>
                             </>
