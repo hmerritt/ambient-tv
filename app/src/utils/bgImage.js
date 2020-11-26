@@ -90,8 +90,13 @@ export const methodUnsplash = async (src) => {
 
     return {
         src: res.data.urls.raw,
+        method: 'unsplash',
         color: res.data.color,
         description: res.data.description || '',
+        attribution: {
+            name: res.data.user.name || '',
+            link: res.data.user.links.html || '',
+        },
     };
 };
 
@@ -115,13 +120,20 @@ export const methodRss = async (src) => {
     // Select a random item and find the image link
     const item = chance.pickone(filteredRss);
     const link = item.links[0]?.url || '';
+    const author = item?.authors[0]?.name || '';
+    const description = item?.description || '';
 
     // Add image to seen
     storage.set(`seen--${src}`, { ...seen, [link]: true });
 
     return {
         src: link,
+        method: 'rss',
         color: '#ffffff',
-        description: '',
+        description: description,
+        attribution: {
+            name: author,
+            link: '',
+        },
     };
 };

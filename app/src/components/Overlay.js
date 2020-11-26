@@ -6,11 +6,12 @@
  * @flow strict-local
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Animated, StyleSheet, View } from 'react-native';
 
 import BGGradient from './BackgroundImage/BGGradient';
+import BGAbout from './BackgroundImage/BGAbout';
 import Clock from './Clock';
 import Weather from './Weather';
 
@@ -37,6 +38,9 @@ const Overlay: () => React$Node = () => {
                 <Weather />
                 <Clock />
             </View>
+            <View style={styles.bottomLeft}>
+                <BGAbout />
+            </View>
         </Animated.View>
     );
 };
@@ -59,6 +63,12 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         zIndex: 50,
+    },
+    bottomLeft: {
+        position: 'absolute',
+        bottom: 35,
+        left: 55,
+        zIndex: 49,
     },
 });
 
