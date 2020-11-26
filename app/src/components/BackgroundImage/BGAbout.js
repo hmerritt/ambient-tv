@@ -25,10 +25,14 @@ const BGAbout: () => React$Node = () => {
         <>
             {currentBG && (
                 <>
-                    <Text style={[styles.text, styles.description]}>
+                    <Text
+                        style={[styles.text, styles.description]}
+                        numberOfLines={1}>
                         {currentBG.description}
                     </Text>
-                    <Text style={[styles.text, styles.attribution]}>
+                    <Text
+                        style={[styles.text, styles.attribution]}
+                        numberOfLines={1}>
                         {currentBG.method === 'unsplash' && (
                             <>
                                 By{' '}
@@ -60,6 +64,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         fontWeight: '900',
         color: '#ffffff',
+        width: 350,
     },
     description: {
         fontSize: 16,
