@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     },
     bottomLeft: {
         position: 'absolute',
-        bottom: 35,
+        bottom: 45,
         left: 55,
         zIndex: 49,
     },

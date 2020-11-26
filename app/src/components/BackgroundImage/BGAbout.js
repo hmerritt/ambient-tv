@@ -65,13 +65,13 @@ const styles = StyleSheet.create({
     text: {
         opacity: 0.8,
         fontFamily: 'Roboto-Medium',
-        fontSize: 12,
+        fontSize: 10,
         fontWeight: '900',
         color: '#ffffff',
         width: 350,
     },
     description: {
-        fontSize: 16,
+        fontSize: 14,
     },
     attribution: {
         marginTop: 4,
