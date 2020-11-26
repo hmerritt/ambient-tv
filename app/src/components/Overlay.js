@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import { Animated, StyleSheet, View } from 'react-native';
 
 import BGGradient from './BackgroundImage/BGGradient';
-import BGAbout from './BackgroundImage/BGAbout';
+import BGAbout from './BackgroundImage/About/BGAbout';
 import Clock from './Clock';
 import Weather from './Weather';
 
