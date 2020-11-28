@@ -7,6 +7,7 @@
  */
 
 import React from 'react';
+import { Animated } from 'react-native';
 import { useSelector } from 'react-redux';
 
 import Attribution from './Attribution';
@@ -23,19 +24,31 @@ const BGAbout: () => React$Node = () => {
     const currentBG = backgrounds[backgrounds.length - 1];
     const previousBG = backgrounds[backgrounds.length - 2];
 
-    const render = (background) => {
-        return (
-            <>
-                <Description background={background} />
-                <Attribution background={background} />
-            </>
-        );
-    };
+    const fadeIn = currentBG && !loading;
+    const fade = new Animated.Value(fadeIn ? 0 : 1);
+    if (currentBG) {
+        Animated.timing(fade, {
+            toValue: fadeIn ? 1 : 0,
+            duration: fadeIn ? 3000 : 500,
+            delay: fadeIn ? 50 : 0,
+            useNativeDriver: true,
+        }).start();
+    }
 
     return (
         <>
-            {currentBG && !loading && render(currentBG)}
-            {previousBG && loading && render(previousBG)}
+            {currentBG && !loading && (
+                <Animated.View style={{ opacity: fade }}>
+                    <Description background={currentBG} />
+                    <Attribution background={currentBG} />
+                </Animated.View>
+            )}
+            {previousBG && loading && (
+                <Animated.View style={{ opacity: fade }}>
+                    <Description background={previousBG} />
+                    <Attribution background={previousBG} />
+                </Animated.View>
+            )}
         </>
     );
 };
