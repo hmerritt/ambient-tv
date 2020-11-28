@@ -30,7 +30,7 @@ const BGAbout: () => React$Node = () => {
         Animated.timing(fade, {
             toValue: fadeIn ? 1 : 0,
             duration: fadeIn ? 3000 : 500,
-            delay: fadeIn ? 50 : 0,
+            delay: fadeIn ? 1000 : 0,
             useNativeDriver: true,
         }).start();
     }
