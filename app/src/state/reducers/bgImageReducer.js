@@ -21,9 +21,12 @@ export default (state = initialState, action) => {
         case actionTypes.IMAGE_LOADING_START:
             return {
                 ...state,
-                current: {
-                    ...state.current,
-                    loading: true,
+                render: {
+                    ...state.render,
+                    current: {
+                        ...state.current,
+                        loading: true,
+                    },
                 },
             };
 
@@ -31,9 +34,12 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: false,
-                current: {
-                    ...state.current,
-                    loading: false,
+                render: {
+                    ...state.render,
+                    current: {
+                        ...state.current,
+                        loading: false,
+                    },
                 },
             };
 
@@ -47,6 +53,7 @@ export default (state = initialState, action) => {
                         action.payload,
                     ],
                     current: {
+                        ...state.current,
                         loading: true,
                     },
                 },
