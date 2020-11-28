@@ -11,31 +11,31 @@ import { StyleSheet, Text } from 'react-native';
 
 import Link from '../../Common/Link';
 
-const Attribution: (props) => React$Node = ({ currentBG }) => {
+const Attribution: (props) => React$Node = ({ background }) => {
     // Render nothing if no attribution available
-    if (!currentBG.attribution.name) {
+    if (!background.attribution.name) {
         return <></>;
     }
 
     return (
         <>
             <Text style={[styles.text, styles.attribution]} numberOfLines={1}>
-                {currentBG.method === 'unsplash' && (
+                {background.method === 'unsplash' && (
                     <>
                         By{' '}
-                        <Link type="text" url={currentBG.attribution.link}>
-                            {currentBG.attribution.name}
+                        <Link type="text" url={background.attribution.link}>
+                            {background.attribution.name}
                         </Link>{' '}
                         on{' '}
                         <Link
                             type="text"
-                            url={`https://unsplash.com/${currentBG.unsplashReferal}`}>
+                            url={`https://unsplash.com/${background.unsplashReferal}`}>
                             Unsplash
                         </Link>
                     </>
                 )}
-                {currentBG.method !== 'unsplash' && (
-                    <>By {currentBG.attribution.name}</>
+                {background.method !== 'unsplash' && (
+                    <>By {background.attribution.name}</>
                 )}
             </Text>
         </>

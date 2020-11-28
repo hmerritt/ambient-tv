@@ -16,16 +16,26 @@ const BGAbout: () => React$Node = () => {
     const backgrounds = useSelector(
         (state) => state.bgImage.render.backgrounds,
     );
+    const loading = useSelector(
+        (state) => state.bgImage.render.current.loading,
+    );
+
     const currentBG = backgrounds[backgrounds.length - 1];
+    const previousBG = backgrounds[backgrounds.length - 2];
+
+    const render = (background) => {
+        return (
+            <>
+                <Description background={background} />
+                <Attribution background={background} />
+            </>
+        );
+    };
 
     return (
         <>
-            {currentBG && (
-                <>
-                    <Description currentBG={currentBG} />
-                    <Attribution currentBG={currentBG} />
-                </>
-            )}
+            {currentBG && !loading && render(currentBG)}
+            {previousBG && loading && render(previousBG)}
         </>
     );
 };

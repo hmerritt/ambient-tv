@@ -9,20 +9,20 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
-const Description: (props) => React$Node = ({ currentBG }) => {
+const Description: (props) => React$Node = ({ background }) => {
     // Render nothing if no description available
-    if (!currentBG.description) {
+    if (!background.description) {
         return <></>;
     }
 
     return (
         <>
             <Text style={[styles.text, styles.description]} numberOfLines={1}>
-                {currentBG.method === 'unsplash' && (
-                    <>{currentBG.description || 'Untitled'}</>
+                {background.method === 'unsplash' && (
+                    <>{background.description || 'Untitled'}</>
                 )}
-                {currentBG.method !== 'unsplash' && (
-                    <>{currentBG.description}</>
+                {background.method !== 'unsplash' && (
+                    <>{background.description}</>
                 )}
             </Text>
         </>
