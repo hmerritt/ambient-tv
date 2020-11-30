@@ -1,15 +1,25 @@
 {
-  "name": "app-ambient-tv-server",
-  "version": "0.0.1",
-  "private": true,
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hmerritt/ambient-tv.git"
-  },
-  "author": "Harry Merritt",
-  "license": "Apache-2.0"
+    "name": "app-ambient-tv-server",
+    "version": "0.0.1",
+    "private": true,
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "start:watch": "nodemon index.js"
+    },
+    "dependencies": {
+        "backblaze-b2": "^1.5.0",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hmerritt/ambient-tv.git"
+    },
+    "author": "Harry Merritt",
+    "license": "Apache-2.0"
 }
