@@ -31,12 +31,12 @@ const Description: (props) => React$Node = ({ background }) => {
 
 const styles = StyleSheet.create({
     text: {
+        width: 350,
         opacity: 0.8,
         fontFamily: 'Roboto-Medium',
         fontSize: 10,
-        fontWeight: '900',
         color: '#ffffff',
-        width: 350,
+        textTransform: 'capitalize',
     },
     description: {
         fontSize: 13,

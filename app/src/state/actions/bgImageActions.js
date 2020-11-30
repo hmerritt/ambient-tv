@@ -1,5 +1,5 @@
-import { UNSPLASH_API_KEY, RSS_DEFAULT_URL } from '@env';
-import { methodRss, methodUnsplash } from '../../utils/bgImage';
+import { APP_SERVER_URL, RSS_URL } from '@env';
+import { methodAppServer, methodRss } from '../../utils/imageMethods';
 
 // Export action types
 export const IMAGE_LOADING_START = 'IMAGE_LOADING_START';
@@ -22,23 +22,18 @@ export const getNewBackground = () => async (dispatch, getState) => {
     let background = {};
 
     switch (state.bgImage.feed.method) {
-        case 'unsplash':
-            const unsplashBase = 'https://api.unsplash.com/photos/random/';
-            const unsplashAPI = `?client_id=${UNSPLASH_API_KEY}`;
-            const unsplashParams =
-                '&orientation=landscape&featured=true&content_filter=high';
-            const srcUnsplash = unsplashBase + unsplashAPI + unsplashParams;
-            background = await methodUnsplash(srcUnsplash);
+        case 'appserver':
+        case 'appServer':
+        case 'app-server':
+            background = await methodAppServer(APP_SERVER_URL + '/images');
             break;
 
         case 'rss':
-            const srcRss = RSS_DEFAULT_URL;
-            background = await methodRss(srcRss);
+            background = await methodRss(RSS_URL);
             break;
 
         default:
-            const srcDefaultRss = RSS_DEFAULT_URL;
-            background = await methodRss(srcDefaultRss);
+            background = await methodRss(RSS_URL);
     }
 
     dispatch({ type: PUSH_NEW_IMAGE, payload: background });
