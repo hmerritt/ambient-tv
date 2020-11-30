@@ -46,7 +46,7 @@ function formatImageObject(b2File) {
 }
 
 function images() {
-    return imageStore;
+    return imageStore.get();
 }
 
 module.exports = {
