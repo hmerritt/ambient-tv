@@ -17,18 +17,27 @@ A simple react-native app to cycle background images (works great on [Chromecast
 
 For now, the `.env` file is **_required_** to build.
 
-There are two image fetch methods: [`unsplash`](https://unsplash.com), or a custom `RSS` feed
+There are two image fetch methods: `app-server` which is bundled in this repo, or a custom `RSS` feed
 
 1. Choose a feed method
 2. Duplicate `.env.sample` as `.env`
-3. Either get an [unsplash API](https://unsplash.com/developers) key or use an RSS feed consisting of images
+3. Either deploy and use the `app-server` or use an RSS feed consisting of images
 
 ```
 app/.env
 
-UNSPLASH_API_KEY=
-RSS_DEFAULT_URL=
-FETCH_METHOD=rss/unsplash
+RSS_URL=
+APP_SERVER_URL=
+FETCH_METHOD=rss/app-server
+```
+
+```
+app-server/.env
+
+B2_BUCKET=
+B2_KEY_ID=
+B2_KEY_APPLICATION=
+B2_ACCESS_LINK=https://f002.backblazeb2.com
 ```
 
 ## License
