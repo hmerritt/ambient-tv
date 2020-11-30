@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+    ## ambient-tv
+    ambient-tv-server:
+        build: .
+        #image: hmerritt/app-ambient-tv-server:latest
+
+        environment:
+            - B2_BUCKET=app-ambient-tv
+            - B2_KEY_ID=
+            - B2_KEY_APPLICATION=
+            - B2_ACCESS_LINK=https://f002.backblazeb2.com
+            - DEBUG=
+
+        ports:
+            - 8000:8000
