@@ -7,6 +7,7 @@ const router = express.Router();
 
 // Fetch images from b2
 imagesController.populateImageStore();
+imagesController.startCronJob("0 0 * * *", imagesController.populateImageStore);
 
 /*
  * Returns list of images as JSON

@@ -1,6 +1,6 @@
 {
     "name": "app-ambient-tv-server",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "private": true,
     "main": "index.js",
     "scripts": {
@@ -10,10 +10,12 @@
     "dependencies": {
         "backblaze-b2": "^1.5.0",
         "cors": "^2.8.5",
+        "cron": "^1.8.2",
         "dotenv": "^8.2.0",
         "express": "^4.17.1"
     },
     "devDependencies": {
+        "debug": "^4.3.1",
         "nodemon": "^2.0.4"
     },
     "repository": {

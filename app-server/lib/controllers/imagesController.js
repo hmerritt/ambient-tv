@@ -1,4 +1,5 @@
 const path = require("path");
+const cron = require("cron");
 require("dotenv").config();
 
 const backblaze = require("../models/backblazeModel");
@@ -21,6 +22,20 @@ async function populateImageStore() {
 
     // Add images to store
     imageStore.set(imageObjects);
+}
+
+async function startCronJob(cronStamp, callback) {
+    // cron stamps:
+    // -> 0 */12 * * * : every 12 hours
+    // -> 0 0 * * *    : at 00:00
+    const cronJob = new cron.CronJob(
+        cronStamp,
+        callback,
+        null,
+        true,
+        "Europe/London"
+    );
+    cronJob.start();
 }
 
 function formatImageObject(b2File) {
@@ -53,4 +68,5 @@ module.exports = {
     images,
     populateImageStore,
     formatImageObject,
+    startCronJob,
 };
