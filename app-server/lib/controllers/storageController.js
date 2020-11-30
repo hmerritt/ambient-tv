@@ -11,16 +11,16 @@ class Storage {
         };
     }
 
-    get(key = defaultKey) {
+    get(key = this.defaultKey) {
         return this.data[key];
     }
 
-    set(newData, key = defaultKey) {
+    set(newData, key = this.defaultKey) {
         this.data[key] = newData;
         return this.data[key];
     }
 
-    exists(key = defaultKey) {
+    exists(key = this.defaultKey) {
         return this.data[key] ? true : false;
     }
 
