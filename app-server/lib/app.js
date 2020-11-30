@@ -1,18 +1,17 @@
 const express = require("express");
 const cors = require("cors");
 const pkg = require("../package.json");
-// const router = require("./router");
+const imagesRoute = require("./routes/imagesRoute");
 
 const server = express();
 
 server.use(cors());
-server.use(express.json());
 
-// server.use("/", router);
+server.use("/images", imagesRoute);
 
 // Base root welcome message
 server.get("/", (req, res) => {
-    res.send({
+    res.json({
         message: "hello, world!",
         description: "ambient-tv app server",
         links: { repo: "https://github.com/hmerritt/ambient-tv" },
