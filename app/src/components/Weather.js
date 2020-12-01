@@ -49,7 +49,7 @@ const Weather = () => {
                         {Math.round(weather.temp)}°
                     </Text>
                     <Animated.Image
-                        source={{ uri: `asset:/icons/${weather.icon}` }}
+                        source={weather.icon}
                         style={[styles.image, { opacity: imageOpacity }]}
                         onLoad={onImageLoad}
                     />
