@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "ambient-tv",
+    "name": "Ambient TV",
     "slug": "ambient-tv",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
@@ -14,7 +14,9 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "**/*",
+      "./src/assets/icons/*",
+      "./src/assets/fonts/*"
     ],
     "ios": {
       "supportsTablet": true
@@ -26,7 +28,8 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "name": "Ambient TV"
     }
   }
 }
