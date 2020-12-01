@@ -7,11 +7,7 @@
  */
 
 import React, { useEffect } from 'react';
-import { Provider } from 'react-redux';
-import { StatusBar } from 'react-native';
 import IdleTimerManager from 'react-native-idle-timer';
-
-import store from './state';
 
 import BGSlideshow from './components/BackgroundImage/BGSlideshow';
 import Overlay from './components/Overlay';
@@ -29,12 +25,9 @@ const AppActual = () => {
 
     return (
         <>
-            <Provider store={store}>
-                <StatusBar translucent backgroundColor="transparent" />
-                <Title />
-                <BGSlideshow />
-                <Overlay />
-            </Provider>
+            <Title />
+            <BGSlideshow />
+            <Overlay />
         </>
     );
 };
