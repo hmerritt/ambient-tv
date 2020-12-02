@@ -2,6 +2,7 @@
  * Ambient TV
  * https://github.com/hmerritt/ambient-tv
  */
+import env from '../../env';
 import axios from 'axios';
 import assets from './assets';
 
@@ -13,7 +14,7 @@ import assets from './assets';
 export const getWeather = ({ location, setWeather }) => {
     axios
         .get(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&units=metric&appid=d4f2519531ebd1b345f768ac76e3d2ec`,
+            `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&units=metric&appid=${env.OPENWEATHERMAP_KEY}`,
         )
         .then((res) => {
             setWeather({

@@ -10,4 +10,5 @@ export default {
     RSS_URL: '',
     APP_SERVER_URL: '',
     FETCH_METHOD: '',
+    OPENWEATHERMAP_KEY: '',
 };
