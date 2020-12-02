@@ -1,35 +1,61 @@
 {
-  "expo": {
-    "name": "Ambient TV",
-    "slug": "ambient-tv",
-    "version": "1.0.0",
-    "orientation": "landscape",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*",
-      "./src/assets/icons/*",
-      "./src/assets/fonts/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png",
-      "name": "Ambient TV"
+    "expo": {
+        "name": "Ambient TV",
+        "slug": "ambient-tv",
+        "version": "v1.1.1",
+        "privacy": "hidden",
+        "orientation": "landscape",
+        "icon": "./assets/icon.png",
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": [
+            "**/*",
+            "./src/assets/icons/*",
+            "./src/assets/fonts/*"
+        ],
+        "ios": {
+            "buildNumber": "1.1.1",
+            "bundleIdentifier": "hmerritt.me.ambient_tv",
+            "supportsTablet": true,
+            "requireFullScreen": true
+        },
+        "android": {
+            "versionCode": "1.1.1",
+            "package": "hmerritt.ambient_tv",
+            "permissions": ["ACCESS_FINE_LOCATION"],
+            "adaptiveIcon": {
+                "foregroundImage": "./assets/adaptive-icon.png",
+                "backgroundColor": "#FFFFFF"
+            },
+            "splash": {
+                "image": "./assets/splash.png",
+                "resizeMode": "contain",
+                "backgroundColor": "#ffffff",
+                "mdpi": "./assets/res/mipmap-mdpi/ic_launcher_round.png",
+                "hdpi": "./assets/res/mipmap-hdpi/ic_launcher_round.png",
+                "xhdpi": "./assets/res/mipmap-xhdpi/ic_launcher_round.png",
+                "xxhdpi": "./assets/res/mipmap-xxhdpi/ic_launcher_round.png",
+                "xxxhdpi": "./assets/res/mipmap-xxxhdpi/ic_launcher_round.png"
+            },
+            "intentFilters": [
+                {
+                    "action": "MAIN",
+                    "category": ["LAUNCHER", "LEANBACK_LAUNCHER"]
+                }
+            ]
+        },
+        "androidNavigationBar": {
+            "visible": "immersive"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png",
+            "name": "Ambient TV"
+        }
     }
-  }
 }
