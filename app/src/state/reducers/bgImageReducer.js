@@ -1,10 +1,10 @@
-import { FETCH_METHOD } from '@env';
+import env from '../../../env';
 import * as actionTypes from '../actions/bgImageActions';
 
 const initialState = {
     loading: true,
     feed: {
-        method: FETCH_METHOD,
+        method: env.FETCH_METHOD,
         cache: {},
         seen: {},
     },
