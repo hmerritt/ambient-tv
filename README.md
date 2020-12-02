@@ -15,16 +15,16 @@ A simple react-native app to cycle background images (works great on [Chromecast
 
 ### Env
 
-For now, the `.env` file is **_required_** to build.
+For now, the `env.js` file is **_required_** to build.
 
 There are two image fetch methods: `app-server` which is bundled in this repo, or a custom `RSS` feed
 
 1. Choose a feed method
-2. Duplicate `.env.sample` as `.env`
+2. Duplicate `env.sample.js` as `env.js`
 3. Either deploy and use the `app-server` or use an RSS feed consisting of images
 
 ```
-app/.env
+app/env.js
 
 RSS_URL=
 APP_SERVER_URL=
