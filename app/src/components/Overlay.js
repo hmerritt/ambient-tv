@@ -15,7 +15,7 @@ import BGAbout from './BackgroundImage/About/BGAbout';
 import Clock from './Clock';
 import Weather from './Weather';
 
-const Overlay: () => React$Node = () => {
+const Overlay = () => {
     const bgImageLoading = useSelector((state) => state.bgImage.loading);
 
     // Starting overlay opacity -> 0

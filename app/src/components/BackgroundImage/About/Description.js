@@ -9,7 +9,7 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
-const Description: (props) => React$Node = ({ background }) => {
+const Description = ({ background }) => {
     // Render nothing if no description available
     if (!background.description) {
         return <></>;

@@ -1,4 +1,45 @@
 {
-    "name": "app",
-    "displayName": "Ambient TV"
+    "expo": {
+        "name": "Ambient TV",
+        "slug": "ambient-tv",
+        "version": "v1.1.2",
+        "privacy": "hidden",
+        "orientation": "landscape",
+        "icon": "./assets/icon.png",
+        "updates": {
+            "fallbackToCacheTimeout": 0
+        },
+        "assetBundlePatterns": [
+            "**/*",
+            "./src/assets/icons/*",
+            "./src/assets/fonts/*"
+        ],
+        "ios": {
+            "icon": "./assets/icon-no-alpha.png",
+            "bundleIdentifier": "com.hmerritt.ambient.tv",
+            "buildNumber": "1.1.2",
+            "supportsTablet": true,
+            "requireFullScreen": true
+        },
+        "android": {
+            "package": "com.hmerritt.ambient.tv",
+            "versionCode": 1,
+            "permissions": ["ACCESS_FINE_LOCATION"],
+            "intentFilters": [
+                {
+                    "action": "MAIN",
+                    "category": ["LAUNCHER", "LEANBACK_LAUNCHER"],
+                    "autoVerify": false,
+                    "data": {}
+                }
+            ]
+        },
+        "androidNavigationBar": {
+            "visible": "immersive"
+        },
+        "web": {
+            "favicon": "./assets/favicon.png",
+            "name": "Ambient TV"
+        }
+    }
 }

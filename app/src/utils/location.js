@@ -1,20 +1,24 @@
 /**
  * Ambient TV
  * https://github.com/hmerritt/ambient-tv
- *
- * @format
- * @flow strict-local
  */
-import Geolocation from '@react-native-community/geolocation';
+import * as Location from 'expo-location';
 
 /**
  * Get current location
  *
  * @return {Object} location object
  */
-export const getLocation = ({ setLocation }) => {
-    Geolocation.getCurrentPosition(
-        (info) => setLocation(info),
-        (err) => console.error('Geolocation:', err),
-    );
+export const getLocation = async ({ setLocation }) => {
+    // Request location permission
+    const { status } = await Location.requestPermissionsAsync();
+
+    // Return null if location access is denied
+    if (status !== 'granted') {
+        return setLocation(null);
+    }
+
+    // Get current location
+    const location = await Location.getCurrentPositionAsync({});
+    setLocation(location);
 };

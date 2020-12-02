@@ -1,9 +1,6 @@
 /**
  * Ambient TV
  * https://github.com/hmerritt/ambient-tv
- *
- * @format
- * @flow strict-local
  */
 
 import React from 'react';
@@ -12,7 +9,7 @@ import { Animated, View, StyleSheet } from 'react-native';
 
 import { imageLoadingState } from '../../state/actions/bgImageActions';
 
-const BackgroundImage: (props) => React$Node = ({ src, animate }) => {
+const BackgroundImage = ({ src, animate }) => {
     const dispatch = useDispatch();
 
     // Starting image opacity -> 0

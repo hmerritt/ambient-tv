@@ -1,49 +1,38 @@
 {
-    "name": "app",
-    "version": "1.1.0",
-    "private": true,
+    "main": "node_modules/expo/AppEntry.js",
     "scripts": {
-        "android": "react-native run-android",
-        "android:bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
-        "android:buildAPK": "npm run android:bundle && cd android && gradlew assembleDebug",
-        "ios": "react-native run-ios",
-        "start": "react-native start",
-        "test": "jest",
-        "lint": "eslint ."
+        "start": "expo start",
+        "android": "expo start --android",
+        "ios": "expo start --ios",
+        "web": "expo start --web",
+        "eject": "expo eject"
     },
     "dependencies": {
         "@react-native-async-storage/async-storage": "^1.13.2",
-        "@react-native-community/geolocation": "^2.0.2",
         "axios": "^0.21.0",
         "chance": "^1.1.7",
+        "expo": "~39.0.2",
+        "expo-font": "~8.3.0",
+        "expo-keep-awake": "~8.3.0",
+        "expo-linear-gradient": "~8.3.0",
+        "expo-location": "~9.0.0",
+        "expo-status-bar": "~1.0.2",
         "moment": "^2.29.1",
         "react": "16.13.1",
-        "react-native": "0.63.3",
-        "react-native-dotenv": "^2.4.2",
-        "react-native-idle-timer": "^2.1.6",
-        "react-native-linear-gradient": "^2.5.6",
-        "react-native-rss-parser": "^1.5.1",
+        "react-dom": "16.13.1",
+        "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
+        "react-native-rss-parser": "jameslawler/react-native-rss-parser",
+        "react-native-web": "~0.13.12",
         "react-redux": "^7.2.2",
         "redux": "^4.0.5",
         "redux-logger": "^3.0.6",
         "redux-thunk": "^2.3.0"
     },
     "devDependencies": {
-        "@babel/core": "^7.8.4",
-        "@babel/runtime": "^7.8.4",
-        "@react-native-community/eslint-config": "^1.1.0",
-        "babel-jest": "^25.1.0",
-        "eslint": "^6.5.1",
-        "jest": "^25.1.0",
-        "metro-react-native-babel-preset": "^0.59.0",
-        "react-test-renderer": "16.13.1"
+        "@babel/core": "~7.9.0",
+        "@react-native-community/eslint-config": "^2.0.0",
+        "babel-preset-expo": "^8.3.0",
+        "eslint": "^7.14.0"
     },
-    "rnpm": {
-        "assets": [
-            "./assets/fonts/"
-        ]
-    },
-    "jest": {
-        "preset": "react-native"
-    }
+    "private": true
 }

@@ -11,7 +11,7 @@ import { StyleSheet, Text } from 'react-native';
 
 import Link from '../../Common/Link';
 
-const Attribution: (props) => React$Node = ({ background }) => {
+const Attribution = ({ background }) => {
     // Render nothing if no attribution available
     if (!background.attribution.name) {
         return <></>;

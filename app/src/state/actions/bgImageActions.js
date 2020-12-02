@@ -1,4 +1,4 @@
-import { APP_SERVER_URL, RSS_URL } from '@env';
+import env from '../../../env';
 import { methodAppServer, methodRss } from '../../utils/imageMethods';
 
 // Export action types
@@ -25,15 +25,15 @@ export const getNewBackground = () => async (dispatch, getState) => {
         case 'appserver':
         case 'appServer':
         case 'app-server':
-            background = await methodAppServer(APP_SERVER_URL + '/images');
+            background = await methodAppServer(env.APP_SERVER_URL + '/images');
             break;
 
         case 'rss':
-            background = await methodRss(RSS_URL);
+            background = await methodRss(env.RSS_URL);
             break;
 
         default:
-            background = await methodRss(RSS_URL);
+            background = await methodRss(env.RSS_URL);
     }
 
     dispatch({ type: PUSH_NEW_IMAGE, payload: background });

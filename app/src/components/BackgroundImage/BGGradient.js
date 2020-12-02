@@ -8,9 +8,9 @@
 
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 
-const BGGradient: () => React$Node = () => {
+const BGGradient = () => {
     return (
         <>
             <LinearGradient

@@ -13,7 +13,7 @@ import { useSelector } from 'react-redux';
 import Attribution from './Attribution';
 import Description from './Description';
 
-const BGAbout: () => React$Node = () => {
+const BGAbout = () => {
     const backgrounds = useSelector(
         (state) => state.bgImage.render.backgrounds,
     );

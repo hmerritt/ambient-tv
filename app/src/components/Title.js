@@ -10,7 +10,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Animated, StyleSheet, Text } from 'react-native';
 
-const Title: () => React$Node = () => {
+const Title = () => {
     const bgImageLoading = useSelector((state) => state.bgImage.loading);
 
     // Starting overlay opacity -> 1

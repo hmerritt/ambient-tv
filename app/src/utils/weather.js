@@ -1,11 +1,9 @@
 /**
  * Ambient TV
  * https://github.com/hmerritt/ambient-tv
- *
- * @format
- * @flow strict-local
  */
 import axios from 'axios';
+import assets from './assets';
 
 /**
  * Get weather
@@ -44,41 +42,41 @@ export const mapOpenweathermapIcon = (iconCode) => {
     switch (iconCode) {
         case '01d': // clear sky
         case '01n':
-            return 'sunny.png';
+            return assets.icons.sunny;
 
         case '02d': // few clouds
         case '02n':
-            return 'sunny_s_cloudy.png';
+            return assets.icons.sunny_s_cloudy;
 
         case '04d': // broken clouds
         case '04n':
-            return 'partly_cloudy.png';
+            return assets.icons.partly_cloudy;
 
         case '03d': // scattered clouds
         case '03n':
-            return 'cloudy.png';
+            return assets.icons.cloudy;
 
         case '09d': // shower rain
         case '09n':
-            return 'rain_heavy.png';
+            return assets.icons.rain_heavy;
 
         case '10d': // rain
         case '10n':
-            return 'rain.png';
+            return assets.icons.rain;
 
         case '11d': // thunderstorm
         case '11n':
-            return 'thunderstorms.png';
+            return assets.icons.thunderstorms;
 
         case '13d': // snow
         case '13n':
-            return 'snow.png';
+            return assets.icons.snow;
 
         case '50d': // mist
         case '50n':
-            return 'mist.png';
+            return assets.icons.mist;
 
         default:
-            return 'sunny_s_cloudy.png';
+            return assets.icons.sunny_s_cloudy;
     }
 };

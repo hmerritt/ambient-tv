@@ -12,7 +12,7 @@ import moment from 'moment';
 
 import { useInterval } from '../hooks/useInterval';
 
-const Clock: () => React$Node = () => {
+const Clock = () => {
     const [clock, setClock] = useState(moment.now());
 
     // Increment clock
@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
         opacity: 0.9,
         fontFamily: 'Roboto-Medium',
         fontSize: 45,
-        fontWeight: '900',
         color: '#ffffff',
         paddingLeft: 25,
     },

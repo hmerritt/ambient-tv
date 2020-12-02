@@ -14,7 +14,7 @@ import { getNewBackground } from '../../state/actions/bgImageActions';
 
 import BackgroundImage from './BackgroundImage';
 
-const BGSlideshow: () => React$Node = () => {
+const BGSlideshow = () => {
     const dispatch = useDispatch();
 
     const backgrounds = useSelector(

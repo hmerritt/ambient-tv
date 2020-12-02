@@ -12,7 +12,7 @@ import { View, Animated, StyleSheet, Text } from 'react-native';
 import { getWeather } from '../utils/weather';
 import { getLocation } from '../utils/location';
 
-const Weather: () => React$Node = () => {
+const Weather = () => {
     const [weather, setWeather] = useState(null);
     const [location, setLocation] = useState(null);
 
@@ -49,7 +49,7 @@ const Weather: () => React$Node = () => {
                         {Math.round(weather.temp)}°
                     </Text>
                     <Animated.Image
-                        source={{ uri: `asset:/icons/${weather.icon}` }}
+                        source={weather.icon}
                         style={[styles.image, { opacity: imageOpacity }]}
                         onLoad={onImageLoad}
                     />
