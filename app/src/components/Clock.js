@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
         opacity: 0.9,
         fontFamily: 'Roboto-Medium',
         fontSize: 45,
-        fontWeight: '900',
         color: '#ffffff',
         paddingLeft: 25,
     },
