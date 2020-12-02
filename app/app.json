@@ -2,7 +2,7 @@
     "expo": {
         "name": "Ambient TV",
         "slug": "ambient-tv",
-        "version": "v1.1.3",
+        "version": "1.1.3",
         "privacy": "hidden",
         "orientation": "landscape",
         "icon": "./assets/icon.png",
@@ -19,11 +19,17 @@
             "bundleIdentifier": "com.hmerritt.ambient.tv",
             "buildNumber": "1.1.3",
             "supportsTablet": true,
-            "requireFullScreen": true
+            "requireFullScreen": true,
+            "splash": {
+                "image": "./assets/blank.png",
+                "tabletImage": "./assets/blank.png",
+                "resizeMode": "contain",
+                "backgroundColor": "#ffffff"
+            }
         },
         "android": {
             "package": "com.hmerritt.ambient.tv",
-            "versionCode": 1,
+            "versionCode": 2,
             "permissions": ["ACCESS_FINE_LOCATION"],
             "intentFilters": [
                 {
@@ -32,7 +38,18 @@
                     "autoVerify": false,
                     "data": {}
                 }
-            ]
+            ],
+            "icon": "./assets/icon.png",
+            "splash": {
+                "ldpi": "./assets/blank.png",
+                "mdpi": "./assets/blank.png",
+                "hdpi": "./assets/blank.png",
+                "xhdpi": "./assets/blank.png",
+                "xxhdpi": "./assets/blank.png",
+                "xxxhdpi": "./assets/blank.png",
+                "resizeMode": "contain",
+                "backgroundColor": "#ffffff"
+            }
         },
         "androidNavigationBar": {
             "visible": "immersive"
