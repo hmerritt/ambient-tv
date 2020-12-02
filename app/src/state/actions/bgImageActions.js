@@ -21,9 +21,6 @@ export const getNewBackground = () => async (dispatch, getState) => {
     const state = getState();
     let background = {};
 
-    console.log(env.APP_SERVER_URL);
-    console.log(env.RSS_URL);
-
     switch (state.bgImage.feed.method) {
         case 'appserver':
         case 'appServer':
