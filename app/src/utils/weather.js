@@ -4,6 +4,8 @@
  */
 import env from '../../env';
 import axios from 'axios';
+import moment from 'moment';
+import * as storage from './storage';
 import assets from './assets';
 
 /**
@@ -11,26 +13,38 @@ import assets from './assets';
  *
  * @return {Object} weather object
  */
-export const getWeather = ({ location, setWeather }) => {
-    axios
-        .get(
+export const getWeather = async ({ location, setWeather }) => {
+    // Get or create weather cache
+    let weatherCache = await storage.use('weather', {});
+
+    // Fetch live weather if cache is expired
+    if (!weatherCache.data || moment().unix() >= weatherCache.expire) {
+        // Fetch weather from api
+        const res = await axios.get(
             `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&units=metric&appid=${env.OPENWEATHERMAP_KEY}`,
-        )
-        .then((res) => {
-            setWeather({
-                temp: res.data.main.temp,
-                humidity: res.data.main.humidity,
-                pressure: res.data.main.pressure,
-                title: res.data.weather[0].main,
-                description: res.data.weather[0].description,
-                iconCode: res.data.weather[0].icon,
-                icon: mapOpenweathermapIcon(res.data.weather[0].icon),
-                iconUrl: `http://openweathermap.org/img/wn/${res.data.weather[0].icon}@2x.png`,
-            });
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+        );
+
+        // Add to storage cache
+        // Set expire for 3 hours
+        weatherCache.data = res.data;
+        weatherCache.expire = moment().add(4, 'h').unix();
+        storage.set('weather', weatherCache);
+    }
+
+    // Set weather data
+    const weather = weatherCache.data;
+
+    // Push data to render
+    setWeather({
+        temp: weather.main.temp,
+        humidity: weather.main.humidity,
+        pressure: weather.main.pressure,
+        title: weather.weather[0].main,
+        description: weather.weather[0].description,
+        iconCode: weather.weather[0].icon,
+        icon: mapOpenweathermapIcon(weather.weather[0].icon),
+        iconUrl: `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`,
+    });
 };
 
 /**
