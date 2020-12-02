@@ -2,15 +2,10 @@
     "expo": {
         "name": "Ambient TV",
         "slug": "ambient-tv",
-        "version": "v1.1.1",
+        "version": "v1.1.2",
         "privacy": "hidden",
         "orientation": "landscape",
         "icon": "./assets/icon.png",
-        "splash": {
-            "image": "./assets/splash.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#ffffff"
-        },
         "updates": {
             "fallbackToCacheTimeout": 0
         },
@@ -20,33 +15,22 @@
             "./src/assets/fonts/*"
         ],
         "ios": {
-            "buildNumber": "1.1.1",
-            "bundleIdentifier": "hmerritt.me.ambient_tv",
+            "icon": "./assets/icon-no-alpha.png",
+            "bundleIdentifier": "com.hmerritt.ambient.tv",
+            "buildNumber": "1.1.2",
             "supportsTablet": true,
             "requireFullScreen": true
         },
         "android": {
-            "versionCode": "1.1.1",
-            "package": "hmerritt.ambient_tv",
+            "package": "com.hmerritt.ambient.tv",
+            "versionCode": 1,
             "permissions": ["ACCESS_FINE_LOCATION"],
-            "adaptiveIcon": {
-                "foregroundImage": "./assets/adaptive-icon.png",
-                "backgroundColor": "#FFFFFF"
-            },
-            "splash": {
-                "image": "./assets/splash.png",
-                "resizeMode": "contain",
-                "backgroundColor": "#ffffff",
-                "mdpi": "./assets/res/mipmap-mdpi/ic_launcher_round.png",
-                "hdpi": "./assets/res/mipmap-hdpi/ic_launcher_round.png",
-                "xhdpi": "./assets/res/mipmap-xhdpi/ic_launcher_round.png",
-                "xxhdpi": "./assets/res/mipmap-xxhdpi/ic_launcher_round.png",
-                "xxxhdpi": "./assets/res/mipmap-xxxhdpi/ic_launcher_round.png"
-            },
             "intentFilters": [
                 {
                     "action": "MAIN",
-                    "category": ["LAUNCHER", "LEANBACK_LAUNCHER"]
+                    "category": ["LAUNCHER", "LEANBACK_LAUNCHER"],
+                    "autoVerify": false,
+                    "data": {}
                 }
             ]
         },
