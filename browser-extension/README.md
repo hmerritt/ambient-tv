@@ -1,4 +1,4 @@
-# Ambient TV Chrome Extension
+# Ambient TV Browser Extension
 
 ## Setup
 
@@ -9,7 +9,7 @@ $ cd app
 $ expo build:web
 ```
 
-2. Copy all build files (except the `manifest.json`) from `web-build` to `chrome-extension`
+2. Copy all build files (except the `manifest.json`) from `web-build` to `browser-extension`
 
 ```
 app/
@@ -18,9 +18,9 @@ app/
         ...
         copy everything (not manifest.json)
 
-chrome-extension/
+browser-extension/
     ...
     place build files here
 ```
 
-3. `Load unpacked` extension in Chrome and you're good to go!
+3. `Load unpacked` extension in Chrome or Firefox and you're good to go!

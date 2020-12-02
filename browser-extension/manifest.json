@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "version": "1.1.1",
   "name": "Ambient TV",
-  "description": "Ambient TV for Google Chrome",
+  "description": "Ambient TV for the browser",
   "icons": {
     "16": "icon-16.png",
     "32": "icon-32.png",
