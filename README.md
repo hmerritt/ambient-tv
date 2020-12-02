@@ -26,9 +26,12 @@ There are two image fetch methods: `app-server` which is bundled in this repo, o
 ```
 app/env.js
 
-RSS_URL=
-APP_SERVER_URL=
-FETCH_METHOD=rss/app-server
+export default {
+    RSS_URL: '',
+    APP_SERVER_URL: '',
+    FETCH_METHOD: '',
+    OPENWEATHERMAP_KEY: '',
+};
 ```
 
 ```
