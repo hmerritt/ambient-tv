@@ -11,6 +11,7 @@ if (process.env.NODE_ENV === 'development') {
             predicate: (getState, action) =>
                 action.type !== 'IMAGE_LOADING_START' &&
                 action.type !== 'IMAGE_LOADING_END',
+            collapsed: true,
         }),
     );
 }
