@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 
+import env from '../../../../env';
 import React from 'react';
 import { Animated } from 'react-native';
 import { useSelector } from 'react-redux';
@@ -29,7 +30,7 @@ const BGAbout = () => {
     if (currentBG) {
         Animated.timing(fade, {
             toValue: fadeIn ? 1 : 0,
-            duration: fadeIn ? 3000 : 500,
+            duration: fadeIn ? env.ANIMATION_LONG : 500,
             delay: fadeIn ? 1000 : 0,
             useNativeDriver: true,
         }).start();

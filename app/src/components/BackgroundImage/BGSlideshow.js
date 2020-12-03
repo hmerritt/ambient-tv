@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 
+import env from '../../../env';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -23,7 +24,7 @@ const BGSlideshow = () => {
 
     useInterval(() => {
         dispatch(getNewBackground());
-    }, 60000 * 2); //  1000 = 1s  //  60000 = 1m // 120000 = 2m
+    }, env.IMAGE_TIMER);
 
     useEffect(() => {
         dispatch(getNewBackground());

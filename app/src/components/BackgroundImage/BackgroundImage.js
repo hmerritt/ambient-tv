@@ -3,6 +3,7 @@
  * https://github.com/hmerritt/ambient-tv
  */
 
+import env from '../../../env';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Animated, View, StyleSheet } from 'react-native';
@@ -21,7 +22,7 @@ const BackgroundImage = ({ src, animate }) => {
         if (animate) {
             Animated.timing(imageOpacity, {
                 toValue: 1,
-                duration: 3000,
+                duration: env.ANIMATION_LONG,
                 useNativeDriver: true,
             }).start();
         }

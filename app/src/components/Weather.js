@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 
+import env from '../../env';
 import React, { useState, useEffect } from 'react';
 import { View, Animated, StyleSheet, Text } from 'react-native';
 
@@ -36,7 +37,7 @@ const Weather = () => {
     const onImageLoad = () => {
         Animated.timing(imageOpacity, {
             toValue: 1,
-            duration: 2000,
+            duration: env.ANIMATION_SHORT,
             useNativeDriver: true,
         }).start();
     };

@@ -7,8 +7,11 @@
  * Environment Variables
  */
 export default {
-    RSS_URL: '',
+    ANIMATION_LONG: 3000,
+    ANIMATION_SHORT: 1000,
     APP_SERVER_URL: '',
     FETCH_METHOD: '',
+    IMAGE_TIMER: 120000, //  1000 = 1s  //  60000 = 1m // 120000 = 2m
     OPENWEATHERMAP_KEY: '',
+    RSS_URL: '',
 };

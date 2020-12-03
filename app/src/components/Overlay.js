@@ -6,6 +6,7 @@
  * @flow strict-local
  */
 
+import env from '../../env';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Animated, StyleSheet, View } from 'react-native';
@@ -26,7 +27,7 @@ const Overlay = () => {
     if (!bgImageLoading) {
         Animated.timing(overlayOpacity, {
             toValue: 1,
-            duration: 3000,
+            duration: env.ANIMATION_LONG,
             useNativeDriver: true,
         }).start();
     }
