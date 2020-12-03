@@ -2,6 +2,8 @@
 
 A simple react-native app to cycle background images (works great on [Chromecast with Google TV](https://store.google.com/gb/product/chromecast_google_tv))
 
+![](https://img.shields.io/github/v/release/hmerritt/ambient-tv.svg) ![](https://img.shields.io/github/license/hmerritt/ambient-tv)
+
 ![](./screenshots/screenshot-1.png)
 
 ## Features
