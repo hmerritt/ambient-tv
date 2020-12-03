@@ -1,12 +1,4 @@
-*
+build/
+dist/
 
-!.gitignore
-
-!env.sample.js
-
-!README.md
-!manifest.json
-
-!icon-192.png
-!icon-32.png
-!icon-16.png
+env.js
