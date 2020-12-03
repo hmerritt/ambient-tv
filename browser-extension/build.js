@@ -2,7 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const { execSync } = require("child_process");
 
-const APP_DIR = path.dirname(__dirname) + "/app";
+const APP_DIR = path.join(path.dirname(__dirname), "/app");
+const BUILD_DIR = path.join(__dirname, "./build");
 
 /*
  * Execute system command (sync)
@@ -122,12 +123,12 @@ const main = () => {
   exec(`cd ${APP_DIR} && expo build:web`);
 
   // Copy build files to dist
-  console.log("  * 4/5  Copy build files to ./build");
-  fileCopyDirectory(`${APP_DIR}/web-build`, "./build");
-  fileCopy(`./icon-16.png`, `./build/icon-16.png`);
-  fileCopy(`./icon-32.png`, `./build/icon-32.png`);
-  fileCopy(`./icon-192.png`, `./build/icon-192.png`);
-  fileCopy(`./manifest.json`, `./build/manifest.json`);
+  console.log("  * 4/5  Copy build files to build directory");
+  fileCopyDirectory(`${APP_DIR}/web-build`, `${BUILD_DIR}`);
+  fileCopy(`./icon-16.png`, `${BUILD_DIR}/icon-16.png`);
+  fileCopy(`./icon-32.png`, `${BUILD_DIR}/icon-32.png`);
+  fileCopy(`./icon-192.png`, `${BUILD_DIR}/icon-192.png`);
+  fileCopy(`./manifest.json`, `${BUILD_DIR}/manifest.json`);
 
   // Restore app env.js backup
   console.log("  * 5/5  Restore app env.js backup");
