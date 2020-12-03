@@ -31,7 +31,7 @@ const BGAbout = () => {
         Animated.timing(fade, {
             toValue: fadeIn ? 1 : 0,
             duration: fadeIn ? env.ANIMATION_LONG : 500,
-            delay: fadeIn ? env.ANIMATION_LONG / 2 : 0,
+            delay: fadeIn ? env.ANIMATION_LONG / 2.2 : 0,
             useNativeDriver: true,
         }).start();
     }
