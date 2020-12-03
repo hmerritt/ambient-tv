@@ -1,6 +1,41 @@
 # Ambient TV Browser Extension
 
-## Setup
+## Build
+
+### Using build script (recommended)
+
+1. Install app dependencies
+
+```bash
+$ cd app
+$ yarn install
+```
+
+2. Create `env.js` from `env.sample.js` and fill in the desired values
+
+```
+export default {
+  ANIMATION_LONG: 1500,
+  ANIMATION_SHORT: 750,
+  APP_SERVER_URL: "",
+  FETCH_METHOD: "",
+  IMAGE_TIMER: 300000, //  1000 = 1s  //  60000 = 1m // 120000 = 2m
+  OPENWEATHERMAP_KEY: "",
+  RSS_URL: "",
+  TITLE: "",
+};
+```
+
+2. Run build script
+
+```bash
+$ cd browser-extension
+$ node build.js
+```
+
+### Manual
+
+Steps 1 and 2 from above +
 
 1. Use `expo` to build app for the web
 
@@ -19,8 +54,8 @@ app/
         copy everything (not manifest.json)
 
 browser-extension/
-    ...
-    place build files here
+    build/
+        place build files here
 ```
 
 3. `Load unpacked` extension in Chrome or Firefox and you're good to go!
