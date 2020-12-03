@@ -14,4 +14,5 @@ export default {
   IMAGE_TIMER: 300000, //  1000 = 1s  //  60000 = 1m // 120000 = 2m
   OPENWEATHERMAP_KEY: "",
   RSS_URL: "",
+  TITLE: "",
 };

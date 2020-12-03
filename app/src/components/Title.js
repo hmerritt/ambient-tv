@@ -29,7 +29,7 @@ const Title = () => {
 
     return (
         <Animated.View style={[styles.overlay, { opacity: overlayOpacity }]}>
-            <Text style={styles.text}>Ambient TV</Text>
+            <Text style={styles.text}>{env.TITLE}</Text>
         </Animated.View>
     );
 };
