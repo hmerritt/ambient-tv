@@ -29,10 +29,14 @@ There are two image fetch methods: `app-server` which is bundled in this repo, o
 app/env.js
 
 export default {
-    RSS_URL: '',
+    ANIMATION_LONG: 3000,
+    ANIMATION_SHORT: 1000,
     APP_SERVER_URL: '',
     FETCH_METHOD: '',
+    IMAGE_TIMER: 120000,
     OPENWEATHERMAP_KEY: '',
+    RSS_URL: '',
+    TITLE: 'Ambient TV',
 };
 ```
 
