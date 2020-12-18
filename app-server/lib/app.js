@@ -15,7 +15,7 @@ server.get("/", (req, res) => {
         message: "hello, world!",
         description: "ambient-tv app server",
         links: { repo: "https://github.com/hmerritt/ambient-tv" },
-        routes: ["/", "/images", "/images/:category"],
+        routes: ["/", "/images", "/images/rss"],
         version: pkg.version,
     });
 });
