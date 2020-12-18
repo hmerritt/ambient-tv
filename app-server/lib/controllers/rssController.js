@@ -36,6 +36,7 @@ class Rss {
         <title>${image.fileName}</title>
         <link>${image.link}</link>
         <description>${image.description}</description>
+        <author>${image.attribution}</author>
         <category>${image.category}</category>
         <media:title type="plain">${image.description}</media:title>
         <media:content url="${image.link}" medium="image"/>
