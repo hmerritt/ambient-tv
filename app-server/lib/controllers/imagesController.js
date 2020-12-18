@@ -53,7 +53,9 @@ function formatImageObject(b2File) {
 
     const name = path.parse(image.fileName).name;
     const nameShort = name.split("--")[0];
-    image.description = nameShort.replace(/-/g, " ");
+    const descAttr = nameShort.split("__");
+    image.description = descAttr[0].replace(/-/g, " ");
+    image.attribution = descAttr[1] ? descAttr[1].replace(/-/g, " ") : "";
 
     image.link = `${process.env.B2_ACCESS_LINK}/file/${process.env.B2_BUCKET}/${b2File.fileName}`;
 

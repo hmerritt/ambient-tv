@@ -46,10 +46,6 @@ export const methodAppServer = async (src) => {
     const image = chance.pickone(filteredImages);
     image.src = image.link;
     image.method = 'app-server';
-    image.attribution = {
-        name: '',
-        link: '',
-    };
 
     // Add image to seen
     storage.set(`seen--${src}`, { ...seen, [image.link]: true });
@@ -88,9 +84,6 @@ export const methodRss = async (src) => {
         method: 'rss',
         category: '',
         description: description,
-        attribution: {
-            name: author,
-            link: '',
-        },
+        attribution: author,
     };
 };
