@@ -11,7 +11,7 @@ import * as Location from 'expo-location';
  */
 export const getLocation = async ({ setLocation }) => {
     // Request location permission
-    const { status } = await Location.requestPermissionsAsync();
+    const { status } = await Location.requestForegroundPermissionsAsync();
 
     // Return null if location access is denied
     if (status !== 'granted') {
@@ -19,6 +19,6 @@ export const getLocation = async ({ setLocation }) => {
     }
 
     // Get current location
-    const location = await Location.getCurrentPositionAsync({});
+    const location = await Location.getLastKnownPositionAsync({});
     setLocation(location);
 };
