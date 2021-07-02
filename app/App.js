@@ -19,8 +19,6 @@ export default function App() {
 
     // Load fonts
     let [fontsLoaded] = useFonts({
-        'Roboto-Black': require('./src/assets/fonts/Roboto/Roboto-Black.ttf'),
-        'Roboto-Bold': require('./src/assets/fonts/Roboto/Roboto-Bold.ttf'),
         'Roboto-Medium': require('./src/assets/fonts/Roboto/Roboto-Medium.ttf'),
     });
 
