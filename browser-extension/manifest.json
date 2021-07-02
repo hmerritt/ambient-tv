@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.1.6",
+  "version": "1.1.65",
   "name": "Ambient TV",
   "description": "Ambient TV for the browser",
   "icons": {
