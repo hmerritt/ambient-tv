@@ -2692,6 +2692,14 @@
   dependencies:
     compare-versions "^3.4.0"
 
+"@unimodules/react-native-adapter@^6.3.2":
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/@unimodules/react-native-adapter/-/react-native-adapter-6.3.2.tgz#6dd549704d3fc7c729d657beff998f27a34f62a2"
+  integrity sha512-jHrlGfIfs2GiPoDS6HttS5VZ4UmRSGiH1wArAJo7msAe0EACt6b9AR+CuxUPpK0d+DXv31iJzJxh9PYBzyA9Ag==
+  dependencies:
+    expo-modules-autolinking "^0.0.2"
+    invariant "^2.2.4"
+
 "@unimodules/react-native-adapter@~6.3.1":
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/@unimodules/react-native-adapter/-/react-native-adapter-6.3.1.tgz#7a7910d95ed7943e639824bd4b27a89815b3fa5f"
