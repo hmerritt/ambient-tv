@@ -1,0 +1,14 @@
+diff --git a/node_modules/@unimodules/react-native-adapter/scripts/autolinking.gradle b/node_modules/@unimodules/react-native-adapter/scripts/autolinking.gradle
+index aedcef3..1e5903e 100644
+--- a/node_modules/@unimodules/react-native-adapter/scripts/autolinking.gradle
++++ b/node_modules/@unimodules/react-native-adapter/scripts/autolinking.gradle
+@@ -94,7 +94,7 @@ class ExpoAutolinkingManager {
+     String[] args = [
+       'node',
+       '--eval',
+-      'require("expo-modules-autolinking")(process.argv.slice(1))',
++      'require(\'expo-modules-autolinking\')(process.argv.slice(1))',
+       '--',
+       command,
+       '--platform',
+

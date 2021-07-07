@@ -1,38 +1,50 @@
 {
-    "main": "node_modules/expo/AppEntry.js",
-    "scripts": {
-        "start": "expo start",
-        "android": "expo start --android",
-        "ios": "expo start --ios",
-        "web": "expo start --web",
-        "eject": "expo eject"
-    },
-    "dependencies": {
-        "@react-native-async-storage/async-storage": "~1.15.0",
-        "axios": "^0.21.0",
-        "chance": "^1.1.7",
-        "expo": "^42.0.0",
-        "expo-font": "~9.2.1",
-        "expo-keep-awake": "~9.2.0",
-        "expo-linear-gradient": "~9.2.0",
-        "expo-location": "~12.1.2",
-        "expo-status-bar": "~1.0.4",
-        "moment": "^2.29.1",
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
-        "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
-        "react-native-rss-parser": "jameslawler/react-native-rss-parser",
-        "react-native-web": "^0.17.1",
-        "react-redux": "^7.2.2",
-        "redux": "^4.0.5",
-        "redux-logger": "^3.0.6",
-        "redux-thunk": "^2.3.0"
-    },
-    "devDependencies": {
-        "@babel/core": "~7.9.0",
-        "@react-native-community/eslint-config": "^2.0.0",
-        "babel-preset-expo": "8.3.0",
-        "eslint": "^7.14.0"
-    },
-    "private": true
+  "scripts": {
+    "postinstall": "patch-package",
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "android:build": "cd android && ./gradlew assembleRelease",
+    "android:release": "cd android && ./gradlew bundleRelease",
+    "android:clean": "cd android && ./gradlew clean",
+    "ios": "react-native run-ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "@react-native-async-storage/async-storage": "~1.15.0",
+    "axios": "^0.21.0",
+    "chance": "^1.1.7",
+    "expo": "^42.0.0",
+    "expo-font": "~9.2.1",
+    "expo-keep-awake": "^9.2.0",
+    "expo-linear-gradient": "~9.2.0",
+    "expo-location": "^12.1.2",
+    "expo-splash-screen": "~0.11.2",
+    "expo-status-bar": "~1.0.4",
+    "expo-updates": "~0.8.0",
+    "moment": "^2.29.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "^0.64.2",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-reanimated": "^2.2.0",
+    "react-native-rss-parser": "jameslawler/react-native-rss-parser",
+    "react-native-screens": "~3.4.0",
+    "react-native-unimodules": "~0.14.3",
+    "react-native-web": "^0.17.1",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-preset-expo": "8.3.0",
+    "eslint": "^7.14.0",
+    "patch-package": "^6.4.7"
+  },
+  "private": true,
+  "name": "app",
+  "version": "1.0.0"
 }
