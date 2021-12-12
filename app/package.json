@@ -11,6 +11,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@bug-catch/browser": "^3.0.1",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "axios": "^0.21.0",
     "chance": "^1.1.7",

@@ -1,6 +1,6 @@
 {
     "name": "app-ambient-tv-server",
-    "version": "1.0.2",
+    "version": "1.1.2",
     "private": true,
     "main": "index.js",
     "scripts": {
@@ -8,7 +8,9 @@
         "start:watch": "nodemon index.js"
     },
     "dependencies": {
+        "@bug-catch/server": "^3.1.1",
         "backblaze-b2": "^1.5.0",
+        "body-parser": "^1.19.0",
         "cors": "^2.8.5",
         "cron": "^1.8.2",
         "dotenv": "^8.2.0",
