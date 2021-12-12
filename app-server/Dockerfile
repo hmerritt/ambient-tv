@@ -1,4 +1,4 @@
-FROM node:12
+FROM node:14
 
 # Create app directory
 WORKDIR /app
@@ -8,7 +8,7 @@ WORKDIR /app
 # where available (npm@5+)
 COPY package*.json ./
 
-RUN npm ci --only=production
+RUN npm install
 
 # Bundle app source
 COPY index.js ./
