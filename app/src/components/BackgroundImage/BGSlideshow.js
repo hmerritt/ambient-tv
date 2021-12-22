@@ -9,7 +9,9 @@
 import env from '../../../env';
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { recordEvent } from '@bug-catch/react-native';
 
+import { bugCatchOptions } from '../../utils/bugCatch';
 import { useInterval } from '../../hooks/useInterval';
 import { getNewBackground } from '../../state/actions/bgImageActions';
 
@@ -24,6 +26,13 @@ const BGSlideshow = () => {
 
     useInterval(() => {
         dispatch(getNewBackground());
+        if (env.BUGCATCH_ENABLE) {
+            recordEvent(
+                'newBackground',
+                'user has triggered a new background image',
+                bugCatchOptions,
+            );
+        }
     }, env.IMAGE_TIMER);
 
     useEffect(() => {
