@@ -20,13 +20,13 @@ body {
 	width: 10px;
 }
 ::-webkit-scrollbar-track {
-	background: #181818;
+	background: darken(#ebf0f5, 10%);
 }
 ::-webkit-scrollbar-thumb {
-	background: lighten(#181818, 40%);
+	background: lighten(#181818, 35%);
 }
 ::-webkit-scrollbar-thumb:hover {
-	background: lighten(#181818, 60%);
+	background: lighten(#181818, 50%);
 }
 
 .app-wrapper {
