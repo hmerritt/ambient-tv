@@ -16,13 +16,22 @@ const App = () => {
 				<div className="container">
 					<div>
 						<h2>Privacy Policy</h2>
-						<p className="bulk">
-							Ambient TV does not store any information.
-							<br /> <br />
-							We request location permission only to get the
-							latest weather in the users area, none of this data
-							is stored.
-						</p>
+						<section>
+							<h3>What data we collect</h3>
+							<hr />
+							<p className="bulk">
+								None. No data is stored outside of the device
+								itself.
+								<br /> <br />
+								We request the devices location within the app
+								for the purpose of providing live weather in
+								that area. This location data is not collected
+								or stored on our servers at any time. Location
+								permission is not requred to be granted for the
+								app to work as intended (minus said weather
+								features previously mentioned).
+							</p>
+						</section>
 					</div>
 				</div>
 			</div>

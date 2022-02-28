@@ -79,19 +79,26 @@ header {
 
 		h1 {
 			color: #333;
-			font-size: 3.3rem;
+			font-size: 3rem;
 			font-style: italic;
 		}
 	}
 }
 
-h2 {
+h2,
+h3 {
 	color: #333;
 	font-style: normal;
-	font-size: 3rem;
+	font-weight: 600;
+	font-size: 4rem;
 	margin: 1rem 0;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
+}
+
+h3 {
+	font-weight: normal;
+	font-size: 3rem;
 }
 
 p.bulk {
@@ -99,4 +106,16 @@ p.bulk {
 	font-size: 2rem;
 	line-height: 2.6rem;
 	text-align: justify;
+}
+
+section {
+	margin-top: 4rem;
+	margin-bottom: 6rem;
+}
+
+hr {
+	margin-block-start: 0em;
+	margin-block-end: 2.5em;
+	border-height: 1px;
+	border-color: rgba($color: #000000, $alpha: 0.1);
 }
