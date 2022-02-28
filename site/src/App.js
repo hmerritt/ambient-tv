@@ -1,23 +1,33 @@
-import "./App.css";
+import Logo from "./logo192.png";
 
-function App() {
+const App = () => {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
+		<>
+			<header className="app-wrapper">
+				<div className="container">
+					<div class="title">
+						<img src={Logo} alt="logo" draggable="false" />
+						<h1>Ambient TV</h1>
+					</div>
+				</div>
 			</header>
-		</div>
+
+			<div className="app-wrapper">
+				<div className="container">
+					<div>
+						<h2>Privacy Policy</h2>
+						<p className="bulk">
+							Ambient TV does not store any information.
+							<br /> <br />
+							We request location permission only to get the
+							latest weather in the users area, none of this data
+							is stored.
+						</p>
+					</div>
+				</div>
+			</div>
+		</>
 	);
-}
+};
 
 export default App;
