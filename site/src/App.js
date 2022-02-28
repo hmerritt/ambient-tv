@@ -32,6 +32,28 @@ const App = () => {
 								features previously mentioned).
 							</p>
 						</section>
+						<section>
+							<h3>Device permissions</h3>
+							<hr />
+							<p className="bulk">
+								1. INTERNET
+								<br /> <br />
+								2. READ_EXTERNAL_STORAGE
+								<br /> <br />
+								2. WRITE_EXTERNAL_STORAGE
+								<br /> <br />
+								3. ACCESS_FINE_LOCATION
+								<br /> <br />
+								4. ACCESS_COARSE_LOCATION
+								<br /> <br />
+								5. FOREGROUND_SERVICE
+								<br /> <br />
+								6. SYSTEM_ALERT_WINDOW
+								<br /> <br />
+								7. VIBRATE
+								<br /> <br />
+							</p>
+						</section>
 					</div>
 				</div>
 			</div>
