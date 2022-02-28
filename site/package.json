@@ -1,23 +1,26 @@
 {
-  "name": "site",
+  "name": "cra",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.3",
+    "@testing-library/user-event": "^13.5.0",
+    "cross-env": "^7.0.3",
     "flow-bin": "^0.172.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "sass": "^1.49.9",
     "web-vitals": "^2.1.4"
   },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.2",
-    "@testing-library/react": "^12.1.3",
-    "@testing-library/user-event": "^13.5.0"
-  },
+  "devDependencies": {},
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "cross-env REACT_APP_VERSION=$npm_package_version react-scripts start",
+    "build": "cross-env REACT_APP_VERSION=$npm_package_version react-scripts build",
+    "test": "react-scripts test --watchAll=false",
+    "test:watch": "react-scripts test --watchAll",
+    "test:coverage": "react-scripts test --coverage",
     "eject": "react-scripts eject",
     "flow": "flow"
   },
