@@ -1,0 +1,17 @@
+root = true
+
+[*]
+end_of_line = lf
+charset = utf-8
+tab_width = 4
+indent_size = 4
+indent_style = tab
+insert_final_newline = true
+
+[lib/**.js]
+indent_size = 4
+indent_style = tab
+
+[*.yml]
+indent_size = 4
+indent_style = tab
