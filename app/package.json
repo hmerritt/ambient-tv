@@ -1,36 +1,37 @@
 {
-  "name": "ambient-tv",
-  "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
-  },
-  "dependencies": {
-    "@bug-catch/react-native": "^1.0.0",
-    "@react-native-async-storage/async-storage": "1.18.2",
-    "axios": "^1.4.0",
-    "chance": "^1.1.11",
-    "expo": "~49.0.5",
-    "expo-font": "~11.4.0",
-    "expo-keep-awake": "~12.3.0",
-    "expo-linear-gradient": "~12.3.0",
-    "expo-location": "~16.1.0",
-    "expo-splash-screen": "~0.20.5",
-    "expo-status-bar": "~1.6.0",
-    "moment": "^2.29.4",
-    "react": "18.2.0",
-    "react-native": "0.72.3",
-    "react-native-rss-parser": "^1.5.1",
-    "react-redux": "^8.1.2",
-    "redux": "^4.2.1",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.4.2"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.20.0"
-  },
-  "private": true
+    "name": "ambient-tv",
+    "version": "1.2.10",
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+        "start": "expo start",
+        "android": "expo start --android",
+        "android:build": "eas build --platform android",
+        "ios": "expo start --ios",
+        "web": "expo start --web"
+    },
+    "dependencies": {
+        "@bug-catch/react-native": "^1.0.0",
+        "@react-native-async-storage/async-storage": "1.18.2",
+        "axios": "^1.4.0",
+        "chance": "^1.1.11",
+        "expo": "~49.0.5",
+        "expo-font": "~11.4.0",
+        "expo-keep-awake": "~12.3.0",
+        "expo-linear-gradient": "~12.3.0",
+        "expo-location": "~16.1.0",
+        "expo-splash-screen": "~0.20.5",
+        "expo-status-bar": "~1.6.0",
+        "moment": "^2.29.4",
+        "react": "18.2.0",
+        "react-native": "0.72.3",
+        "react-native-rss-parser": "^1.5.1",
+        "react-redux": "^8.1.2",
+        "redux": "^4.2.1",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.4.2"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.20.0"
+    },
+    "private": true
 }
