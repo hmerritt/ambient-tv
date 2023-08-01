@@ -2885,6 +2885,7 @@ __metadata:
     expo-keep-awake: ~12.3.0
     expo-linear-gradient: ~12.3.0
     expo-location: ~16.1.0
+    expo-navigation-bar: ~2.3.0
     expo-splash-screen: ~0.20.5
     expo-status-bar: ~1.6.0
     moment: ^2.29.4
@@ -4495,6 +4496,18 @@ __metadata:
     compare-versions: ^3.4.0
     invariant: ^2.2.4
   checksum: 9a740ef3203356d080745fb80930cd853bbb5492bd329062dcd96114b884f3c0e3c94e940c1b9e7b93ab2c3ecd4fdf3790312c0f773136c4c858b6cdca085701
+  languageName: node
+  linkType: hard
+
+"expo-navigation-bar@npm:~2.3.0":
+  version: 2.3.0
+  resolution: "expo-navigation-bar@npm:2.3.0"
+  dependencies:
+    "@react-native/normalize-color": ^2.0.0
+    debug: ^4.3.2
+  peerDependencies:
+    expo: "*"
+  checksum: 6f4afaaac7eb3e1ef9909ea09ad125efb64c4bba7022430a00d526941a551ac41639f57dce89a187aabb5e2cac85b24b6f03b6b788b8b086dc0e5fa675a9a1b8
   languageName: node
   linkType: hard
 

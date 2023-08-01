@@ -17,7 +17,18 @@
             "./src/assets/icons/*",
             "./src/assets/fonts/*"
         ],
-        "plugins": ["./plugins/android-manifest.plugin.js"],
+        "plugins": [
+            "./plugins/android-manifest.plugin.js",
+            [
+                "expo-navigation-bar",
+                {
+                    "position": "absolute",
+                    "visibility": "hidden",
+                    "behavior": "inset-swipe",
+                    "backgroundColor": "#00000080"
+                }
+            ]
+        ],
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
@@ -61,8 +72,8 @@
                 "backgroundColor": "#ffffff"
             }
         },
-        "androidNavigationBar": {
-            "visible": "immersive"
+        "androidStatusBar": {
+            "hidden": true
         },
         "web": {
             "favicon": "./assets/favicon.png",
