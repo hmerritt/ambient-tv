@@ -5,9 +5,10 @@
     "scripts": {
         "start": "expo start",
         "android": "expo start --android",
-        "android:build": "eas build --platform android",
+        "android:build": "eas build --platform android --profile development",
         "ios": "expo start --ios",
-        "web": "expo start --web"
+        "web": "expo start --web",
+        "web:build": "expo export --platform web"
     },
     "dependencies": {
         "@bug-catch/react-native": "^1.0.0",
@@ -23,8 +24,10 @@
         "expo-status-bar": "~1.6.0",
         "moment": "^2.29.4",
         "react": "18.2.0",
+        "react-dom": "18.2.0",
         "react-native": "0.72.3",
         "react-native-rss-parser": "^1.5.1",
+        "react-native-web": "~0.19.6",
         "react-redux": "^8.1.2",
         "redux": "^4.2.1",
         "redux-logger": "^3.0.6",

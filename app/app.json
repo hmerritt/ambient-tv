@@ -59,7 +59,8 @@
         },
         "web": {
             "favicon": "./assets/favicon.png",
-            "name": "Ambient TV"
+            "name": "Ambient TV",
+            "bundler": "metro"
         },
         "extra": {
             "eas": {
