@@ -2885,6 +2885,7 @@ __metadata:
     expo-keep-awake: ~12.3.0
     expo-linear-gradient: ~12.3.0
     expo-location: ~16.1.0
+    expo-splash-screen: ~0.20.5
     expo-status-bar: ~1.6.0
     moment: ^2.29.4
     react: 18.2.0
@@ -4483,6 +4484,17 @@ __metadata:
     compare-versions: ^3.4.0
     invariant: ^2.2.4
   checksum: 9a740ef3203356d080745fb80930cd853bbb5492bd329062dcd96114b884f3c0e3c94e940c1b9e7b93ab2c3ecd4fdf3790312c0f773136c4c858b6cdca085701
+  languageName: node
+  linkType: hard
+
+"expo-splash-screen@npm:~0.20.5":
+  version: 0.20.5
+  resolution: "expo-splash-screen@npm:0.20.5"
+  dependencies:
+    "@expo/prebuild-config": 6.2.6
+  peerDependencies:
+    expo: "*"
+  checksum: c4b0db3d0e8ab755a9f4afb1f20824229fa84ea2410528e4316a62e676e08f990157c9edd4af0978f79183d6b47cf3d4843b86f76c084274a40e07adfd697889
   languageName: node
   linkType: hard
 
