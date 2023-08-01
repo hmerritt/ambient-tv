@@ -5,8 +5,10 @@
     "scripts": {
         "start": "expo start",
         "android": "expo start --android",
-        "android:build:development": "eas build --platform android --profile development",
-        "android:build": "eas build --platform android --profile production",
+        "android:build": "eas build --platform android --profile production --local",
+        "android:build:development": "eas build --platform android --profile development --local",
+        "android:build:remote": "eas build --platform android --profile production",
+        "android:build:development:remote": "eas build --platform android --profile development",
         "ios": "expo start --ios",
         "web": "expo start --web",
         "web:build": "expo export --platform web"
