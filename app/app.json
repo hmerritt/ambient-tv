@@ -40,6 +40,12 @@
                     "category": ["LAUNCHER", "LEANBACK_LAUNCHER"],
                     "autoVerify": false,
                     "data": {}
+                },
+                {
+                    "action": "VIEW",
+                    "category": ["DEFAULT", "BROWSABLE"],
+                    "autoVerify": false,
+                    "data": {}
                 }
             ],
             "icon": "./assets/icon.png",
