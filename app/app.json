@@ -32,7 +32,7 @@
         },
         "android": {
             "package": "com.hmerritt.ambient.tv",
-            "versionCode": 8,
+            "versionCode": 9,
             "permissions": ["ACCESS_COARSE_LOCATION"],
             "intentFilters": [
                 {
