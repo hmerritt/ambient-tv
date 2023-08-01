@@ -1,17 +1,20 @@
 # Ambient TV
 
+![](https://img.shields.io/github/v/release/hmerritt/ambient-tv.svg) ![](https://img.shields.io/github/license/hmerritt/ambient-tv)
+
 A simple react-native app to cycle background images (works great on [Chromecast with Google TV](https://store.google.com/gb/product/chromecast_google_tv))
 
-![](https://img.shields.io/github/v/release/hmerritt/ambient-tv.svg) ![](https://img.shields.io/github/license/hmerritt/ambient-tv)
+-   [Android App (Play store)](https://play.google.com/store/apps/details?id=com.hmerritt.ambient.tv)
+-   [Chrome extension](https://chrome.google.com/webstore/detail/ambient-tv/gcgkmdgkoickimkhkkbcopdgcaepbade)
 
 ![](./screenshots/screenshot-1.png)
 
 ## Features
 
-- Clock
-- Live weather by location
-- New background every 2 minutes
-- Avoids using the same background twice for RSS feeds
+-   Clock
+-   Live weather by location
+-   New background every 2 minutes
+-   Avoids using the same background twice for RSS feeds
 
 ## Development
 
