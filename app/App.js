@@ -15,11 +15,21 @@ import store from './src/state';
 
 import AppActual from './src/AppActual';
 
-bootstrap();
+// Show splash screen until fonts are loaded
+SplashScreen.preventAutoHideAsync();
+
+// Hide navigation bar
+NavigationBar.setPositionAsync("absolute");
+NavigationBar.setVisibilityAsync("hidden");
+NavigationBar.setBehaviorAsync("inset-swipe");
+NavigationBar.setBackgroundColorAsync("#00000080"); // `rgba(0,0,0,0.5)`
+setStatusBarHidden(true, "fade");
 
 export default function App() {
 	// Keep screen awake
 	useKeepAwake();
+
+	const visibility = NavigationBar.useVisibility()
 
 	// Hide navigation bar after a few seconds
 	useEffect(() => {
@@ -53,16 +63,4 @@ export default function App() {
 			<AppActual />
 		</Provider>
 	);
-}
-
-const bootstrap = () => {
-	// Show splash screen until fonts are loaded
-	SplashScreen.preventAutoHideAsync();
-
-	// Hide navigation bar
-	NavigationBar.setPositionAsync("absolute");
-	NavigationBar.setVisibilityAsync("hidden");
-	NavigationBar.setBehaviorAsync("inset-swipe");
-	NavigationBar.setBackgroundColorAsync("#00000080"); // `rgba(0,0,0,0.5)`
-	setStatusBarHidden(true, "none");
 }
