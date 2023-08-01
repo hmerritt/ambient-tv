@@ -2,8 +2,9 @@
     "expo": {
         "name": "Ambient TV",
         "slug": "ambient-tv",
-        "version": "1.1.8",
+        "version": "1.2.10",
         "privacy": "hidden",
+        "jsEngine": "hermes",
         "orientation": "landscape",
         "icon": "./assets/icon.png",
         "updates": {
@@ -15,10 +16,22 @@
             "./src/assets/icons/*",
             "./src/assets/fonts/*"
         ],
+        "plugins": [
+            "./plugins/android-manifest.plugin.js",
+            [
+                "expo-navigation-bar",
+                {
+                    "position": "absolute",
+                    "visibility": "hidden",
+                    "behavior": "inset-swipe",
+                    "backgroundColor": "#00000080"
+                }
+            ]
+        ],
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
-            "buildNumber": "1.1.8",
+            "buildNumber": "1.2.10",
             "supportsTablet": true,
             "requireFullScreen": true,
             "splash": {
@@ -30,17 +43,18 @@
         },
         "android": {
             "package": "com.hmerritt.ambient.tv",
-            "versionCode": 8,
-            "permissions": [
-                "ACCESS_FINE_LOCATION"
-            ],
+            "versionCode": 12,
+            "permissions": ["ACCESS_COARSE_LOCATION"],
             "intentFilters": [
                 {
                     "action": "MAIN",
-                    "category": [
-                        "LAUNCHER",
-                        "LEANBACK_LAUNCHER"
-                    ],
+                    "category": ["LAUNCHER", "LEANBACK_LAUNCHER"],
+                    "autoVerify": false,
+                    "data": {}
+                },
+                {
+                    "action": "VIEW",
+                    "category": ["DEFAULT", "BROWSABLE"],
                     "autoVerify": false,
                     "data": {}
                 }
@@ -57,12 +71,18 @@
                 "backgroundColor": "#ffffff"
             }
         },
-        "androidNavigationBar": {
-            "visible": "immersive"
+        "androidStatusBar": {
+            "hidden": true
         },
         "web": {
             "favicon": "./assets/favicon.png",
-            "name": "Ambient TV"
+            "name": "Ambient TV",
+            "bundler": "metro"
+        },
+        "extra": {
+            "eas": {
+                "projectId": "23508b3c-d3c7-46c6-9cfb-b7572bc61d50"
+            }
         }
     }
 }

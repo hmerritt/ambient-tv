@@ -20,9 +20,8 @@ const App = () => {
 							<h3>What data we collect</h3>
 							<hr />
 							<p className="bulk">
-								None. No data is stored outside of the device
-								itself.
-								<br /> <br />
+								1. Location
+								<br />
 								We request the devices location within the app
 								for the purpose of providing live weather in
 								that area. This location data is not collected
@@ -30,6 +29,12 @@ const App = () => {
 								permission is not requred to be granted for the
 								app to work as intended (minus said weather
 								features previously mentioned).
+								<br /> <br />
+								2. Anonymised app usage
+								<br />
+								Anonymised app usage data may be collected. This is
+								non-personal telemetry data used for analytics
+								and performance purposes only.
 							</p>
 						</section>
 						<section>

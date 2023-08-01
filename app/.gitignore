@@ -1,7 +1,6 @@
 node_modules/**/*
 .expo/*
 .keys/*
-env.js
 npm-debug.*
 *.jks
 *.p8
@@ -52,6 +51,7 @@ local.properties
 
 # node.js
 #
+.yarn/
 node_modules/
 npm-debug.log
 yarn-error.log
@@ -70,6 +70,11 @@ buck-out/
 
 # Expo
 .expo/
+dist/
 web-build/
 
-# @end expo-cli
+env.js
+!src/env.js
+
+*.aab
+*.apk
