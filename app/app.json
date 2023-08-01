@@ -17,6 +17,7 @@
             "./src/assets/icons/*",
             "./src/assets/fonts/*"
         ],
+        "plugins": ["./plugins/android-manifest.plugin.js"],
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
