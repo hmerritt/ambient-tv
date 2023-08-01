@@ -1,7 +1,6 @@
 node_modules/**/*
 .expo/*
 .keys/*
-env.js
 npm-debug.*
 *.jks
 *.p8
@@ -74,4 +73,8 @@ buck-out/
 dist/
 web-build/
 
-# @end expo-cli
+env.js
+!src/env.js
+
+*.aab
+*.apk

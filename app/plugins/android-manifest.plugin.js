@@ -3,12 +3,12 @@ const { withAndroidManifest } = require("@expo/config-plugins")
 // Patch output manifest.
 //
 // Refer: https://docs.expo.dev/config-plugins/plugins-and-mods/ | https://chafikgharbi.com/expo-android-manifest/
-module.exports = function androiManifestPlugin(config) {
+module.exports = function androidManifestPlugin(config) {
 	return withAndroidManifest(config, async config => {
 		let androidManifest = config.modResults.manifest
 
 		androidManifest["uses-feature"] = [
-			...androidManifest["uses-feature"],
+			...(androidManifest["uses-feature"] || []),
 			{
 				$: {
 					'android:name': "android.hardware.touchscreen",

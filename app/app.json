@@ -7,7 +7,6 @@
         "jsEngine": "hermes",
         "orientation": "landscape",
         "icon": "./assets/icon.png",
-        "userInterfaceStyle": "light",
         "updates": {
             "enabled": false,
             "fallbackToCacheTimeout": 0
@@ -44,7 +43,7 @@
         },
         "android": {
             "package": "com.hmerritt.ambient.tv",
-            "versionCode": 9,
+            "versionCode": 12,
             "permissions": ["ACCESS_COARSE_LOCATION"],
             "intentFilters": [
                 {
