@@ -19,6 +19,15 @@
         "plugins": [
             "./plugins/android-manifest.plugin.js",
             [
+                "expo-build-properties",
+                {
+                    "android": {
+                        "enableProguardInReleaseBuilds": true,
+                        "enableShrinkResourcesInReleaseBuilds": true
+                    }
+                }
+            ],
+            [
                 "expo-navigation-bar",
                 {
                     "position": "absolute",
