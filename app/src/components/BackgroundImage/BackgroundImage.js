@@ -6,8 +6,10 @@
 import env from '../../../env';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Animated, View, StyleSheet } from 'react-native';
+import { Video, ResizeMode } from 'expo-av';
+import { Animated, Image, View, StyleSheet } from 'react-native';
 
+import { isVideo } from '../../utils/assets';
 import { imageLoadingState } from '../../state/actions/bgImageActions';
 
 const BackgroundImage = ({ src, animate }) => {
@@ -30,15 +32,36 @@ const BackgroundImage = ({ src, animate }) => {
 
     return (
         <View style={styles.container}>
-            <Animated.Image
-                source={{
-                    uri: src,
-                }}
-                style={[styles.image, { opacity: imageOpacity }]}
-                onLoad={onImageLoad}
-                onLoadStart={(e) => dispatch(imageLoadingState('start'))}
-                onLoadEnd={(e) => dispatch(imageLoadingState('end'))}
-            />
+            <Animated.View style={[styles.container, { opacity: imageOpacity }]}>
+                {!isVideo(src) && (
+                    <Image
+                        source={{
+                            uri: src,
+                        }}
+                        style={styles.image}
+                        onLoad={onImageLoad}
+                        onLoadStart={(e) => dispatch(imageLoadingState('start'))}
+                        onLoadEnd={(e) => dispatch(imageLoadingState('end'))}
+                    />
+                )}
+
+                {isVideo(src) && (
+                    <Video
+                        style={styles.image}
+                        videoStyle={styles.image}
+                        source={{
+                            uri: src,
+                        }}
+                        isLooping
+                        isMuted
+                        shouldPlay
+                        useNativeControls={false}
+                        resizeMode={ResizeMode.COVER}
+                        onLoadStart={(e) => dispatch(imageLoadingState('start'))}
+                        onReadyForDisplay={(e) => dispatch(imageLoadingState('end'))}
+                    />
+                )}
+            </Animated.View>
         </View>
     );
 };
@@ -54,6 +77,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
     image: {
+        position: 'relative',
         flex: 1,
         width: '100%',
         height: '100%',

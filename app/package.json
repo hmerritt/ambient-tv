@@ -19,6 +19,7 @@
         "axios": "^1.4.0",
         "chance": "^1.1.11",
         "expo": "~49.0.5",
+        "expo-av": "~13.4.1",
         "expo-build-properties": "~0.8.3",
         "expo-font": "~11.4.0",
         "expo-keep-awake": "~12.3.0",
