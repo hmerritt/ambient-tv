@@ -16,13 +16,13 @@ const BackgroundImage = ({ src, animate }) => {
     const dispatch = useDispatch();
 
     // Starting image opacity -> 0
-    const imageOpacity = animate ? new Animated.Value(0) : 1;
+    const assetOpacity = animate ? new Animated.Value(0) : 1;
 
-    // Once image has loaded
+    // Once asset has loaded
     // -> animate opacity from 0 -> 1
-    const onImageLoad = () => {
+    const onAssetLoad = () => {
         if (animate) {
-            Animated.timing(imageOpacity, {
+            Animated.timing(assetOpacity, {
                 toValue: 1,
                 duration: env.ANIMATION_LONG,
                 useNativeDriver: true,
@@ -32,14 +32,14 @@ const BackgroundImage = ({ src, animate }) => {
 
     return (
         <View style={styles.container}>
-            <Animated.View style={[styles.container, { opacity: imageOpacity }]}>
+            <Animated.View style={[styles.container, { opacity: assetOpacity }]}>
                 {!isVideo(src) && (
                     <Image
                         source={{
                             uri: src,
                         }}
                         style={styles.image}
-                        onLoad={onImageLoad}
+                        onLoad={onAssetLoad}
                         onLoadStart={(e) => dispatch(imageLoadingState('start'))}
                         onLoadEnd={(e) => dispatch(imageLoadingState('end'))}
                     />
@@ -57,6 +57,7 @@ const BackgroundImage = ({ src, animate }) => {
                         shouldPlay
                         useNativeControls={false}
                         resizeMode={ResizeMode.COVER}
+                        onLoad={onAssetLoad}
                         onLoadStart={(e) => dispatch(imageLoadingState('start'))}
                         onReadyForDisplay={(e) => dispatch(imageLoadingState('end'))}
                     />
