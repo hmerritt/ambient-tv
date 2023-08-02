@@ -28,6 +28,13 @@
                 }
             ],
             [
+                "expo-av",
+                {
+                    "//": "Disables the microphone permission",
+                    "microphonePermission": false
+                }
+            ],
+            [
                 "expo-navigation-bar",
                 {
                     "position": "absolute",
