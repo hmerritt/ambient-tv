@@ -1,6 +1,6 @@
 {
     "name": "ambient-tv",
-    "version": "1.2.15",
+    "version": "1.2.16",
     "main": "node_modules/expo/AppEntry.js",
     "scripts": {
         "start": "expo start",
@@ -10,6 +10,8 @@
         "android:build:remote": "eas build --platform android --profile production",
         "android:build:development:remote": "eas build --platform android --profile development",
         "ios": "expo start --ios",
+        "ios:build:remote": "eas build --platform ios --profile production",
+        "ios:build:development:remote": "eas build --platform ios --profile development",
         "web": "expo start --web",
         "web:build": "expo export --platform web"
     },

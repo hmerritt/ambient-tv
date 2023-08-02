@@ -8,7 +8,7 @@ import env from '../../env';
 
 export const bugCatchOptions = {
 	base_url: `${env.APP_SERVER_URL}/bug-catch`,
-	release: '1.2.15',
+	release: '1.2.16',
 	logEvents: true,
 };
 
