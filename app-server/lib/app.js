@@ -37,9 +37,9 @@ if (
                 token: process.env.BUGCATCH_TOKEN, // Token required for viewing collected data
                 rateLimit: {
                     // Rate limiter to reduce spam
-                    // Default value is 15 requests every 1 hour (per user)
+                    // Default value is 1000 requests every 1 hour (per user)
                     windowMs: 60 * 60 * 1000, // 60 minutes
-                    max: 10,
+                    max: 1000,
                 },
             },
             mongodb: {
