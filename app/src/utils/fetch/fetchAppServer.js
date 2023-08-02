@@ -15,7 +15,6 @@ export const fetchAppServer = async (src) => {
 
 	// Check if cache is valid
 	if (appServerCache?.data?.length > 1 && moment().unix() < appServerCache.expire) {
-		fetchAppServerData(src); // Fetch in the background
 		return appServerCache.data;
 	}
 
