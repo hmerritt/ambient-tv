@@ -2,7 +2,7 @@
     "expo": {
         "name": "Ambient TV",
         "slug": "ambient-tv",
-        "version": "1.2.13",
+        "version": "1.2.16",
         "privacy": "hidden",
         "jsEngine": "hermes",
         "orientation": "landscape",
@@ -28,6 +28,13 @@
                 }
             ],
             [
+                "expo-av",
+                {
+                    "//": "Disables the microphone permission",
+                    "microphonePermission": false
+                }
+            ],
+            [
                 "expo-navigation-bar",
                 {
                     "position": "absolute",
@@ -40,7 +47,7 @@
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
-            "buildNumber": "1.2.13",
+            "buildNumber": "1.2.16",
             "supportsTablet": true,
             "requireFullScreen": true,
             "splash": {
@@ -52,7 +59,7 @@
         },
         "android": {
             "package": "com.hmerritt.ambient.tv",
-            "versionCode": 15,
+            "versionCode": 19,
             "permissions": ["ACCESS_FINE_LOCATION"],
             "intentFilters": [
                 {

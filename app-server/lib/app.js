@@ -4,14 +4,15 @@ const cors = require("cors");
 const bugcatch = require("@bug-catch/server");
 
 const pkg = require("../package.json");
-const imagesRoute = require("./routes/imagesRoute");
+const assetsRoute = require("./routes/assetsRoute");
 
 const server = express();
 
 server.use(cors());
 server.use(bodyParser.json());
 
-server.use("/images", imagesRoute);
+server.use("/images", assetsRoute); // @Legacy
+server.use("/assets", assetsRoute);
 
 // Base root welcome message
 server.get("/", (req, res) => {

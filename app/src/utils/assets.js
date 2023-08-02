@@ -17,17 +17,21 @@ import sunny from '../assets/icons/sunny.png';
 import thunderstorms from '../assets/icons/thunderstorms.png';
 
 export default {
-    icons: {
-        cloudy: cloudy,
-        mist: mist,
-        partly_cloudy: partly_cloudy,
-        rain_heavy: rain_heavy,
-        rain_light: rain_light,
-        rain_s_cloudy: rain_s_cloudy,
-        rain: rain,
-        snow: snow,
-        sunny_s_cloudy: sunny_s_cloudy,
-        sunny: sunny,
-        thunderstorms: thunderstorms,
-    },
+	icons: {
+		cloudy: cloudy,
+		mist: mist,
+		partly_cloudy: partly_cloudy,
+		rain_heavy: rain_heavy,
+		rain_light: rain_light,
+		rain_s_cloudy: rain_s_cloudy,
+		rain: rain,
+		snow: snow,
+		sunny_s_cloudy: sunny_s_cloudy,
+		sunny: sunny,
+		thunderstorms: thunderstorms,
+	},
 };
+
+export const isVideo = (src) => {
+	return src.endsWith('.mp4');
+}

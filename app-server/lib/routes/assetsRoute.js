@@ -1,22 +1,22 @@
 const express = require("express");
 
-const imagesController = require("../controllers/imagesController");
+const assetsController = require("../controllers/assetsController");
 const rssController = require("../controllers/rssController");
 
 const router = express.Router();
 
-// Fetch images from b2
-imagesController.populateImageStore();
-imagesController.startCronJob("0 0 * * *", imagesController.populateImageStore);
+// Fetch assets from b2
+assetsController.populateAssetStore();
+assetsController.startCronJob("0 0 * * *", assetsController.populateAssetStore);
 
 /*
- * Returns list of images as JSON
+ * Returns list of assets as JSON
  */
 router.get("/", async (req, res, next) => {
     try {
-        const images = imagesController.images() || [];
+        const assets = assetsController.assets() || [];
 
-        res.json(images);
+        res.json(assets);
     } catch (err) {
         console.log(err);
         res.status(500).json([]);
@@ -24,13 +24,13 @@ router.get("/", async (req, res, next) => {
 });
 
 /*
- * Returns list of images as RSS
+ * Returns list of assets as RSS
  */
 router.get("/rss", async (req, res, next) => {
     try {
-        const images = imagesController.images() || [];
+        const assets = assetsController.assets() || [];
         const rss = new rssController();
-        rss.set("data", images);
+        rss.set("data", assets);
 
         res.contentType("application/xml");
         res.send(rss.get());

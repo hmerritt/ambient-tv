@@ -25,7 +25,7 @@ export const getNewBackground = () => async (dispatch, getState) => {
         case 'appserver':
         case 'appServer':
         case 'app-server':
-            background = await methodAppServer(env.APP_SERVER_URL + '/images');
+            background = await methodAppServer(env.APP_SERVER_URL + '/assets');
             break;
 
         case 'rss':

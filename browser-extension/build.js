@@ -111,27 +111,36 @@ const main = () => {
 		);
 
 	// Backup env.js in app
-	console.log("  * 1/5  Backup existing env.js");
+	console.log("  * 1/6  Backup existing env.js");
 	fileBackup(`${APP_DIR}/env.js`);
 
 	// Move env.js into app
-	console.log("  * 2/5  Copy env.js to app directory");
+	console.log("  * 2/6  Copy env.js to app directory");
 	fileCopy("./env.js", `${APP_DIR}/env.js`);
 
 	// Build web-app
-	console.log("  * 3/5  Build app for web");
+	console.log("  * 3/6  Build app for web");
 	exec(`cd ${APP_DIR} && yarn web:build`);
 
 	// Copy build files to dist
-	console.log("  * 4/5  Copy build files to build directory");
+	console.log("  * 4/6  Copy build files to build directory");
 	fileCopyDirectory(`${APP_DIR}/dist`, `${BUILD_DIR}`);
 	fileCopy(`./icon-16.png`, `${BUILD_DIR}/icon-16.png`);
 	fileCopy(`./icon-32.png`, `${BUILD_DIR}/icon-32.png`);
 	fileCopy(`./icon-192.png`, `${BUILD_DIR}/icon-192.png`);
 	fileCopy(`./manifest.json`, `${BUILD_DIR}/manifest.json`);
 
+	// Replace words `Ambient TV` with `New Tab`
+	console.log(`  * 5/6  Replace index.html title with "New Tab"`);
+	const htmlData = fs.readFileSync(`${BUILD_DIR}/index.html`, "utf8");
+	fs.writeFileSync(`${BUILD_DIR}/index.html`, htmlData.replace(
+		`<title>Ambient TV</title>`,
+		`<title>New Tab</title>`
+	), 'utf8');
+
+
 	// Restore app env.js backup
-	console.log("  * 5/5  Restore app env.js backup");
+	console.log("  * 6/6  Restore app env.js backup");
 	fileCopy(`${APP_DIR}/env.js.backup`, `${APP_DIR}/env.js`);
 	fileDelete(`${APP_DIR}/env.js.backup`);
 };

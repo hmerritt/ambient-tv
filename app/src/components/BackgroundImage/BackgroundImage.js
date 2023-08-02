@@ -6,21 +6,23 @@
 import env from '../../../env';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Animated, View, StyleSheet } from 'react-native';
+import { Video, ResizeMode } from 'expo-av';
+import { Animated, Image, View, StyleSheet } from 'react-native';
 
+import { isVideo } from '../../utils/assets';
 import { imageLoadingState } from '../../state/actions/bgImageActions';
 
 const BackgroundImage = ({ src, animate }) => {
     const dispatch = useDispatch();
 
     // Starting image opacity -> 0
-    const imageOpacity = animate ? new Animated.Value(0) : 1;
+    const assetOpacity = animate ? new Animated.Value(0) : 1;
 
-    // Once image has loaded
+    // Once asset has loaded
     // -> animate opacity from 0 -> 1
-    const onImageLoad = () => {
+    const onAssetLoad = () => {
         if (animate) {
-            Animated.timing(imageOpacity, {
+            Animated.timing(assetOpacity, {
                 toValue: 1,
                 duration: env.ANIMATION_LONG,
                 useNativeDriver: true,
@@ -30,15 +32,37 @@ const BackgroundImage = ({ src, animate }) => {
 
     return (
         <View style={styles.container}>
-            <Animated.Image
-                source={{
-                    uri: src,
-                }}
-                style={[styles.image, { opacity: imageOpacity }]}
-                onLoad={onImageLoad}
-                onLoadStart={(e) => dispatch(imageLoadingState('start'))}
-                onLoadEnd={(e) => dispatch(imageLoadingState('end'))}
-            />
+            <Animated.View style={[styles.container, { opacity: assetOpacity }]}>
+                {!isVideo(src) && (
+                    <Image
+                        source={{
+                            uri: src,
+                        }}
+                        style={styles.image}
+                        onLoad={onAssetLoad}
+                        onLoadStart={(e) => dispatch(imageLoadingState('start'))}
+                        onLoadEnd={(e) => dispatch(imageLoadingState('end'))}
+                    />
+                )}
+
+                {isVideo(src) && (
+                    <Video
+                        style={styles.image}
+                        videoStyle={styles.image}
+                        source={{
+                            uri: src,
+                        }}
+                        isLooping
+                        isMuted
+                        shouldPlay
+                        useNativeControls={false}
+                        resizeMode={ResizeMode.COVER}
+                        onLoad={onAssetLoad}
+                        onLoadStart={(e) => dispatch(imageLoadingState('start'))}
+                        onReadyForDisplay={(e) => dispatch(imageLoadingState('end'))}
+                    />
+                )}
+            </Animated.View>
         </View>
     );
 };
@@ -54,6 +78,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
     image: {
+        position: 'relative',
         flex: 1,
         width: '100%',
         height: '100%',
