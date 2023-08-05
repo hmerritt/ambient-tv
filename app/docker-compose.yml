@@ -2,9 +2,10 @@ version: '3.1'
 
 services:
   app-build:
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: hmerritt/android-sdk:latest
+    # build:
+    #   context: .
+    #   dockerfile: ./Dockerfile
     network_mode: "host"
     restart: on-failure
     volumes:
