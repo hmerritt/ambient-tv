@@ -19,8 +19,8 @@ export const recordEvent = (name, data) => {
 	bugCatch.recordEvent(name, data);
 };
 
-export const recordSessionTimeSpent = (timeSpentInSeconds = 0) => {
-	if (!env.BUGCATCH_ENABLE || !timeSpentInSeconds) return;
+export const recordSessionTimeSpent = (timeSpentInMilliseconds = 0) => {
+	if (!env.BUGCATCH_ENABLE || !timeSpentInMilliseconds) return;
 
 	// @Note: Needs to be divisible by 2
 	const timersToRecord = [
@@ -34,7 +34,7 @@ export const recordSessionTimeSpent = (timeSpentInSeconds = 0) => {
 	];
 
 	timersToRecord.forEach(([seconds, friendly]) => {
-		if (timeSpentInSeconds === seconds) {
+		if (timeSpentInMilliseconds === seconds) {
 			recordEvent(`sessionTime-${friendly}`, `user spent ${seconds} seconds (${friendly}) on the app`);
 		}
 	})
