@@ -30,9 +30,9 @@ const BGSlideshow = () => {
 		recordEvent('newBackground', 'user has triggered a new background image');
 
 		// Calculate the timeSpent using backgroundsSeen + IMAGE_TIMER
-		const timeSpentInMilliseconds = backgroundsSeen.current * env.IMAGE_TIMER;
-		recordSessionTimeSpent(timeSpentInMilliseconds);
-	}, env.IMAGE_TIMER);
+		const timeSpentInSeconds = backgroundsSeen.current * env.IMAGE_TIMER;
+		recordSessionTimeSpent(timeSpentInSeconds);
+	}, (env.IMAGE_TIMER || 120) * 1000);
 
 	useEffect(() => {
 		dispatch(getNewBackground());

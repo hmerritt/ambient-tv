@@ -36,7 +36,7 @@ export default {
     ANIMATION_SHORT: 1000,
     APP_SERVER_URL: '',
     FETCH_METHOD: '',
-    IMAGE_TIMER: 120000,
+    IMAGE_TIMER: 120,
     OPENWEATHERMAP_KEY: '',
     RSS_URL: '',
     TITLE: 'Ambient TV',
