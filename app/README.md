@@ -2,23 +2,34 @@
 
 ## Development
 
-```
-expo start
-
-expo start --android
-expo start --web
-```
-
-Main config file (Expo managed). Contains version info (this needs to be updated every build!).
+### Setup
 
 ```
-app.json
+npm i -g eas-cli @expo/ngrok@^4.1.0 sharp-cli@^2.1.0
+```
+
+```
+yarn
+```
+
+### Start
+
+Start Metro Bundler
+
+```
+yarn start
 ```
 
 ## Build
 
+Build for release `.aab`
+
 ```
-expo build:android
-expo build:ios
-expo build:web
+yarn android:build
+```
+
+Build for development `.apk`
+
+```
+yarn android:build:development
 ```
