@@ -22,14 +22,15 @@ export const recordEvent = (name, data) => {
 export const recordSessionTimeSpent = (timeSpentInSeconds = 0) => {
 	if (!env.BUGCATCH_ENABLE || !timeSpentInSeconds) return;
 
+	// @Note: Needs to be divisible by 2
 	const timersToRecord = [
-		[60000 * 5, '5m'],
 		[60000 * 10, '10m'],
 		[60000 * 30, '30m'],
 		[60000 * 60 * 1, '1h'],
 		[60000 * 60 * 6, '6h'],
 		[60000 * 60 * 12, '12h'],
 		[60000 * 60 * 24, '24h'],
+		[60000 * 60 * 24 * 7, '1w'],
 	];
 
 	timersToRecord.forEach(([seconds, friendly]) => {
