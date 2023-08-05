@@ -1660,13 +1660,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bug-catch/react-native@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "@bug-catch/react-native@npm:1.0.0"
+"@bug-catch/react-native@npm:2.0.1":
+  version: 2.0.1
+  resolution: "@bug-catch/react-native@npm:2.0.1"
   dependencies:
     "@react-native-async-storage/async-storage": ^1.15.14
     react-native-exception-handler: ^2.10.10
-  checksum: bb7e6faf6cc4e5e2b4521773bbbf35b69bc6c6af970812ff3abb5df22d43432610d49b54fb9908d8825c4b02eedbdb2a0fe0850b4b7b4a23afc18b9a907a208a
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 419bf75ec027f4ca7fe9f365e3f41c573cad8618b2a1b1be11bce7a4ddf7ba3d560e48b627e95bf4e3d308785bfcb3b4fcda09ea50e7d721605fd8d08e14dd72
   languageName: node
   linkType: hard
 
@@ -2888,7 +2891,7 @@ __metadata:
   resolution: "ambient-tv@workspace:."
   dependencies:
     "@babel/core": ^7.20.0
-    "@bug-catch/react-native": ^1.0.0
+    "@bug-catch/react-native": 2.0.1
     "@react-native-async-storage/async-storage": 1.18.2
     axios: ^1.4.0
     chance: ^1.1.11
@@ -2906,7 +2909,6 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-native: 0.72.3
-    react-native-exception-handler: ^2.10.10
     react-native-rss-parser: ^1.5.1
     react-native-web: ~0.19.6
     react-redux: ^8.1.2

@@ -2,17 +2,19 @@
  * Ambient TV
  * https://github.com/hmerritt/ambient-tv
  */
-import { recordEvent as bugcatchRecordEvent } from '@bug-catch/react-native';
+import { init as bugcatchInit } from '@bug-catch/react-native';
 
 import env from '../../env';
 
-export const bugCatchOptions = {
-	base_url: `${env.APP_SERVER_URL}/bug-catch`,
-	release: '1.2.16',
+// Bugcatch init (records all errors)
+export const bugCatch = bugcatchInit({
+	baseUrl: `${env.APP_SERVER_URL}/bug-catch`,
+	release: '1.2.18',
 	logEvents: true,
-};
+	disableExceptionHandler: !env.BUGCATCH_ENABLE,
+});
 
 export const recordEvent = (name, data) => {
 	if (!env.BUGCATCH_ENABLE) return;
-	bugcatchRecordEvent(name, data, bugCatchOptions);
+	bugCatch.recordEvent(name, data);
 };

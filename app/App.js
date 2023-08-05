@@ -3,18 +3,21 @@
  * https://github.com/hmerritt/ambient-tv
  */
 
+import React from 'react';
 import { useFonts } from 'expo-font';
 import { Provider } from 'react-redux';
-import React from 'react';
 import { useKeepAwake } from 'expo-keep-awake';
 import * as SplashScreen from 'expo-splash-screen';
 import * as NavigationBar from "expo-navigation-bar";
 import { setStatusBarHidden } from 'expo-status-bar';
 
 import store from './src/state';
+import { recordEvent } from './src/utils/bugCatch';
 
 import AppActual from './src/AppActual';
 import AppShellStyles from './src/components/AppShellStyles';
+
+recordEvent('appOpen', 'user has opened the app');
 
 // Show splash screen until fonts are loaded
 SplashScreen.preventAutoHideAsync();

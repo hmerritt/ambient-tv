@@ -1,10 +1,10 @@
 {
     "name": "ambient-tv",
-    "version": "1.2.16",
+    "version": "1.2.18",
     "main": "node_modules/expo/AppEntry.js",
     "scripts": {
-        "start": "expo start",
-        "android": "expo start --android",
+        "start": "expo start --tunnel",
+        "android": "expo start --android --tunnel",
         "android:build": "eas build --platform android --profile production --local",
         "android:build:development": "eas build --platform android --profile development --local",
         "android:build:remote": "eas build --platform android --profile production",
@@ -16,7 +16,7 @@
         "web:build": "expo export --platform web"
     },
     "dependencies": {
-        "@bug-catch/react-native": "^1.0.0",
+        "@bug-catch/react-native": "2.0.1",
         "@react-native-async-storage/async-storage": "1.18.2",
         "axios": "^1.4.0",
         "chance": "^1.1.11",
@@ -34,7 +34,6 @@
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-native": "0.72.3",
-        "react-native-exception-handler": "^2.10.10",
         "react-native-rss-parser": "^1.5.1",
         "react-native-web": "~0.19.6",
         "react-redux": "^8.1.2",

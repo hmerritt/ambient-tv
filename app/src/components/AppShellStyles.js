@@ -27,6 +27,7 @@ export default function AppShellStyles() {
 		<StatusBar
 			hidden={true}
 			translucent
+			style="light"
 			backgroundColor="transparent"
 		/>
 	);
