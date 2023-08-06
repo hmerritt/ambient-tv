@@ -11,10 +11,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Animated, StyleSheet, View } from 'react-native';
 
-import BGGradient from './BackgroundImage/BGGradient';
-import BGAbout from './BackgroundImage/About/BGAbout';
 import Clock from './Clock';
 import Weather from './Weather';
+import BGAbout from './BackgroundImage/About/BGAbout';
+import BGGradient from './BackgroundImage/BGGradient';
 
 const Overlay = () => {
     const bgImageLoading = useSelector((state) => state.bgImage.loading);

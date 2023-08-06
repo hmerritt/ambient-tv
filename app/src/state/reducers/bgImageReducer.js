@@ -3,6 +3,7 @@ import * as actionTypes from '../actions/bgImageActions';
 
 const initialState = {
     loading: true,
+    showControls: false,
     feed: {
         method: env.FETCH_METHOD,
         cache: {},
@@ -69,6 +70,12 @@ export default (state = initialState, action) => {
                         [action.payload.src]: action.payload.data,
                     },
                 },
+            };
+
+        case actionTypes.CONTROLS_TOGGLE:
+            return {
+                ...state,
+                showControls: action.payload ?? !state.showControls,
             };
 
         default:

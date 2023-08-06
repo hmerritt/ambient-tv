@@ -6,6 +6,7 @@ export const IMAGE_LOADING_START = 'IMAGE_LOADING_START';
 export const IMAGE_LOADING_END = 'IMAGE_LOADING_END';
 export const PUSH_NEW_IMAGE = 'PUSH_NEW_IMAGE';
 export const CACHE_FEED_DATA = 'CACHE_FEED_DATA';
+export const CONTROLS_TOGGLE = 'CONTROLS_TOGGLE';
 
 // Update image loading state
 export const imageLoadingState = (loadingState) => (dispatch) => {
@@ -42,4 +43,8 @@ export const getNewBackground = () => async (dispatch, getState) => {
 // Cache feed (rss, etc..) data in store
 export const cacheFeedData = (feed) => (dispatch) => {
     dispatch({ type: CACHE_FEED_DATA, payload: feed });
+};
+
+export const controlsToggle = (yesOrNo = undefined) => (dispatch) => {
+    dispatch({ type: CONTROLS_TOGGLE, payload: yesOrNo });
 };

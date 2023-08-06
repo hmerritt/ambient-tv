@@ -1,9 +1,6 @@
 /**
  * Ambient TV
  * https://github.com/hmerritt/ambient-tv
- *
- * @format
- * @flow strict-local
  */
 
 import env from '../../../env';
@@ -24,6 +21,12 @@ const BGSlideshow = () => {
 	);
 	const backgroundsSeen = useRef(0);
 
+	// New background on load
+	useEffect(() => {
+		dispatch(getNewBackground());
+	}, []);
+
+	// New background every `IMAGE_TIMER` seconds
 	useInterval(() => {
 		dispatch(getNewBackground());
 		backgroundsSeen.current++;
@@ -33,10 +36,6 @@ const BGSlideshow = () => {
 		const timeSpentInSeconds = backgroundsSeen.current * env.IMAGE_TIMER;
 		recordSessionTimeSpent(timeSpentInSeconds);
 	}, (env.IMAGE_TIMER || 120) * 1000);
-
-	useEffect(() => {
-		dispatch(getNewBackground());
-	}, []);
 
 	return (
 		<>
