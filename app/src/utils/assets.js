@@ -4,6 +4,7 @@
  */
 
 // icons
+import chevronRight from '../assets/icons/chevron-right.png';
 import cloudy from '../assets/icons/cloudy.png';
 import mist from '../assets/icons/mist.png';
 import partly_cloudy from '../assets/icons/partly_cloudy.png';
@@ -18,6 +19,7 @@ import thunderstorms from '../assets/icons/thunderstorms.png';
 
 export default {
 	icons: {
+		chevronRight: chevronRight,
 		cloudy: cloudy,
 		mist: mist,
 		partly_cloudy: partly_cloudy,
