@@ -2,7 +2,7 @@
     "expo": {
         "name": "Ambient TV",
         "slug": "ambient-tv",
-        "version": "1.2.18",
+        "version": "1.3.18",
         "privacy": "hidden",
         "jsEngine": "hermes",
         "orientation": "landscape",
@@ -18,6 +18,7 @@
         ],
         "plugins": [
             "./plugins/android-manifest.plugin.js",
+            "./plugins/withDrawableAssets.plugin.js",
             [
                 "expo-build-properties",
                 {
@@ -47,7 +48,7 @@
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
-            "buildNumber": "1.2.18",
+            "buildNumber": "1.3.18",
             "supportsTablet": true,
             "requireFullScreen": true,
             "splash": {
@@ -58,8 +59,8 @@
             }
         },
         "android": {
+            "versionCode": 23,
             "package": "com.hmerritt.ambient.tv",
-            "versionCode": 22,
             "permissions": ["ACCESS_FINE_LOCATION"],
             "intentFilters": [
                 {
@@ -85,7 +86,8 @@
                 "xxxhdpi": "./assets/blank.png",
                 "resizeMode": "contain",
                 "backgroundColor": "#ffffff"
-            }
+            },
+            "playStoreUrl": "https://play.google.com/store/apps/details?id=com.hmerritt.ambient.tv"
         },
         "androidStatusBar": {
             "hidden": true
