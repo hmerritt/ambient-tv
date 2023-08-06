@@ -18,7 +18,6 @@ const Controls = () => {
 	const showControls = useSelector((state) => state.bgImage.showControls);
 
 	const overlayOpacity = new Animated.Value(0);
-	console.log('showControls', showControls, overlayOpacity);
 
 	useEffect(() => {
 		if (bgImageLoading) return;
