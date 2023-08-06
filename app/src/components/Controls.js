@@ -30,7 +30,6 @@ const Controls = () => {
 	}, [showControls]);
 
 	const handleNext = (e) => {
-		console.log('handleNext', showControls, bgImageLoading);
 		if (!showControls) dispatch(controlsToggle());
 		if (!showControls || bgImageLoading) return;
 		dispatch(getNewBackground());
@@ -55,6 +54,7 @@ const Controls = () => {
 const styles = StyleSheet.create({
 	overlay: {
 		position: 'absolute',
+		cursor: 'default',
 		left: 0,
 		right: 0,
 		width: '100%',
