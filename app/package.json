@@ -16,7 +16,7 @@
         "web:build": "expo export --platform web"
     },
     "dependencies": {
-        "@bug-catch/react-native": "^2.1.13",
+        "@bug-catch/react-native": "^2.2.17",
         "@react-native-async-storage/async-storage": "1.18.2",
         "axios": "^1.4.0",
         "chance": "^1.1.11",

@@ -1660,17 +1660,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bug-catch/react-native@npm:^2.1.13":
-  version: 2.1.13
-  resolution: "@bug-catch/react-native@npm:2.1.13"
+"@bug-catch/react-native@npm:^2.2.17":
+  version: 2.2.17
+  resolution: "@bug-catch/react-native@npm:2.2.17"
   dependencies:
-    "@react-native-async-storage/async-storage": ^1.15.14
     expo-device: ^5.4.0
     react-native-exception-handler: ^2.10.10
   peerDependencies:
+    expo: "*"
+    expo-modules-core: "*"
     react: "*"
     react-native: "*"
-  checksum: e6aa9a64d25a459ba91bee9b10bda4ac128c4f2b4c7075457249ad793afac356b9806d0d36135ff85ed12acfbe1d5e2d98016438e6f982b7ddcf2f0d710ef94f
+  checksum: 7dd9b5d58a0bce37377ed9a00da491460440ac53e8b21ee1d9973525efaa9fc5a8b9f0e6ef7b4f7162e2d6098e366e0146890fb4fd87623f3fd104fa361d98a4
   languageName: node
   linkType: hard
 
@@ -2313,17 +2314,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:^1.15.14":
-  version: 1.19.1
-  resolution: "@react-native-async-storage/async-storage@npm:1.19.1"
-  dependencies:
-    merge-options: ^3.0.4
-  peerDependencies:
-    react-native: ^0.0.0-0 || 0.60 - 0.72 || 1000.0.0
-  checksum: 7367210e16f788999ca8ff96bd04bbd345f44c186cec7c50903d55637f572c73b8a79f9c948a549329ad489c08d77dd49367971691ed54dbc3839285e0194431
-  languageName: node
-  linkType: hard
-
 "@react-native-community/cli-clean@npm:11.3.5":
   version: 11.3.5
   resolution: "@react-native-community/cli-clean@npm:11.3.5"
@@ -2892,7 +2882,7 @@ __metadata:
   resolution: "ambient-tv@workspace:."
   dependencies:
     "@babel/core": ^7.20.0
-    "@bug-catch/react-native": ^2.1.13
+    "@bug-catch/react-native": ^2.2.17
     "@react-native-async-storage/async-storage": 1.18.2
     axios: ^1.4.0
     chance: ^1.1.11

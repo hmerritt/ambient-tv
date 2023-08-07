@@ -18,6 +18,7 @@
         ],
         "plugins": [
             "./plugins/android-manifest.plugin.js",
+            "./plugins/withDrawableAssets.plugin.js",
             [
                 "expo-build-properties",
                 {
@@ -58,7 +59,7 @@
             }
         },
         "android": {
-            "versionCode": 25,
+            "versionCode": 27,
             "package": "com.hmerritt.ambient.tv",
             "permissions": ["ACCESS_FINE_LOCATION"],
             "intentFilters": [
