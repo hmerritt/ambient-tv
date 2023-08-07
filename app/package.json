@@ -1,6 +1,6 @@
 {
     "name": "ambient-tv",
-    "version": "1.4.18",
+    "version": "1.4.19",
     "main": "node_modules/expo/AppEntry.js",
     "scripts": {
         "start": "expo start --tunnel",
@@ -16,7 +16,7 @@
         "web:build": "expo export --platform web"
     },
     "dependencies": {
-        "@bug-catch/react-native": "2.0.1",
+        "@bug-catch/react-native": "^2.1.13",
         "@react-native-async-storage/async-storage": "1.18.2",
         "axios": "^1.4.0",
         "chance": "^1.1.11",

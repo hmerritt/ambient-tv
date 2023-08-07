@@ -9,8 +9,9 @@ import env from '../../env';
 // Bugcatch init (records all errors)
 export const bugCatch = bugcatchInit({
 	baseUrl: `${env.APP_SERVER_URL}/bug-catch`,
-	release: '1.4.18',
+	release: '1.4.19',
 	logEvents: true,
+	captureDeviceInfo: true,
 	disableExceptionHandler: !env.BUGCATCH_ENABLE,
 });
 
