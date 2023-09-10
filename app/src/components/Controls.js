@@ -4,7 +4,7 @@
  */
 
 import env from '../../env';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Animated, StyleSheet, Pressable, Image, View } from 'react-native';
 
@@ -17,34 +17,42 @@ const Controls = () => {
 	const bgImageLoading = useSelector((state) => state.bgImage.loading);
 	const showControls = useSelector((state) => state.bgImage.showControls);
 
-	const overlayOpacity = new Animated.Value(0);
-
-	useEffect(() => {
-		if (bgImageLoading) return;
-		Animated.timing(overlayOpacity, {
-			toValue: showControls ? 1 : 0,
-			duration: env.ANIMATION_SHORT,
-			useNativeDriver: true,
-		}).start();
-	}, [showControls]);
+	const overlayOpacity = useRef(new Animated.Value(0)).current;
 
 	const handleNext = (e) => {
-		if (!showControls) dispatch(controlsToggle());
-		if (!showControls || bgImageLoading) return;
+		if (bgImageLoading) return;
+		if (!showControls) return dispatch(controlsToggle());
 		dispatch(getNewBackground());
 		recordEvent('skippedBackground', 'user skipped a background image');
 		e.stopPropagation();
 	}
 
+	useEffect(() => {
+		Animated.timing(overlayOpacity, {
+			toValue: !!showControls ? 1 : 0,
+			duration: env.ANIMATION_SHORT,
+			useNativeDriver: true,
+		}).start();
+
+		// Automatically hide controls after a few seconds
+		resetControls = setTimeout(() => {
+			dispatch(controlsToggle(false));
+		}, 8000);
+
+		return () => {
+			clearTimeout(resetControls);
+		}
+	}, [showControls]);
+
 	return (
-		<Pressable style={styles.overlay} onPress={() => !bgImageLoading && dispatch(controlsToggle())}>
+		<Pressable style={styles.overlay} onPress={handleNext}>
 			<Animated.View style={[styles.left, { opacity: overlayOpacity }]}>
-				<Pressable style={styles.nested} onPress={handleNext}>
+				<View style={styles.nested}>
 					<Image
 						source={assets.icons.chevronRight}
 						style={styles.image}
 					/>
-				</Pressable>
+				</View>
 			</Animated.View>
 		</Pressable>
 	);

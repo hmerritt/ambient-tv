@@ -2,7 +2,7 @@
     "expo": {
         "name": "Ambient TV",
         "slug": "ambient-tv",
-        "version": "1.4.20",
+        "version": "1.4.21",
         "privacy": "hidden",
         "jsEngine": "hermes",
         "orientation": "landscape",
@@ -48,7 +48,7 @@
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
-            "buildNumber": "1.4.20",
+            "buildNumber": "1.4.21",
             "supportsTablet": true,
             "requireFullScreen": true,
             "splash": {
@@ -59,7 +59,7 @@
             }
         },
         "android": {
-            "versionCode": 27,
+            "versionCode": 28,
             "package": "com.hmerritt.ambient.tv",
             "permissions": ["ACCESS_FINE_LOCATION"],
             "intentFilters": [
