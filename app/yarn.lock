@@ -1660,21 +1660,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bug-catch/react-native@npm:^2.2.17":
-  version: 2.2.17
-  resolution: "@bug-catch/react-native@npm:2.2.17"
-  dependencies:
-    expo-device: ^5.4.0
-    react-native-exception-handler: ^2.10.10
-  peerDependencies:
-    expo: "*"
-    expo-modules-core: "*"
-    react: "*"
-    react-native: "*"
-  checksum: 7dd9b5d58a0bce37377ed9a00da491460440ac53e8b21ee1d9973525efaa9fc5a8b9f0e6ef7b4f7162e2d6098e366e0146890fb4fd87623f3fd104fa361d98a4
-  languageName: node
-  linkType: hard
-
 "@expo/bunyan@npm:4.0.0, @expo/bunyan@npm:^4.0.0":
   version: 4.0.0
   resolution: "@expo/bunyan@npm:4.0.0"
@@ -2882,13 +2867,13 @@ __metadata:
   resolution: "ambient-tv@workspace:."
   dependencies:
     "@babel/core": ^7.20.0
-    "@bug-catch/react-native": ^2.2.17
     "@react-native-async-storage/async-storage": 1.18.2
     axios: ^1.4.0
     chance: ^1.1.11
     expo: ~49.0.5
     expo-av: ~13.4.1
     expo-build-properties: ~0.8.3
+    expo-constants: ~14.4.2
     expo-font: ~11.4.0
     expo-keep-awake: ~12.3.0
     expo-linear-gradient: ~12.3.0
@@ -4450,17 +4435,6 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: 393158c537af73a00ca612e31389d889dfa7adcf07fb1028879ff8bfd65b2f2d0b8c81c8f148fa0c43f1b1656504bb35e5a25235446418b3d99bdb3681e84d74
-  languageName: node
-  linkType: hard
-
-"expo-device@npm:^5.4.0":
-  version: 5.5.0
-  resolution: "expo-device@npm:5.5.0"
-  dependencies:
-    ua-parser-js: ^0.7.33
-  peerDependencies:
-    expo: "*"
-  checksum: 3fa618e8f496f3a1430ea7502c5c34e10dedb29ec5c4177dd2fe4ca2df144b40c6b2b19e93483b6ef57c67af8d6f3c9ba53f1eb524978b0fc7d7d4f61364ffad
   languageName: node
   linkType: hard
 
@@ -7764,16 +7738,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-exception-handler@npm:^2.10.10":
-  version: 2.10.10
-  resolution: "react-native-exception-handler@npm:2.10.10"
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  checksum: 4b47833461147c05c7278a4fe6d9be56c4592f3d5976cabe542e1d042af23b275829f3cfc7f7b9f8b08704d0eef6d30a340c027e8bd2158a3474556994ba5425
-  languageName: node
-  linkType: hard
-
 "react-native-rss-parser@npm:^1.5.1":
   version: 1.5.1
   resolution: "react-native-rss-parser@npm:1.5.1"
@@ -9113,13 +9077,6 @@ __metadata:
     media-typer: 0.3.0
     mime-types: ~2.1.24
   checksum: 2c8e47675d55f8b4e404bcf529abdf5036c537a04c2b20177bcf78c9e3c1da69da3942b1346e6edb09e823228c0ee656ef0e033765ec39a70d496ef601a0c657
-  languageName: node
-  linkType: hard
-
-"ua-parser-js@npm:^0.7.33":
-  version: 0.7.35
-  resolution: "ua-parser-js@npm:0.7.35"
-  checksum: 0a332e8d72d277e62f29ecb3a33843b274de93eb9378350b746ea0f89ef05ee09c94f2c1fdab8001373ad5e95a48beb0a94f39dc1670c908db9fc9b8f0876204
   languageName: node
   linkType: hard
 

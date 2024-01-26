@@ -12,12 +12,12 @@ import * as NavigationBar from "expo-navigation-bar";
 import { setStatusBarHidden } from 'expo-status-bar';
 
 import store from './src/state';
-import { recordEvent } from './src/utils/bugCatch';
+import { recordEvent } from './src/utils/analytics';
 
 import AppActual from './src/AppActual';
 import AppShellStyles from './src/components/AppShellStyles';
 
-recordEvent('appOpen', 'user has opened the app');
+recordEvent('pageview');
 
 // Show splash screen until fonts are loaded
 SplashScreen.preventAutoHideAsync();
