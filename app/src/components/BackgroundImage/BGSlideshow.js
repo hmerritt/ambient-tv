@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useInterval } from '../../hooks/useInterval';
 import { getNewBackground } from '../../state/actions/bgImageActions';
-import { recordEvent, recordSessionTimeSpent } from '../../utils/bugCatch';
+import { recordEvent, recordSessionTimeSpent } from '../../utils/analytics';
 
 import BackgroundImage from './BackgroundImage';
 
@@ -30,7 +30,7 @@ const BGSlideshow = () => {
 	useInterval(() => {
 		dispatch(getNewBackground());
 		backgroundsSeen.current++;
-		recordEvent('newBackground', 'user has triggered a new background image');
+		recordEvent('image/view');
 
 		// Calculate the timeSpent using backgroundsSeen + IMAGE_TIMER
 		const timeSpentInSeconds = backgroundsSeen.current * env.IMAGE_TIMER;

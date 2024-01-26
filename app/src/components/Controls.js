@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Animated, StyleSheet, Pressable, Image, View } from 'react-native';
 
 import assets from '../utils/assets';
-import { recordEvent } from '../utils/bugCatch';
+import { recordEvent } from '../utils/analytics';
 import { controlsToggle, getNewBackground } from '../state/actions/bgImageActions';
 
 const Controls = () => {
@@ -23,7 +23,7 @@ const Controls = () => {
 		if (bgImageLoading) return;
 		if (!showControls) return dispatch(controlsToggle());
 		dispatch(getNewBackground());
-		recordEvent('skippedBackground', 'user skipped a background image');
+		recordEvent('image/skip');
 		e.stopPropagation();
 	}
 
