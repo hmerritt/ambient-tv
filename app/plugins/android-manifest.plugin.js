@@ -24,10 +24,14 @@ module.exports = function androidManifestPlugin(config) {
 		]
 
 		// TV banner
-		androidManifest.application.$ = {
-			...androidManifest.application.$,
-			"android:banner": "@drawable/tv_banner",
-		}
+		androidManifest["application"] = [
+			...(androidManifest["application"] || []),
+			{
+				$: {
+					"android:banner": "@drawable/tv_banner",
+				}
+			},
+		]
 
 		return config
 	})
