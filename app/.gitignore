@@ -51,7 +51,12 @@ local.properties
 
 # node.js
 #
-.yarn/
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 node_modules/
 npm-debug.log
 yarn-error.log
