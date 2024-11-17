@@ -1,8 +1,4 @@
-/**
- * Ambient TV
- * https://github.com/hmerritt/ambient-tv
- */
-import * as Location from 'expo-location';
+import * as Location from "expo-location";
 
 /**
  * Get current location
@@ -14,7 +10,7 @@ export const getLocation = async ({ setLocation }) => {
     const { status } = await Location.requestForegroundPermissionsAsync();
 
     // Return null if location access is denied
-    if (status !== 'granted') {
+    if (status !== "granted") {
         return setLocation(null);
     }
 

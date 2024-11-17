@@ -1,50 +1,14 @@
 {
     "expo": {
+        "version": "1.5.25",
         "name": "Ambient TV",
         "slug": "ambient-tv",
-        "version": "1.5.25",
-        "privacy": "hidden",
+        "scheme": "ambient-tv",
         "jsEngine": "hermes",
         "orientation": "landscape",
         "icon": "./assets/icon.png",
-        "updates": {
-            "enabled": false,
-            "fallbackToCacheTimeout": 0
-        },
-        "assetBundlePatterns": [
-            "**/*",
-            "./src/assets/icons/*",
-            "./src/assets/fonts/*"
-        ],
-        "plugins": [
-            "./plugins/android-manifest.plugin.js",
-            "./plugins/withDrawableAssets.plugin.js",
-            [
-                "expo-build-properties",
-                {
-                    "android": {
-                        "enableProguardInReleaseBuilds": true,
-                        "enableShrinkResourcesInReleaseBuilds": true
-                    }
-                }
-            ],
-            [
-                "expo-av",
-                {
-                    "//": "Disables the microphone permission",
-                    "microphonePermission": false
-                }
-            ],
-            [
-                "expo-navigation-bar",
-                {
-                    "position": "absolute",
-                    "visibility": "hidden",
-                    "behavior": "inset-swipe",
-                    "backgroundColor": "#00000080"
-                }
-            ]
-        ],
+        "userInterfaceStyle": "automatic",
+        "newArchEnabled": true,
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
@@ -96,9 +60,59 @@
             "visible": "sticky-immersive"
         },
         "web": {
-            "favicon": "./assets/favicon.png",
             "name": "Ambient TV",
-            "bundler": "metro"
+            "bundler": "metro",
+            "output": "static",
+            "favicon": "./assets/favicon.png"
+        },
+        "plugins": [
+            "./plugins/android-manifest.plugin.js",
+            "./plugins/withDrawableAssets.plugin.js",
+            "expo-router",
+            [
+                "expo-build-properties",
+                {
+                    "android": {
+                        "useLegacyPackaging": true,
+                        "enableProguardInReleaseBuilds": true,
+                        "enableShrinkResourcesInReleaseBuilds": true
+                    }
+                }
+            ],
+            [
+                "expo-av",
+                {
+                    "//": "Disables the microphone permission",
+                    "microphonePermission": false
+                }
+            ],
+            [
+                "expo-navigation-bar",
+                {
+                    "position": "absolute",
+                    "visibility": "hidden",
+                    "behavior": "inset-swipe",
+                    "backgroundColor": "#00000080"
+                }
+            ],
+            [
+                "expo-splash-screen",
+                {
+                    "image": "./assets/splash.png",
+                    "imageWidth": 200,
+                    "resizeMode": "contain",
+                    "backgroundColor": "#ffffff"
+                }
+            ]
+        ],
+        "assetBundlePatterns": ["**/*", "./assets/icons/*", "./assets/fonts/*"],
+        "updates": {
+            "enabled": false,
+            "fallbackToCacheTimeout": 0
+        },
+        "experiments": {
+            "typedRoutes": true,
+            "reactCompiler": false
         },
         "extra": {
             "eas": {

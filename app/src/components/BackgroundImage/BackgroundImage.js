@@ -1,16 +1,11 @@
-/**
- * Ambient TV
- * https://github.com/hmerritt/ambient-tv
- */
+import { ResizeMode, Video } from "expo-av";
+import React from "react";
+import { Animated, Image, StyleSheet, View } from "react-native";
+import { useDispatch } from "react-redux";
 
-import env from '../../../env';
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { Video, ResizeMode } from 'expo-av';
-import { Animated, Image, View, StyleSheet } from 'react-native';
-
-import { isVideo } from '../../utils/assets';
-import { imageLoadingState } from '../../state/actions/bgImageActions';
+import env from "@/env";
+import { imageLoadingState } from "@/state/actions/bgImageActions";
+import { isVideo } from "@/utils/assets";
 
 const BackgroundImage = ({ src, animate }) => {
     const dispatch = useDispatch();
@@ -25,7 +20,7 @@ const BackgroundImage = ({ src, animate }) => {
             Animated.timing(assetOpacity, {
                 toValue: 1,
                 duration: env.ANIMATION_LONG,
-                useNativeDriver: true,
+                useNativeDriver: true
             }).start();
         }
     };
@@ -36,12 +31,12 @@ const BackgroundImage = ({ src, animate }) => {
                 {!isVideo(src) && (
                     <Image
                         source={{
-                            uri: src,
+                            uri: src
                         }}
                         style={styles.image}
                         onLoad={onAssetLoad}
-                        onLoadStart={(e) => dispatch(imageLoadingState('start'))}
-                        onLoadEnd={(e) => dispatch(imageLoadingState('end'))}
+                        onLoadStart={(e) => dispatch(imageLoadingState("start"))}
+                        onLoadEnd={(e) => dispatch(imageLoadingState("end"))}
                     />
                 )}
 
@@ -50,7 +45,7 @@ const BackgroundImage = ({ src, animate }) => {
                         style={styles.image}
                         videoStyle={styles.image}
                         source={{
-                            uri: src,
+                            uri: src
                         }}
                         isLooping
                         isMuted
@@ -58,8 +53,8 @@ const BackgroundImage = ({ src, animate }) => {
                         useNativeControls={false}
                         resizeMode={ResizeMode.COVER}
                         onLoad={onAssetLoad}
-                        onLoadStart={(e) => dispatch(imageLoadingState('start'))}
-                        onReadyForDisplay={(e) => dispatch(imageLoadingState('end'))}
+                        onLoadStart={(e) => dispatch(imageLoadingState("start"))}
+                        onReadyForDisplay={(e) => dispatch(imageLoadingState("end"))}
                     />
                 )}
             </Animated.View>
@@ -69,23 +64,23 @@ const BackgroundImage = ({ src, animate }) => {
 
 const styles = StyleSheet.create({
     container: {
-        position: 'absolute',
+        position: "absolute",
         top: 0,
         left: 0,
-        width: '100%',
-        height: '100%',
+        width: "100%",
+        height: "100%",
         flex: 1,
-        backgroundColor: 'transparent',
+        backgroundColor: "transparent"
     },
     image: {
-        position: 'relative',
+        position: "relative",
         flex: 1,
-        width: '100%',
-        height: '100%',
+        width: "100%",
+        height: "100%",
         zIndex: 5,
-        resizeMode: 'cover',
-        backgroundColor: 'transparent',
-    },
+        resizeMode: "cover",
+        backgroundColor: "transparent"
+    }
 });
 
 export default BackgroundImage;

@@ -20,6 +20,13 @@ Start Metro Bundler
 yarn start
 ```
 
+---
+
+```
+netstat -ano | findstr ":80"
+taskkill /PID <PID> /F
+```
+
 ## Build
 
 Build for release `.aab`

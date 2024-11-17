@@ -1,17 +1,9 @@
-/**
- * Ambient TV
- * https://github.com/hmerritt/ambient-tv
- *
- * @format
- * @flow strict-local
- */
+import React, { useEffect, useState } from "react";
+import { Animated, StyleSheet, Text, View } from "react-native";
 
-import env from '../../env';
-import React, { useState, useEffect } from 'react';
-import { View, Animated, StyleSheet, Text } from 'react-native';
-
-import { getWeather } from '../utils/weather';
-import { getLocation } from '../utils/location';
+import env from "@/env";
+import { getLocation } from "@/utils/location";
+import { getWeather } from "@/utils/weather";
 
 const Weather = () => {
     const [weather, setWeather] = useState(null);
@@ -38,7 +30,7 @@ const Weather = () => {
         Animated.timing(imageOpacity, {
             toValue: 1,
             duration: env.ANIMATION_SHORT,
-            useNativeDriver: true,
+            useNativeDriver: true
         }).start();
     };
 
@@ -62,20 +54,20 @@ const Weather = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
-        marginTop: 18,
+        flexDirection: "row",
+        marginTop: 18
     },
     text: {
         opacity: 0.9,
-        fontFamily: 'Roboto-Medium',
+        fontFamily: "Roboto-Medium",
         fontSize: 20,
-        color: '#ffffff',
+        color: "#ffffff"
     },
     image: {
         width: 28,
         height: 28,
-        marginLeft: 4,
-    },
+        marginLeft: 4
+    }
 });
 
 export default Weather;
