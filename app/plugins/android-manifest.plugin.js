@@ -24,8 +24,8 @@ module.exports = function androidManifestPlugin(config) {
         ];
 
         // TV banner
-        if (!manifest.application) manifest.application = {};
-        if (!manifest.application.$) manifest.application.$ = {};
+        if (!androidManifest.application) androidManifest.application = {};
+        if (!androidManifest.application.$) androidManifest.application.$ = {};
         androidManifest.application.$["android:banner"] = "@drawable/tv_banner";
 
         return config;
