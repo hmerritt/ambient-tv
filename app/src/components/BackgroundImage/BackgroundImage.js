@@ -33,6 +33,7 @@ const BackgroundImage = ({ src, animate }) => {
                         source={{
                             uri: src
                         }}
+                        resizeMode="cover"
                         style={styles.image}
                         onLoad={onAssetLoad}
                         onLoadStart={(e) => dispatch(imageLoadingState("start"))}
@@ -78,7 +79,6 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
         zIndex: 5,
-        resizeMode: "cover",
         backgroundColor: "transparent"
     }
 });
