@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import env from "@/env";
@@ -15,16 +15,23 @@ const BGSlideshow = () => {
     const skipped = useSelector((state) => state.bgImage.skipped);
     const backgroundsSeen = useRef(0);
 
-    // New background every `IMAGE_TIMER` seconds
-    const { reset } = useInterval(
-        () => {
-            dispatch(getNewBackground());
+    const nextBackground = useCallback((first = false) => {
+        dispatch(getNewBackground());
+
+        if (!first) {
             backgroundsSeen.current++;
             recordEvent("image/view");
 
             // Calculate the timeSpent using backgroundsSeen + IMAGE_TIMER
             const timeSpentInSeconds = backgroundsSeen.current * env.IMAGE_TIMER;
             recordSessionTimeSpent(timeSpentInSeconds);
+        }
+    }, []);
+
+    // New background every `IMAGE_TIMER` seconds
+    const { reset } = useInterval(
+        () => {
+            nextBackground();
         },
         (env.IMAGE_TIMER || 120) * 1000
     );
@@ -36,7 +43,7 @@ const BGSlideshow = () => {
 
     // New background on load
     useEffect(() => {
-        dispatch(getNewBackground());
+        nextBackground(true);
     }, []);
 
     return (

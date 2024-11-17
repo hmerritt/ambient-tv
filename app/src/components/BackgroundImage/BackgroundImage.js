@@ -35,8 +35,6 @@ const BackgroundImage = ({ src, animate }) => {
         switch (status) {
             case "loading":
                 dispatch(imageLoadingState("start"));
-            case "idle":
-            case "error":
             case "readyToPlay":
                 player.play();
                 onAssetLoad();
