@@ -1702,7 +1702,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.17.0, @babel/types@npm:^7.19.0, @babel/types@npm:^7.20.0, @babel/types@npm:^7.20.7, @babel/types@npm:^7.23.0, @babel/types@npm:^7.24.7, @babel/types@npm:^7.25.2, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4":
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.17.0, @babel/types@npm:^7.20.0, @babel/types@npm:^7.20.7, @babel/types@npm:^7.23.0, @babel/types@npm:^7.24.7, @babel/types@npm:^7.25.2, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4":
   version: 7.26.0
   resolution: "@babel/types@npm:7.26.0"
   dependencies:
@@ -2692,7 +2692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/core@npm:^7.0.3":
+"@react-navigation/core@npm:^7.0.0, @react-navigation/core@npm:^7.0.3":
   version: 7.0.3
   resolution: "@react-navigation/core@npm:7.0.3"
   dependencies:
@@ -2743,7 +2743,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-navigation/native@npm:7.0.3, @react-navigation/native@npm:^7.0.0":
+"@react-navigation/native@npm:7.0.0":
+  version: 7.0.0
+  resolution: "@react-navigation/native@npm:7.0.0"
+  dependencies:
+    "@react-navigation/core": "npm:^7.0.0"
+    escape-string-regexp: "npm:^4.0.0"
+    fast-deep-equal: "npm:^3.1.3"
+    nanoid: "npm:3.3.7"
+    use-latest-callback: "npm:^0.2.1"
+  peerDependencies:
+    react: ">= 18.2.0"
+    react-native: "*"
+  checksum: 10/7e135eeca9db6ed1f7b3d42c00d03d9ac56c5bf7e04d55177261bd655bd14b613ed8cf261e2f6e705113d38e7b885ff1d6be108b12f0686cd62b6fbbff07e813
+  languageName: node
+  linkType: hard
+
+"@react-navigation/native@npm:^7.0.0":
   version: 7.0.3
   resolution: "@react-navigation/native@npm:7.0.3"
   dependencies:
@@ -3502,12 +3518,11 @@ __metadata:
     "@expo/metro-runtime": "npm:4.0.0"
     "@expo/vector-icons": "npm:14.0.4"
     "@react-native-async-storage/async-storage": "npm:1.23.1"
-    "@react-navigation/native": "npm:7.0.3"
+    "@react-navigation/native": "npm:7.0.0"
     "@reduxjs/toolkit": "npm:2.3.0"
     "@trivago/prettier-plugin-sort-imports": "npm:4.3.0"
     "@types/react": "npm:18.3.12"
     axios: "npm:1.7.7"
-    babel-plugin-react-compiler: "npm:19.0.0-beta-a7bf2bd-20241110"
     chance: "npm:1.1.12"
     expo: "npm:52.0.7"
     expo-build-properties: "npm:0.13.1"
@@ -3527,7 +3542,6 @@ __metadata:
     moment: "npm:2.30.1"
     prettier: "npm:3.3.3"
     react: "npm:18.3.1"
-    react-compiler-runtime: "npm:19.0.0-beta-a7bf2bd-20241110"
     react-dom: "npm:18.3.1"
     react-native: "npm:0.76.2"
     react-native-gesture-handler: "npm:2.20.2"
@@ -3929,15 +3943,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
   checksum: 10/d12696e6b3f280eb78fac551619ca4389262db62c7352cd54bf679d830df8b35596eef2de77cf00db6648eada1c99d49c4f40636dbc9c335a1e5420cfef96750
-  languageName: node
-  linkType: hard
-
-"babel-plugin-react-compiler@npm:19.0.0-beta-a7bf2bd-20241110":
-  version: 19.0.0-beta-a7bf2bd-20241110
-  resolution: "babel-plugin-react-compiler@npm:19.0.0-beta-a7bf2bd-20241110"
-  dependencies:
-    "@babel/types": "npm:^7.19.0"
-  checksum: 10/7478d7ffa2fc262fd3d920d5b3589214910120867c1573e02c305b7a29bfb7e17f47963dbcbc98f97e8b05ef1a58886b4763deaf62f9cb091812edf276e78dd0
   languageName: node
   linkType: hard
 
@@ -9507,15 +9512,6 @@ __metadata:
   bin:
     rc: ./cli.js
   checksum: 10/5c4d72ae7eec44357171585938c85ce066da8ca79146b5635baf3d55d74584c92575fa4e2c9eac03efbed3b46a0b2e7c30634c012b4b4fa40d654353d3c163eb
-  languageName: node
-  linkType: hard
-
-"react-compiler-runtime@npm:19.0.0-beta-a7bf2bd-20241110":
-  version: 19.0.0-beta-a7bf2bd-20241110
-  resolution: "react-compiler-runtime@npm:19.0.0-beta-a7bf2bd-20241110"
-  peerDependencies:
-    react: ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10/96b220a5c393249d4cc2be0e8164449c3d45c8dc3a95af870a4fca56f84acc378a6128b637e2404ff215faae3a675235798c3384888f4f8996052114aaeb8d48
   languageName: node
   linkType: hard
 
