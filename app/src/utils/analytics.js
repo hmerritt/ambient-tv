@@ -1,5 +1,4 @@
 import axios from "axios";
-import Constants from "expo-constants";
 
 import env from "@/env";
 
@@ -11,7 +10,6 @@ import env from "@/env";
 export const recordEvent = async (name = "pageview") => {
     try {
         if (!env.PLAUSIBLE_ENABLE) return;
-        const userAgent = (await Constants.getWebViewUserAgentAsync()) || "";
 
         await axios.post(
             `${env.PLAUSIBLE_API_URL}/api/event`,
@@ -23,8 +21,7 @@ export const recordEvent = async (name = "pageview") => {
             {
                 headers: {
                     Accept: "application/json",
-                    "Content-Type": "application/json",
-                    "User-Agent": userAgent
+                    "Content-Type": "application/json"
                 }
             }
         );
