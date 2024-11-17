@@ -1,14 +1,12 @@
-version: '3.1'
+version: "3.1"
 
 services:
-  app-build:
-    image: hmerritt/android-sdk:latest
-    # build:
-    #   context: .
-    #   dockerfile: ./Dockerfile
-    ports:
-      - 8081:8081
-    #network_mode: "host"
-    restart: on-failure
-    volumes:
-      - ./:/project/app
+    app-build:
+        image: hmerritt/android-sdk:latest
+        # build:
+        #   context: .
+        #   dockerfile: ./Dockerfile
+        network_mode: "host"
+        restart: on-failure
+        volumes:
+            - ./:/project/app

@@ -1,4 +1,5 @@
-import { ResizeMode, Video } from "expo-av";
+import { useEventListener } from "expo";
+import { VideoView, useVideoPlayer } from "expo-video";
 import React from "react";
 import { Animated, Image, StyleSheet, View } from "react-native";
 import { useDispatch } from "react-redux";
@@ -25,14 +26,32 @@ const BackgroundImage = ({ src, animate }) => {
         }
     };
 
+    const player = useVideoPlayer(src, (player) => {
+        player.loop = true;
+        player.muted = true;
+        player.play();
+        onAssetLoad();
+    });
+
+    useEventListener(player, "statusChange", ({ status, error }) => {
+        switch (status) {
+            case "loading":
+                dispatch(imageLoadingState("start"));
+            case "idle":
+            case "error":
+            case "readyToPlay":
+                player.play();
+                dispatch(imageLoadingState("end"));
+        }
+        if (error) console.error("video error", error);
+    });
+
     return (
         <View style={styles.container}>
             <Animated.View style={[styles.container, { opacity: assetOpacity }]}>
                 {!isVideo(src) && (
                     <Image
-                        source={{
-                            uri: src
-                        }}
+                        source={{ uri: src }}
                         resizeMode="cover"
                         style={styles.image}
                         onLoad={onAssetLoad}
@@ -42,20 +61,14 @@ const BackgroundImage = ({ src, animate }) => {
                 )}
 
                 {isVideo(src) && (
-                    <Video
+                    <VideoView
+                        player={player}
+                        contentFit="cover"
                         style={styles.image}
-                        videoStyle={styles.image}
-                        source={{
-                            uri: src
-                        }}
-                        isLooping
-                        isMuted
-                        shouldPlay
-                        useNativeControls={false}
-                        resizeMode={ResizeMode.COVER}
-                        onLoad={onAssetLoad}
-                        onLoadStart={(e) => dispatch(imageLoadingState("start"))}
-                        onReadyForDisplay={(e) => dispatch(imageLoadingState("end"))}
+                        allowsFullscreen={false}
+                        allowsPictureInPicture={false}
+                        allowsVideoFrameAnalysis={false}
+                        nativeControls={false}
                     />
                 )}
             </Animated.View>

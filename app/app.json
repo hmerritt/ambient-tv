@@ -80,10 +80,10 @@
                 }
             ],
             [
-                "expo-av",
+                "expo-video",
                 {
-                    "//": "Disables the microphone permission",
-                    "microphonePermission": false
+                    "supportsBackgroundPlayback": false,
+                    "supportsPictureInPicture": false
                 }
             ],
             [
