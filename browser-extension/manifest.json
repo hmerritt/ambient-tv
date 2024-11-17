@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "version": "1.4.21",
+    "version": "1.4.25",
     "name": "Ambient TV",
     "short_name": "Ambient TV",
     "description": "Ambient TV for the browser",
@@ -12,5 +12,10 @@
     "permissions": ["geolocation"],
     "chrome_url_overrides": {
         "newtab": "index.html"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "{ca39199c-5cf0-470e-bdf5-c5b41cf4375c}"
+        }
     }
 }
