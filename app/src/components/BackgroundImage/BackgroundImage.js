@@ -26,7 +26,7 @@ const BackgroundImage = ({ src, animate }) => {
         }
     };
 
-    const player = useVideoPlayer(src, (player) => {
+    const player = useVideoPlayer(isVideo(src) ? src : null, (player) => {
         player.loop = true;
         player.muted = true;
     });
