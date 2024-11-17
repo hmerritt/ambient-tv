@@ -29,8 +29,6 @@ const BackgroundImage = ({ src, animate }) => {
     const player = useVideoPlayer(src, (player) => {
         player.loop = true;
         player.muted = true;
-        player.play();
-        onAssetLoad();
     });
 
     useEventListener(player, "statusChange", ({ status, error }) => {
@@ -41,6 +39,7 @@ const BackgroundImage = ({ src, animate }) => {
             case "error":
             case "readyToPlay":
                 player.play();
+                onAssetLoad();
                 dispatch(imageLoadingState("end"));
         }
         if (error) console.error("video error", error);
