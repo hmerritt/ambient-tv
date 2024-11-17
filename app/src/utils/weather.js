@@ -17,9 +17,14 @@ export const getWeather = async ({ location, setWeather }) => {
 
     // Fetch live weather if cache is expired
     if (!weatherCache.data || moment().unix() >= weatherCache.expire) {
+        const apiKey =
+            moment().minute() % 2
+                ? env.OPENWEATHERMAP_KEY
+                : env.OPENWEATHERMAP_KEY_ALT || env.OPENWEATHERMAP_KEY;
+
         // Fetch weather from api
         const res = await axios.get(
-            `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&units=metric&appid=${env.OPENWEATHERMAP_KEY}`
+            `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&units=metric&appid=${apiKey}`
         );
 
         // Add to storage cache
