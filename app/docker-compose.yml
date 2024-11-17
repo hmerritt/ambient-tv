@@ -6,7 +6,11 @@ services:
         # build:
         #   context: .
         #   dockerfile: ./Dockerfile
-        network_mode: "host"
+        # network_mode: "host"
+        ports:
+            - 8081:8081
+            - 5000:5000
+            - 5000:5000
         restart: on-failure
         volumes:
             - ./:/project/app
