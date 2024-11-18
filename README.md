@@ -6,6 +6,7 @@ A simple react-native app to cycle background images (works great on [Chromecast
 
 -   [Android App (Play store)](https://play.google.com/store/apps/details?id=com.hmerritt.ambient.tv)
 -   [Chrome extension](https://chrome.google.com/webstore/detail/ambient-tv/gcgkmdgkoickimkhkkbcopdgcaepbade)
+-   [Firefox extension](https://addons.mozilla.org/en-GB/firefox/addon/ambient-tv/)
 
 ![](./screenshots/screenshot-1.png)
 
