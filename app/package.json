@@ -1,6 +1,6 @@
 {
     "name": "ambient-tv",
-    "version": "1.5.28",
+    "version": "1.5.29",
     "main": "expo-router/entry",
     "scripts": {
         "start": "expo start --tunnel",
