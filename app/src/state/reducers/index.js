@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
 
-import bgImageReducer from './bgImageReducer';
+import bgImageReducer from "./bgImageReducer";
 
 export default combineReducers({
-    bgImage: bgImageReducer,
+    bgImage: bgImageReducer
 });
