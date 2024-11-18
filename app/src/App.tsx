@@ -3,7 +3,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { useKeepAwake } from "expo-keep-awake";
 import { setStatusBarHidden } from "expo-status-bar";
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import { Platform } from "react-native";
 import "react-native-reanimated";
 import { Provider } from "react-redux";
@@ -44,7 +44,7 @@ export default function App() {
     if (!fontsLoaded) return null;
 
     return (
-        <Suspense fallback={<Title />}>
+        <>
             <AppShellStyles />
             <Provider store={store}>
                 <Title />
@@ -52,6 +52,6 @@ export default function App() {
                 <Overlay />
                 <Controls />
             </Provider>
-        </Suspense>
+        </>
     );
 }

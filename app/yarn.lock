@@ -2478,6 +2478,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-native-masked-view/masked-view@npm:0.3.1":
+  version: 0.3.1
+  resolution: "@react-native-masked-view/masked-view@npm:0.3.1"
+  peerDependencies:
+    react: ">=16"
+    react-native: ">=0.57"
+  checksum: 10/71d7a6277a869beaed34497d5b92cba7405586fe19ad05c2e892e5e5843b664386080573f4cfaea1fb68ed77de94bf46c20958f4e58d1a5a716c3652d65815b9
+  languageName: node
+  linkType: hard
+
 "@react-native/assets-registry@npm:0.76.2":
   version: 0.76.2
   resolution: "@react-native/assets-registry@npm:0.76.2"
@@ -3518,6 +3528,7 @@ __metadata:
     "@expo/metro-runtime": "npm:4.0.0"
     "@expo/vector-icons": "npm:14.0.4"
     "@react-native-async-storage/async-storage": "npm:1.23.1"
+    "@react-native-masked-view/masked-view": "npm:0.3.1"
     "@react-navigation/native": "npm:7.0.0"
     "@reduxjs/toolkit": "npm:2.3.0"
     "@trivago/prettier-plugin-sort-imports": "npm:4.3.0"
