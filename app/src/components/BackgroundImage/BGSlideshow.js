@@ -54,10 +54,10 @@ const BGSlideshow = () => {
 
                     return (
                         <BackgroundImage
+                            key={key}
                             src={item.src}
                             color={item.color}
-                            animate={current ? true : false}
-                            key={key}
+                            current={current ? true : false}
                         />
                     );
                 })}

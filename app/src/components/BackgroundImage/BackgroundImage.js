@@ -8,16 +8,16 @@ import env from "@/env";
 import { imageLoadingState } from "@/state/actions/bgImageActions";
 import { isVideo } from "@/utils/assets";
 
-const BackgroundImage = ({ src, animate }) => {
+const BackgroundImage = ({ src, current }) => {
     const dispatch = useDispatch();
 
     // Starting image opacity -> 0
-    const assetOpacity = animate ? new Animated.Value(0) : 1;
+    const assetOpacity = current ? new Animated.Value(0) : 1;
 
     // Once asset has loaded
     // -> animate opacity from 0 -> 1
     const onAssetLoad = () => {
-        if (animate) {
+        if (current) {
             Animated.timing(assetOpacity, {
                 toValue: 1,
                 duration: env.ANIMATION_LONG,
@@ -32,6 +32,8 @@ const BackgroundImage = ({ src, animate }) => {
     });
 
     useEventListener(player, "statusChange", ({ status, error }) => {
+        if (!current) return;
+        if (error) console.error("video error", error);
         switch (status) {
             case "loading":
                 dispatch(imageLoadingState("start"));
@@ -40,7 +42,6 @@ const BackgroundImage = ({ src, animate }) => {
                 onAssetLoad();
                 dispatch(imageLoadingState("end"));
         }
-        if (error) console.error("video error", error);
     });
 
     return (
@@ -52,8 +53,14 @@ const BackgroundImage = ({ src, animate }) => {
                         resizeMode="cover"
                         style={styles.image}
                         onLoad={onAssetLoad}
-                        onLoadStart={(e) => dispatch(imageLoadingState("start"))}
-                        onLoadEnd={(e) => dispatch(imageLoadingState("end"))}
+                        onLoadStart={(_) => {
+                            if (!current) return;
+                            dispatch(imageLoadingState("start"));
+                        }}
+                        onLoadEnd={(_) => {
+                            if (!current) return;
+                            dispatch(imageLoadingState("end"));
+                        }}
                     />
                 )}
 
@@ -65,6 +72,7 @@ const BackgroundImage = ({ src, animate }) => {
                         allowsFullscreen={false}
                         allowsPictureInPicture={false}
                         allowsVideoFrameAnalysis={false}
+                        requiresLinearPlayback={true}
                         nativeControls={false}
                     />
                 )}
