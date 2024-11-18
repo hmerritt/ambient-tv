@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "version": "1.6.12",
+    "version": "1.6.14",
     "name": "Ambient TV",
     "short_name": "Ambient TV",
     "description": "Ambient TV for the browser",
