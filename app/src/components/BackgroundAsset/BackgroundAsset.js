@@ -8,7 +8,7 @@ import env from "@/env";
 import { getNewBackground, imageLoadingState } from "@/state/actions/bgImageActions";
 import { isVideo } from "@/utils/assets";
 
-const BackgroundImage = ({ src, current }) => {
+const BackgroundAsset = ({ src, current }) => {
     const dispatch = useDispatch();
 
     // Starting image opacity -> 0
@@ -103,4 +103,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default BackgroundImage;
+export default BackgroundAsset;

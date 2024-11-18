@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 
 import env from "@/env";
 
-import BGAbout from "./BackgroundImage/About/BGAbout";
-import BGGradient from "./BackgroundImage/BGGradient";
+import BGAbout from "./BackgroundAsset/About/BGAbout";
+import BGGradient from "./BackgroundAsset/BGGradient";
 import Clock from "./Clock";
 import Weather from "./Weather";
 

@@ -6,7 +6,7 @@ import { useInterval } from "@/hooks/useInterval";
 import { getNewBackground } from "@/state/actions/bgImageActions";
 import { recordEvent, recordSessionTimeSpent } from "@/utils/analytics";
 
-import BackgroundImage from "./BackgroundImage";
+import BackgroundAsset from "./BackgroundAsset";
 
 const BGSlideshow = () => {
     const dispatch = useDispatch();
@@ -53,7 +53,7 @@ const BGSlideshow = () => {
                     const current = key === backgrounds.length - 1;
 
                     return (
-                        <BackgroundImage
+                        <BackgroundAsset
                             key={key}
                             src={item.src}
                             color={item.color}

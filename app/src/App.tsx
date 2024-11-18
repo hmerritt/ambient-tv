@@ -9,7 +9,7 @@ import "react-native-reanimated";
 import { Provider } from "react-redux";
 
 import AppShellStyles from "@/components/AppShellStyles";
-import BGSlideshow from "@/components/BackgroundImage/BGSlideshow";
+import BGSlideshow from "@/components/BackgroundAsset/BGSlideshow";
 import Controls from "@/components/Controls";
 import Overlay from "@/components/Overlay";
 import Title from "@/components/Title";
