@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Animated, StyleSheet, Text, View } from "react-native";
+import { Animated, Image, StyleSheet, Text } from "react-native";
 
 import env from "@/env";
 import { getLocation } from "@/utils/location";
@@ -41,7 +41,7 @@ const Weather = () => {
                     <Text style={styles.text} textAnchor="middle">
                         {Math.round(weather.temp)}°
                     </Text>
-                    <Animated.Image
+                    <Image
                         source={weather.icon}
                         style={[styles.image]}
                         onLoad={onImageLoad}
