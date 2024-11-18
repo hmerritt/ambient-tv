@@ -1,5 +1,4 @@
-import { useEventListener } from "expo";
-import { VideoView, useVideoPlayer } from "expo-video";
+import { ResizeMode, Video } from "expo-av";
 import React from "react";
 import { Animated, Image, StyleSheet, View } from "react-native";
 import { useDispatch } from "react-redux";
@@ -7,6 +6,48 @@ import { useDispatch } from "react-redux";
 import env from "@/env";
 import { getNewBackground, imageLoadingState } from "@/state/actions/bgImageActions";
 import { isVideo } from "@/utils/assets";
+
+/**
+@WARNING - `expo-video` kept getting cors errors (for some reason the images + `expo-av` does not have this problem).
+Re-implement with below code:
+
+import { useEventListener } from "expo";
+import { VideoView, useVideoPlayer } from "expo-video";
+
+
+const player = useVideoPlayer(isVideo(src) ? src : null, (player) => {
+	player.loop = true;
+	player.muted = true;
+});
+
+useEventListener(player, "statusChange", ({ status, error }) => {
+	if (!current) return;
+	if (error) console.error("video error", error);
+	switch (status) {
+		case "loading":
+			dispatch(imageLoadingState("start"));
+		case "readyToPlay":
+			player.play();
+			onAssetLoad();
+			dispatch(imageLoadingState("end"));
+		case "error":
+			dispatch(getNewBackground()); // Give up and load new BG
+	}
+});
+
+{isVideo(src) && (
+	<VideoView
+	    player={player}
+	    contentFit="cover"
+	    style={styles.image}
+	    requiresLinearPlayback
+	    nativeControls={false}
+	    allowsFullscreen={false}
+	    allowsPictureInPicture={false}
+	    allowsVideoFrameAnalysis={false}
+	/>
+)}
+*/
 
 const BackgroundAsset = ({ src, current }) => {
     const dispatch = useDispatch();
@@ -25,26 +66,6 @@ const BackgroundAsset = ({ src, current }) => {
             }).start();
         }
     };
-
-    const player = useVideoPlayer(isVideo(src) ? src : null, (player) => {
-        player.loop = true;
-        player.muted = true;
-    });
-
-    useEventListener(player, "statusChange", ({ status, error }) => {
-        if (!current) return;
-        if (error) console.error("video error", error);
-        switch (status) {
-            case "loading":
-                dispatch(imageLoadingState("start"));
-            case "readyToPlay":
-                player.play();
-                onAssetLoad();
-                dispatch(imageLoadingState("end"));
-            case "error":
-                dispatch(getNewBackground()); // Give up and load new BG
-        }
-    });
 
     return (
         <View style={styles.container}>
@@ -67,15 +88,30 @@ const BackgroundAsset = ({ src, current }) => {
                 )}
 
                 {isVideo(src) && (
-                    <VideoView
-                        player={player}
-                        contentFit="cover"
+                    <Video
                         style={styles.image}
-                        allowsFullscreen={false}
-                        allowsPictureInPicture={false}
-                        allowsVideoFrameAnalysis={false}
-                        requiresLinearPlayback={true}
-                        nativeControls={false}
+                        videoStyle={styles.image}
+                        source={{
+                            uri: src
+                        }}
+                        isLooping
+                        isMuted
+                        shouldPlay
+                        useNativeControls={false}
+                        resizeMode={ResizeMode.COVER}
+                        onLoad={onAssetLoad}
+                        onError={(_) => {
+                            if (!current) return;
+                            dispatch(getNewBackground()); // Give up and load new BG
+                        }}
+                        onLoadStart={(_) => {
+                            if (!current) return;
+                            dispatch(imageLoadingState("start"));
+                        }}
+                        onReadyForDisplay={(_) => {
+                            if (!current) return;
+                            dispatch(imageLoadingState("end"));
+                        }}
                     />
                 )}
             </Animated.View>

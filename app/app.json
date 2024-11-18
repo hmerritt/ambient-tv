@@ -1,6 +1,6 @@
 {
     "expo": {
-        "version": "1.6.10",
+        "version": "1.6.12",
         "name": "Ambient TV",
         "slug": "ambient-tv",
         "scheme": "ambient-tv",
@@ -11,7 +11,7 @@
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
-            "buildNumber": "1.6.10",
+            "buildNumber": "1.6.12",
             "supportsTablet": true,
             "requireFullScreen": true,
             "splash": {
@@ -79,10 +79,10 @@
                 }
             ],
             [
-                "expo-video",
+                "expo-av",
                 {
-                    "supportsBackgroundPlayback": false,
-                    "supportsPictureInPicture": false
+                    "//": "Disables the microphone permission",
+                    "microphonePermission": false
                 }
             ],
             [
