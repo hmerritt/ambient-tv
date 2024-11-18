@@ -5,8 +5,8 @@
     "scripts": {
         "start": "expo start --tunnel",
         "android": "expo start --android --tunnel",
-        "android:build": "eas build --platform android --profile production --local",
-        "android:build:development": "eas build --platform android --profile development --local --clear-cache",
+        "android:build": "expo export --platform android && eas build --platform android --profile production --local",
+        "android:build:development": "expo export --platform android && eas build --platform android --profile development --local --clear-cache",
         "android:build:remote": "eas build --platform android --profile production",
         "android:build:development:remote": "eas build --platform android --profile development",
         "ios": "expo start --ios",
