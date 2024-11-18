@@ -1,19 +1,11 @@
 {
-    "cli": {
-        "version": ">= 3.17.1"
-    },
     "build": {
         "development": {
-            "distribution": "internal",
-            "android": {
-                "buildType": "apk"
-            }
+            "developmentClient": false,
+            "distribution": "internal"
         },
         "preview": {
-            "distribution": "internal",
-            "android": {
-                "buildType": "apk"
-            }
+            "distribution": "internal"
         },
         "production": {}
     },

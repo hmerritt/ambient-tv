@@ -1,17 +1,9 @@
-/**
- * Ambient TV
- * https://github.com/hmerritt/ambient-tv
- *
- * @format
- * @flow strict-local
- */
+import React, { useEffect, useState } from "react";
+import { Animated, Image, StyleSheet, Text } from "react-native";
 
-import env from '../../env';
-import React, { useState, useEffect } from 'react';
-import { View, Animated, StyleSheet, Text } from 'react-native';
-
-import { getWeather } from '../utils/weather';
-import { getLocation } from '../utils/location';
+import env from "@/env";
+import { getLocation } from "@/utils/location";
+import { getWeather } from "@/utils/weather";
 
 const Weather = () => {
     const [weather, setWeather] = useState(null);
@@ -29,32 +21,32 @@ const Weather = () => {
         }
     }, [location]);
 
-    // Starting image opacity -> 0
-    const imageOpacity = new Animated.Value(0);
+    // Starting opacity -> 0
+    const opacity = new Animated.Value(0);
 
-    // Once image has loaded
+    // Once icon has loaded
     // -> animate opacity from 0 -> 1
     const onImageLoad = () => {
-        Animated.timing(imageOpacity, {
+        Animated.timing(opacity, {
             toValue: 1,
             duration: env.ANIMATION_SHORT,
-            useNativeDriver: true,
+            useNativeDriver: true
         }).start();
     };
 
     return (
         <>
             {weather && (
-                <View style={styles.container}>
+                <Animated.View style={[styles.container, { opacity: opacity }]}>
                     <Text style={styles.text} textAnchor="middle">
                         {Math.round(weather.temp)}°
                     </Text>
-                    <Animated.Image
+                    <Image
                         source={weather.icon}
-                        style={[styles.image, { opacity: imageOpacity }]}
+                        style={[styles.image]}
                         onLoad={onImageLoad}
                     />
-                </View>
+                </Animated.View>
             )}
         </>
     );
@@ -62,20 +54,20 @@ const Weather = () => {
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: 'row',
-        marginTop: 18,
+        flexDirection: "row",
+        marginTop: 18
     },
     text: {
         opacity: 0.9,
-        fontFamily: 'Roboto-Medium',
+        fontFamily: "Roboto-Medium",
         fontSize: 20,
-        color: '#ffffff',
+        color: "#ffffff"
     },
     image: {
         width: 28,
         height: 28,
-        marginLeft: 4,
-    },
+        marginLeft: 4
+    }
 });
 
 export default Weather;

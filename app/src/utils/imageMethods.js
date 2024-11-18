@@ -1,15 +1,8 @@
-/**
- * Ambient TV
- * https://github.com/hmerritt/ambient-tv
- *
- * @format
- * @flow strict-local
- */
-import Chance from 'chance';
+import Chance from "chance";
 
-import * as storage from './storage';
-import { fetchRss } from './fetch/fetchRss';
-import { fetchAppServer } from './fetch/fetchAppServer';
+import * as storage from "./storage";
+import { fetchAppServer } from "./fetch/fetchAppServer";
+import { fetchRss } from "./fetch/fetchRss";
 
 // Init chance class
 const chance = new Chance();
@@ -45,7 +38,7 @@ export const methodAppServer = async (src) => {
     // Select a random image
     const image = chance.pickone(filteredImages);
     image.src = image.link;
-    image.method = 'app-server';
+    image.method = "app-server";
 
     // Add image to seen
     storage.set(`seen--${src}`, { ...seen, [image.link]: true });
@@ -72,18 +65,18 @@ export const methodRss = async (src) => {
 
     // Select a random item and find the image link
     const item = chance.pickone(filteredRss);
-    const link = item.links[0]?.url || '';
-    const author = item?.authors[0]?.name || '';
-    const description = item?.description || '';
+    const link = item.links[0]?.url || "";
+    const author = item?.authors[0]?.name || "";
+    const description = item?.description || "";
 
     // Add image to seen
     storage.set(`seen--${src}`, { ...seen, [link]: true });
 
     return {
         src: link,
-        method: 'rss',
-        category: '',
+        method: "rss",
+        category: "",
         description: description,
-        attribution: author,
+        attribution: author
     };
 };

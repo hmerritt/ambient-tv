@@ -1,26 +1,15 @@
-/**
- * Ambient TV
- * https://github.com/hmerritt/ambient-tv
- *
- * @format
- * @flow strict-local
- */
+import React from "react";
+import { Animated } from "react-native";
+import { useSelector } from "react-redux";
 
-import env from '../../../../env';
-import React from 'react';
-import { Animated } from 'react-native';
-import { useSelector } from 'react-redux';
+import env from "@/env";
 
-import Attribution from './Attribution';
-import Description from './Description';
+import Attribution from "./Attribution";
+import Description from "./Description";
 
 const BGAbout = () => {
-    const backgrounds = useSelector(
-        (state) => state.bgImage.render.backgrounds,
-    );
-    const loading = useSelector(
-        (state) => state.bgImage.render.current.loading,
-    );
+    const backgrounds = useSelector((state) => state.bgImage.render.backgrounds);
+    const loading = useSelector((state) => state.bgImage.render.current.loading);
 
     const currentBG = backgrounds[backgrounds.length - 1];
     const previousBG = backgrounds[backgrounds.length - 2];
@@ -32,7 +21,7 @@ const BGAbout = () => {
             toValue: fadeIn ? 1 : 0,
             duration: fadeIn ? env.ANIMATION_LONG : 500,
             delay: fadeIn ? env.ANIMATION_LONG / 2.2 : 0,
-            useNativeDriver: true,
+            useNativeDriver: true
         }).start();
     }
 

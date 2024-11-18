@@ -1,20 +1,22 @@
-import env from '../../../env';
-import * as actionTypes from '../actions/bgImageActions';
+import env from "@/env";
+
+import * as actionTypes from "../actions/bgImageActions";
 
 const initialState = {
     loading: true,
     showControls: false,
+    skipped: 0,
     feed: {
         method: env.FETCH_METHOD,
         cache: {},
-        seen: {},
+        seen: {}
     },
     render: {
         backgrounds: [],
         current: {
-            loading: true,
-        },
-    },
+            loading: true
+        }
+    }
 };
 
 export default (state = initialState, action) => {
@@ -26,9 +28,9 @@ export default (state = initialState, action) => {
                     ...state.render,
                     current: {
                         ...state.current,
-                        loading: true,
-                    },
-                },
+                        loading: true
+                    }
+                }
             };
 
         case actionTypes.IMAGE_LOADING_END:
@@ -39,9 +41,9 @@ export default (state = initialState, action) => {
                     ...state.render,
                     current: {
                         ...state.current,
-                        loading: false,
-                    },
-                },
+                        loading: false
+                    }
+                }
             };
 
         case actionTypes.PUSH_NEW_IMAGE:
@@ -49,15 +51,18 @@ export default (state = initialState, action) => {
                 ...state,
                 render: {
                     ...state.render,
-                    backgrounds: [
-                        ...state.render.backgrounds.slice(-3),
-                        action.payload,
-                    ],
+                    backgrounds: [...state.render.backgrounds.slice(-3), action.payload],
                     current: {
                         ...state.current,
-                        loading: true,
-                    },
-                },
+                        loading: true
+                    }
+                }
+            };
+
+        case actionTypes.RECORD_SKIP_IMAGE:
+            return {
+                ...state,
+                skipped: state.skipped + 1
             };
 
         case actionTypes.CACHE_FEED_DATA:
@@ -67,15 +72,15 @@ export default (state = initialState, action) => {
                     ...state.feed,
                     cache: {
                         ...state.feed.cache,
-                        [action.payload.src]: action.payload.data,
-                    },
-                },
+                        [action.payload.src]: action.payload.data
+                    }
+                }
             };
 
         case actionTypes.CONTROLS_TOGGLE:
             return {
                 ...state,
-                showControls: action.payload ?? !state.showControls,
+                showControls: action.payload ?? !state.showControls
             };
 
         default:

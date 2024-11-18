@@ -79,6 +79,28 @@ const fileDelete = (path) => {
 };
 
 /*
+ * Delete directory if one exists (sync)
+ */
+const directoryDelete = (dirPath) => {
+	if (!isDirectory(dirPath)) return false;
+
+	const contents = fs.readdirSync(dirPath);
+
+	for (const item of contents) {
+		const fullPath = path.join(dirPath, item);
+
+		if (isDirectory(fullPath)) {
+			directoryDelete(fullPath);
+		} else {
+			fileDelete(fullPath);
+		}
+	}
+
+	fs.rmdirSync(dirPath);
+	return true;
+};
+
+/*
  * Copy all files from a directory (sync)
  */
 const fileCopyDirectory = (src, dest) => {
@@ -111,19 +133,24 @@ const main = () => {
 		);
 
 	// Backup env.js in app
-	console.log("  * 1/6  Backup existing env.js");
+	console.log("  * 1/7  Backup existing env.js");
 	fileBackup(`${APP_DIR}/env.js`);
 
 	// Move env.js into app
-	console.log("  * 2/6  Copy env.js to app directory");
+	console.log("  * 2/7  Copy env.js to app directory");
 	fileCopy("./env.js", `${APP_DIR}/env.js`);
 
 	// Build web-app
-	console.log("  * 3/6  Build app for web");
+	console.log("  * 3/7  Build app for web");
 	exec(`cd ${APP_DIR} && yarn web:build`);
 
+	// Reset build directory
+	console.log("  * 4/7  Reset build directory");
+	directoryDelete(BUILD_DIR);
+	mkdir(BUILD_DIR);
+
 	// Copy build files to dist
-	console.log("  * 4/6  Copy build files to build directory");
+	console.log("  * 5/7  Copy build files to build directory");
 	fileCopyDirectory(`${APP_DIR}/dist`, `${BUILD_DIR}`);
 	fileCopy(`./icon-16.png`, `${BUILD_DIR}/icon-16.png`);
 	fileCopy(`./icon-32.png`, `${BUILD_DIR}/icon-32.png`);
@@ -131,7 +158,7 @@ const main = () => {
 	fileCopy(`./manifest.json`, `${BUILD_DIR}/manifest.json`);
 
 	// Replace words `Ambient TV` with `New Tab`
-	console.log(`  * 5/6  Replace index.html title with "New Tab"`);
+	console.log(`  * 6/7  Replace index.html title with "New Tab"`);
 	const htmlData = fs.readFileSync(`${BUILD_DIR}/index.html`, "utf8");
 	fs.writeFileSync(`${BUILD_DIR}/index.html`, htmlData.replace(
 		`<title>Ambient TV</title>`,
@@ -140,7 +167,7 @@ const main = () => {
 
 
 	// Restore app env.js backup
-	console.log("  * 6/6  Restore app env.js backup");
+	console.log("  * 7/7  Restore app env.js backup");
 	fileCopy(`${APP_DIR}/env.js.backup`, `${APP_DIR}/env.js`);
 	fileDelete(`${APP_DIR}/env.js.backup`);
 };

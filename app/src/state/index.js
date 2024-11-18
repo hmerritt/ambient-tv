@@ -1,19 +1,28 @@
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import { createLogger } from 'redux-logger';
-import rootReducer from './reducers';
+import { configureStore } from "@reduxjs/toolkit";
+import { createLogger } from "redux-logger";
 
-const middleware = [thunk];
+import rootReducer from "./reducers";
 
-if (process.env.NODE_ENV === 'development') {
-    middleware.push(
-        createLogger({
-            predicate: (getState, action) =>
-                action.type !== 'IMAGE_LOADING_START' &&
-                action.type !== 'IMAGE_LOADING_END',
-            collapsed: true,
-        }),
-    );
-}
+const store = configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => {
+        // Start with the default middleware (includes thunk)
+        let middleware = getDefaultMiddleware();
 
-export default createStore(rootReducer, applyMiddleware(...middleware));
+        // Add redux-logger in development
+        if (process.env.NODE_ENV === "development") {
+            middleware = middleware.concat(
+                createLogger({
+                    predicate: (getState, action) =>
+                        action.type !== "IMAGE_LOADING_START" &&
+                        action.type !== "IMAGE_LOADING_END",
+                    collapsed: true
+                })
+            );
+        }
+
+        return middleware;
+    }
+});
+
+export default store;

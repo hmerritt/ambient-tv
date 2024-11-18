@@ -1,8 +1,8 @@
-import axios from 'axios';
-import moment from 'moment';
-import * as rssParser from 'react-native-rss-parser';
+import * as rssParser from "react-native-rss-parser";
+import axios from "axios";
+import moment from "moment";
 
-import * as storage from '../storage';
+import * as storage from "../storage";
 
 /**
  * Load and parse rss feed
@@ -21,7 +21,7 @@ export const fetchRss = async (src) => {
 
     // Fetch rss feed
     const res = await axios.get(src, {
-        responseType: 'text',
+        responseType: "text"
     });
 
     // Parse rss feed
@@ -30,7 +30,7 @@ export const fetchRss = async (src) => {
     // Add to storage cache
     // Set expire for 2 hour
     rssCache.data = rss;
-    rssCache.expire = moment().add(2, 'h').unix();
+    rssCache.expire = moment().add(2, "h").unix();
     storage.set(`data--${src}`, rssCache);
 
     return rss;

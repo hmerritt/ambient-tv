@@ -1,5 +1,5 @@
-import React, { useCallback } from 'react';
-import { Alert, Button, Linking, Text } from 'react-native';
+import React, { useCallback } from "react";
+import { Alert, Button, Linking, Text } from "react-native";
 
 const Link = ({ type, url, children }) => {
     const handlePress = useCallback(async () => {
@@ -16,7 +16,7 @@ const Link = ({ type, url, children }) => {
     }, [url]);
 
     switch (type) {
-        case 'text':
+        case "text":
             return <Text onPress={handlePress}>{children}</Text>;
 
         default:

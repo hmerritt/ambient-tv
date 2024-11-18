@@ -1,11 +1,4 @@
-/**
- * Ambient TV
- * https://github.com/hmerritt/ambient-tv
- *
- * @format
- * @flow strict-local
- */
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const set = async (key, value) => {
     try {
