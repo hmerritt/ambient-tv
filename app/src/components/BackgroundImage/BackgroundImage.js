@@ -5,7 +5,7 @@ import { Animated, Image, StyleSheet, View } from "react-native";
 import { useDispatch } from "react-redux";
 
 import env from "@/env";
-import { imageLoadingState } from "@/state/actions/bgImageActions";
+import { getNewBackground, imageLoadingState } from "@/state/actions/bgImageActions";
 import { isVideo } from "@/utils/assets";
 
 const BackgroundImage = ({ src, current }) => {
@@ -41,6 +41,8 @@ const BackgroundImage = ({ src, current }) => {
                 player.play();
                 onAssetLoad();
                 dispatch(imageLoadingState("end"));
+            case "error":
+                dispatch(getNewBackground()); // Give up and load new BG
         }
     });
 
