@@ -72,8 +72,8 @@
             "favicon": "./assets/favicon.png"
         },
         "plugins": [
-            "./plugins/withAndroidManifestInject.js",
-            "./plugins/withDrawableAssets.js",
+            "./plugins/withDrawableAssets.ts",
+            "./plugins/withAndroidManifestInject.ts",
             "expo-router",
             [
                 "expo-build-properties",
