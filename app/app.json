@@ -25,7 +25,7 @@
             }
         },
         "android": {
-            "versionCode": 32,
+            "versionCode": 34,
             "package": "com.hmerritt.ambient.tv",
             "permissions": [
                 "ACCESS_FINE_LOCATION",
@@ -81,7 +81,7 @@
                     "android": {
                         "compileSdkVersion": 35,
                         "targetSdkVersion": 35,
-                        "useLegacyPackaging": false,
+                        "useLegacyPackaging": true,
                         "enableProguardInReleaseBuilds": true,
                         "enableShrinkResourcesInReleaseBuilds": true,
                         "enableMinifyInReleaseBuilds": true
