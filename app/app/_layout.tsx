@@ -1,4 +1,6 @@
 import { Slot } from "expo-router";
+import "react-native-gesture-handler";
+import "react-native-reanimated";
 import {
     SafeAreaProvider,
     SafeAreaView,

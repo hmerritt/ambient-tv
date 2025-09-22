@@ -1,6 +1,6 @@
 {
     "expo": {
-        "version": "1.6.14",
+        "version": "1.6.18",
         "name": "Ambient TV",
         "slug": "ambient-tv",
         "scheme": "ambient-tv",
@@ -11,7 +11,7 @@
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
-            "buildNumber": "1.6.14",
+            "buildNumber": "1.6.18",
             "supportsTablet": true,
             "requireFullScreen": true,
             "splash": {
@@ -19,12 +19,18 @@
                 "tabletImage": "./assets/blank.png",
                 "resizeMode": "contain",
                 "backgroundColor": "#ffffff"
+            },
+            "infoPlist": {
+                "ITSAppUsesNonExemptEncryption": false
             }
         },
         "android": {
-            "versionCode": 30,
+            "versionCode": 32,
             "package": "com.hmerritt.ambient.tv",
-            "permissions": ["ACCESS_FINE_LOCATION"],
+            "permissions": [
+                "ACCESS_FINE_LOCATION",
+                "android.permission.MODIFY_AUDIO_SETTINGS"
+            ],
             "intentFilters": [
                 {
                     "action": "MAIN",
@@ -53,7 +59,8 @@
             "playStoreUrl": "https://play.google.com/store/apps/details?id=com.hmerritt.ambient.tv"
         },
         "androidStatusBar": {
-            "hidden": true
+            "hidden": true,
+            "backgroundColor": "#ffffff"
         },
         "androidNavigationBar": {
             "visible": "sticky-immersive"
@@ -72,9 +79,12 @@
                 "expo-build-properties",
                 {
                     "android": {
-                        "useLegacyPackaging": true,
+                        "compileSdkVersion": 35,
+                        "targetSdkVersion": 35,
+                        "useLegacyPackaging": false,
                         "enableProguardInReleaseBuilds": true,
-                        "enableShrinkResourcesInReleaseBuilds": true
+                        "enableShrinkResourcesInReleaseBuilds": true,
+                        "enableMinifyInReleaseBuilds": true
                     }
                 }
             ],
