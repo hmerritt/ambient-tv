@@ -25,7 +25,7 @@
             }
         },
         "android": {
-            "versionCode": 34,
+            "versionCode": 36,
             "package": "com.hmerritt.ambient.tv",
             "permissions": [
                 "ACCESS_FINE_LOCATION",
