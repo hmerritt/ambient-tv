@@ -31,23 +31,25 @@ const withDrawableAssets: ConfigPlugin = (config) => {
                     join(androidDrawablePath, basename("tv_banner.png"))
                 );
 
-                // Copy the mipmap files (app icon)
-                const mipmapSuffixes = ["hdpi", "mdpi", "xhdpi", "xxhdpi", "xxxhdpi"];
-                const filesMipmap = ["ic_launcher.png", "ic_launcher_round.png"];
-                for (const mipmapSuffix of mipmapSuffixes) {
-                    mkdirSync(join(androidResPath, `mipmap-${mipmapSuffix}`));
-                    for (const file of filesMipmap) {
-                        const sourcePath = join(
-                            sourceResPath,
-                            `mipmap-${mipmapSuffix}`,
-                            file
-                        );
-                        copyFileSync(
-                            sourcePath,
-                            join(androidResPath, `mipmap-${mipmapSuffix}`, basename(file))
-                        );
-                    }
-                }
+                // // Copy the mipmap files (app icon)
+                // const mipmapSuffixes = ["hdpi", "mdpi", "xhdpi", "xxhdpi", "xxxhdpi"];
+                // const filesMipmap = ["ic_launcher.png", "ic_launcher_round.png"];
+                // for (const mipmapSuffix of mipmapSuffixes) {
+                //     mkdirSync(join(androidResPath, `mipmap-${mipmapSuffix}`), {
+                //         recursive: true
+                //     });
+                //     for (const file of filesMipmap) {
+                //         const sourcePath = join(
+                //             sourceResPath,
+                //             `mipmap-${mipmapSuffix}`,
+                //             file
+                //         );
+                //         copyFileSync(
+                //             sourcePath,
+                //             join(androidResPath, `mipmap-${mipmapSuffix}`, basename(file))
+                //         );
+                //     }
+                // }
             }
 
             return config;

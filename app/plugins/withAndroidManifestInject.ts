@@ -12,21 +12,43 @@ const withAndroidManifestInject: ConfigPlugin = (config) => {
             manifest["uses-feature"] = [];
         }
 
-        // Add `<uses-feature android:name="android.hardware.touchscreen" android:required="false"/>` to the AndroidManifest.xml
-        manifest["uses-feature"].push({
-            $: {
-                "android:name": "android.hardware.touchscreen",
-                "android:required": "false"
-            }
-        });
+        // Add `<uses-feature android:name="__" android:required="false"/>` to the AndroidManifest.xml
+        manifest["uses-feature"].push(
+            {
+                $: {
+                    "android:name": "android.hardware.touchscreen",
+                    "android:required": "false"
+                }
+            },
 
-        // Add `<uses-feature android:name="android.software.leanback" android:required="false"/>` to the AndroidManifest.xml
-        manifest["uses-feature"].push({
-            $: {
-                "android:name": "android.software.leanback",
-                "android:required": "false"
+            {
+                $: {
+                    "android:name": "android.software.leanback",
+                    "android:required": "false"
+                }
+            },
+
+            {
+                $: {
+                    "android:name": "android.hardware.screen.portrait",
+                    "android:required": "false"
+                }
+            },
+
+            {
+                $: {
+                    "android:name": "android.hardware.telephony",
+                    "android:required": "false"
+                }
+            },
+
+            {
+                $: {
+                    "android:name": "android.hardware.microphone",
+                    "android:required": "false"
+                }
             }
-        });
+        );
 
         // Get the application node
         if (!manifest["application"] || !Array.isArray(manifest["application"])) {
@@ -42,8 +64,8 @@ const withAndroidManifestInject: ConfigPlugin = (config) => {
 
         // Add TV banner
         application["$"]["android:banner"] = "@drawable/tv_banner"; // Add `<application android:banner="@drawable/tv_banner"`
-        application["$"]["android:icon"] = "@mipmap/ic_launcher"; // Add `<application android:icon="@mipmap/ic_launcher">`
-        application["$"]["android:roundIcon"] = "@mipmap/ic_launcher_round"; // Add `<application android:roundIcon="@mipmap/ic_launcher_round">`
+        // application["$"]["android:icon"] = "@mipmap/ic_launcher"; // Add `<application android:icon="@mipmap/ic_launcher">`
+        // application["$"]["android:roundIcon"] = "@mipmap/ic_launcher_round"; // Add `<application android:roundIcon="@mipmap/ic_launcher_round">`
 
         return config;
     });
