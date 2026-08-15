@@ -13,6 +13,7 @@ const initialState = {
     },
     render: {
         backgrounds: [],
+        nextBackgroundId: 0,
         current: {
             loading: true
         }
@@ -47,11 +48,17 @@ export default (state = initialState, action) => {
             };
 
         case actionTypes.PUSH_NEW_IMAGE:
+            const renderId = state.render.nextBackgroundId;
+
             return {
                 ...state,
                 render: {
                     ...state.render,
-                    backgrounds: [...state.render.backgrounds.slice(-3), action.payload],
+                    backgrounds: [
+                        ...state.render.backgrounds.slice(-3),
+                        { ...action.payload, renderId }
+                    ],
+                    nextBackgroundId: renderId + 1,
                     current: {
                         ...state.current,
                         loading: true

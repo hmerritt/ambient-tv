@@ -10,22 +10,41 @@ import { isVideo } from "@/utils/assets";
 
 const BackgroundVideo = ({ src, current, onAssetLoad }) => {
     const dispatch = useDispatch();
+    const currentRef = useRef(current);
     const errorHandled = useRef(false);
+    const videoReady = useRef(false);
     const player = useVideoPlayer(null, (videoPlayer) => {
         videoPlayer.loop = true;
         videoPlayer.muted = true;
     });
 
     useEffect(() => {
+        currentRef.current = current;
+
+        if (!videoReady.current) return;
+
+        if (current) {
+            player.play();
+        } else {
+            player.pause();
+        }
+    }, [current, player]);
+
+    useEffect(() => {
         let cancelled = false;
         errorHandled.current = false;
+        videoReady.current = false;
 
         const loadVideo = async () => {
             try {
                 await player.replaceAsync(src);
-                if (!cancelled) player.play();
+
+                if (cancelled) return;
+
+                videoReady.current = true;
+                if (currentRef.current) player.play();
             } catch {
-                if (current && !cancelled && !errorHandled.current) {
+                if (currentRef.current && !cancelled && !errorHandled.current) {
                     errorHandled.current = true;
                     dispatch(getNewBackground());
                 }
@@ -36,9 +55,9 @@ const BackgroundVideo = ({ src, current, onAssetLoad }) => {
 
         return () => {
             cancelled = true;
-            player.pause();
+            videoReady.current = false;
         };
-    }, [current, dispatch, player, src]);
+    }, [dispatch, player, src]);
 
     useEventListener(player, "statusChange", ({ status, error }) => {
         if (!current) return;

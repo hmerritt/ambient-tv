@@ -49,15 +49,15 @@ const BGSlideshow = () => {
     return (
         <>
             {backgrounds.length > 0 &&
-                backgrounds.map((item, key) => {
-                    const current = key === backgrounds.length - 1;
+                backgrounds.map((item, index) => {
+                    const current = index === backgrounds.length - 1;
 
                     return (
                         <BackgroundAsset
-                            key={key}
+                            key={item.renderId}
                             src={item.src}
                             color={item.color}
-                            current={current ? true : false}
+                            current={current}
                         />
                     );
                 })}
