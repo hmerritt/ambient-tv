@@ -1,6 +1,6 @@
 {
     "expo": {
-        "version": "1.7.18",
+        "version": "1.8.18",
         "name": "Ambient TV",
         "slug": "ambient-tv",
         "scheme": "ambient-tv",
@@ -9,7 +9,7 @@
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
-            "buildNumber": "1.7.18",
+            "buildNumber": "1.8.18",
             "deploymentTarget": "16.4",
             "supportsTablet": true,
             "requireFullScreen": true,
@@ -18,7 +18,7 @@
             }
         },
         "android": {
-            "versionCode": 37,
+            "versionCode": 38,
             "package": "com.hmerritt.ambient.tv",
             "permissions": [
                 "ACCESS_FINE_LOCATION",
@@ -50,6 +50,7 @@
         "plugins": [
             "./plugins/withDrawableAssets.ts",
             "./plugins/withAndroidManifestInject.ts",
+            "./plugins/withAndroidDreamService.ts",
             "expo-router",
             [
                 "expo-build-properties",

@@ -5,9 +5,11 @@ import * as Location from "expo-location";
  *
  * @return {Object} location object
  */
-export const getLocation = async ({ setLocation }) => {
-    // Request location permission
-    const { status } = await Location.requestForegroundPermissionsAsync();
+export const getLocation = async ({ setLocation, requestPermission = true }) => {
+    // Dreams cannot open an Activity to request permission, so only inspect existing access.
+    const { status } = requestPermission
+        ? await Location.requestForegroundPermissionsAsync()
+        : await Location.getForegroundPermissionsAsync();
 
     // Return null if location access is denied
     if (status !== "granted") {

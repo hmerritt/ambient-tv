@@ -1,7 +1,7 @@
 {
     "name": "ambient-tv",
-    "version": "1.7.18",
-    "main": "expo-router/entry",
+    "version": "1.8.18",
+    "main": "index.js",
     "scripts": {
         "start": "expo start --tunnel",
         "android": "expo start --android --tunnel",

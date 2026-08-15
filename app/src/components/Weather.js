@@ -5,13 +5,16 @@ import env from "@/env";
 import { getLocation } from "@/utils/location";
 import { getWeather } from "@/utils/weather";
 
-const Weather = () => {
+const Weather = ({ requestLocationPermission = true }) => {
     const [weather, setWeather] = useState(null);
     const [location, setLocation] = useState(null);
 
     // Get user location
     useEffect(() => {
-        getLocation({ setLocation: setLocation });
+        getLocation({
+            setLocation: setLocation,
+            requestPermission: requestLocationPermission
+        });
     }, []);
 
     // Get weather

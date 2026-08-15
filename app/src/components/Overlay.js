@@ -9,7 +9,7 @@ import BGGradient from "./BackgroundAsset/BGGradient";
 import Clock from "./Clock";
 import Weather from "./Weather";
 
-const Overlay = () => {
+const Overlay = ({ requestLocationPermission = true }) => {
     const bgImageLoading = useSelector((state) => state.bgImage.loading);
 
     // Starting overlay opacity -> 0
@@ -29,7 +29,7 @@ const Overlay = () => {
         <Animated.View style={[styles.overlay, { opacity: overlayOpacity }]}>
             <BGGradient />
             <View style={styles.bottomRight}>
-                <Weather />
+                <Weather requestLocationPermission={requestLocationPermission} />
                 <Clock />
             </View>
             <View style={styles.bottomLeft}>
