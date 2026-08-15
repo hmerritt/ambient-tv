@@ -1,5 +1,6 @@
-import { ResizeMode, Video } from "expo-av";
-import React from "react";
+import { useEventListener } from "expo";
+import { VideoView, useVideoPlayer } from "expo-video";
+import React, { useEffect, useRef } from "react";
 import { Animated, Image, StyleSheet, View } from "react-native";
 import { useDispatch } from "react-redux";
 
@@ -7,53 +8,76 @@ import env from "@/env";
 import { getNewBackground, imageLoadingState } from "@/state/actions/bgImageActions";
 import { isVideo } from "@/utils/assets";
 
-/**
-@WARNING - `expo-video` kept getting cors errors (for some reason the images + `expo-av` does not have this problem).
-Re-implement with below code:
+const BackgroundVideo = ({ src, current, onAssetLoad }) => {
+    const dispatch = useDispatch();
+    const errorHandled = useRef(false);
+    const player = useVideoPlayer(null, (videoPlayer) => {
+        videoPlayer.loop = true;
+        videoPlayer.muted = true;
+    });
 
-import { useEventListener } from "expo";
-import { VideoView, useVideoPlayer } from "expo-video";
+    useEffect(() => {
+        let cancelled = false;
+        errorHandled.current = false;
 
+        const loadVideo = async () => {
+            try {
+                await player.replaceAsync(src);
+                if (!cancelled) player.play();
+            } catch {
+                if (current && !cancelled && !errorHandled.current) {
+                    errorHandled.current = true;
+                    dispatch(getNewBackground());
+                }
+            }
+        };
 
-const player = useVideoPlayer(isVideo(src) ? src : null, (player) => {
-	player.loop = true;
-	player.muted = true;
-});
+        loadVideo();
 
-useEventListener(player, "statusChange", ({ status, error }) => {
-	if (!current) return;
-	if (error) console.error("video error", error);
-	switch (status) {
-		case "loading":
-			dispatch(imageLoadingState("start"));
-		case "readyToPlay":
-			player.play();
-			onAssetLoad();
-			dispatch(imageLoadingState("end"));
-		case "error":
-			dispatch(getNewBackground()); // Give up and load new BG
-	}
-});
+        return () => {
+            cancelled = true;
+            player.pause();
+        };
+    }, [current, dispatch, player, src]);
 
-{isVideo(src) && (
-	<VideoView
-	    player={player}
-	    contentFit="cover"
-	    style={styles.image}
-	    requiresLinearPlayback
-	    nativeControls={false}
-	    allowsFullscreen={false}
-	    allowsPictureInPicture={false}
-	    allowsVideoFrameAnalysis={false}
-	/>
-)}
-*/
+    useEventListener(player, "statusChange", ({ status, error }) => {
+        if (!current) return;
+
+        if (status === "loading") {
+            dispatch(imageLoadingState("start"));
+        }
+
+        if ((status === "error" || error) && !errorHandled.current) {
+            errorHandled.current = true;
+            dispatch(getNewBackground());
+        }
+    });
+
+    const handleFirstFrameRender = () => {
+        onAssetLoad();
+        if (current) dispatch(imageLoadingState("end"));
+    };
+
+    return (
+        <VideoView
+            player={player}
+            contentFit="cover"
+            style={styles.image}
+            surfaceType="textureView"
+            nativeControls={false}
+            fullscreenOptions={{ enable: false }}
+            allowsPictureInPicture={false}
+            allowsVideoFrameAnalysis={false}
+            onFirstFrameRender={handleFirstFrameRender}
+        />
+    );
+};
 
 const BackgroundAsset = ({ src, current }) => {
     const dispatch = useDispatch();
 
     // Starting image opacity -> 0
-    const assetOpacity = current ? new Animated.Value(0) : 1;
+    const assetOpacity = useRef(current ? new Animated.Value(0) : 1).current;
 
     // Once asset has loaded
     // -> animate opacity from 0 -> 1
@@ -88,30 +112,10 @@ const BackgroundAsset = ({ src, current }) => {
                 )}
 
                 {isVideo(src) && (
-                    <Video
-                        style={styles.image}
-                        videoStyle={styles.image}
-                        source={{
-                            uri: src
-                        }}
-                        isLooping
-                        isMuted
-                        shouldPlay
-                        useNativeControls={false}
-                        resizeMode={ResizeMode.COVER}
-                        onLoad={onAssetLoad}
-                        onError={(_) => {
-                            if (!current) return;
-                            dispatch(getNewBackground()); // Give up and load new BG
-                        }}
-                        onLoadStart={(_) => {
-                            if (!current) return;
-                            dispatch(imageLoadingState("start"));
-                        }}
-                        onReadyForDisplay={(_) => {
-                            if (!current) return;
-                            dispatch(imageLoadingState("end"));
-                        }}
+                    <BackgroundVideo
+                        src={src}
+                        current={current}
+                        onAssetLoad={onAssetLoad}
                     />
                 )}
             </Animated.View>

@@ -1,29 +1,13 @@
-import * as NavigationBar from "expo-navigation-bar";
+import { NavigationBar } from "expo-navigation-bar";
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect } from "react";
+import React from "react";
+import { Platform } from "react-native";
 
 export default function AppShellStyles() {
-    const visibility = NavigationBar.useVisibility();
-
-    // Hide navigation bar after a few seconds
-    useEffect(() => {
-        if (visibility !== "visible") return;
-
-        const interval = setTimeout(() => {
-            NavigationBar.setVisibilityAsync("hidden");
-        }, /* 3 Seconds */ 3000);
-
-        return () => {
-            clearTimeout(interval);
-        };
-    }, [visibility]);
-
     return (
-        <StatusBar
-            hidden={true}
-            translucent
-            style="light"
-            backgroundColor="transparent"
-        />
+        <>
+            <StatusBar hidden animated style="light" />
+            {Platform.OS === "android" && <NavigationBar hidden style="dark" />}
+        </>
     );
 }

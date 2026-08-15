@@ -1,6 +1,4 @@
-import configPlugins, { type ConfigPlugin } from "@expo/config-plugins";
-
-const { withAndroidManifest } = configPlugins;
+import { type ConfigPlugin, withAndroidManifest } from "@expo/config-plugins";
 
 // https://docs.expo.dev/config-plugins/plugins-and-mods/#import-a-plugin
 

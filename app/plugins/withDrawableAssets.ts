@@ -1,8 +1,6 @@
-import configPlugins, { type ConfigPlugin } from "@expo/config-plugins";
-import { copyFileSync, mkdirSync } from "fs";
-import { basename, join } from "path";
-
-const { withDangerousMod } = configPlugins;
+import { type ConfigPlugin, withDangerousMod } from "@expo/config-plugins";
+import { copyFileSync, mkdirSync } from "node:fs";
+import { basename, join } from "node:path";
 
 // https://docs.expo.dev/config-plugins/plugins-and-mods/#import-a-plugin
 

@@ -1,31 +1,24 @@
 {
     "expo": {
-        "version": "1.6.18",
+        "version": "1.7.18",
         "name": "Ambient TV",
         "slug": "ambient-tv",
         "scheme": "ambient-tv",
-        "jsEngine": "hermes",
         "orientation": "landscape",
         "icon": "./assets/icon.png",
-        "newArchEnabled": true,
         "ios": {
             "icon": "./assets/icon-no-alpha.png",
             "bundleIdentifier": "com.hmerritt.ambient.tv",
-            "buildNumber": "1.6.18",
+            "buildNumber": "1.7.18",
+            "deploymentTarget": "16.4",
             "supportsTablet": true,
             "requireFullScreen": true,
-            "splash": {
-                "image": "./assets/blank.png",
-                "tabletImage": "./assets/blank.png",
-                "resizeMode": "contain",
-                "backgroundColor": "#ffffff"
-            },
             "infoPlist": {
                 "ITSAppUsesNonExemptEncryption": false
             }
         },
         "android": {
-            "versionCode": 36,
+            "versionCode": 37,
             "package": "com.hmerritt.ambient.tv",
             "permissions": [
                 "ACCESS_FINE_LOCATION",
@@ -46,24 +39,7 @@
                 }
             ],
             "icon": "./assets/icon.png",
-            "splash": {
-                "ldpi": "./assets/blank.png",
-                "mdpi": "./assets/blank.png",
-                "hdpi": "./assets/blank.png",
-                "xhdpi": "./assets/blank.png",
-                "xxhdpi": "./assets/blank.png",
-                "xxxhdpi": "./assets/blank.png",
-                "resizeMode": "contain",
-                "backgroundColor": "#ffffff"
-            },
             "playStoreUrl": "https://play.google.com/store/apps/details?id=com.hmerritt.ambient.tv"
-        },
-        "androidStatusBar": {
-            "hidden": true,
-            "backgroundColor": "#ffffff"
-        },
-        "androidNavigationBar": {
-            "visible": "sticky-immersive"
         },
         "web": {
             "name": "Ambient TV",
@@ -79,31 +55,23 @@
                 "expo-build-properties",
                 {
                     "android": {
-                        "compileSdkVersion": 35,
-                        "targetSdkVersion": 35,
+                        "compileSdkVersion": 36,
+                        "targetSdkVersion": 36,
                         "useLegacyPackaging": true,
-                        "enableProguardInReleaseBuilds": true,
                         "enableShrinkResourcesInReleaseBuilds": true,
                         "enableMinifyInReleaseBuilds": true
                     }
                 }
             ],
             [
-                "expo-av",
-                {
-                    "//": "Disables the microphone permission",
-                    "microphonePermission": false
-                }
-            ],
-            [
                 "expo-navigation-bar",
                 {
-                    "position": "absolute",
-                    "visibility": "hidden",
-                    "behavior": "inset-swipe",
-                    "backgroundColor": "#00000080"
+                    "enforceContrast": false,
+                    "hidden": true,
+                    "style": "dark"
                 }
             ],
+            ["expo-status-bar", { "hidden": true, "style": "light" }],
             [
                 "expo-splash-screen",
                 {
@@ -114,7 +82,6 @@
                 }
             ]
         ],
-        "assetBundlePatterns": ["**/*", "./assets/icons/*", "./assets/fonts/*"],
         "updates": {
             "enabled": false,
             "fallbackToCacheTimeout": 0
